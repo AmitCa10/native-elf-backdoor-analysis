@@ -1,0 +1,29 @@
+{
+  "handling": "Local research evidence only. Do not execute or publish raw or unpacked malware.",
+  "artifacts": [
+    {
+      "path": "backdoor.elf",
+      "source": "https://raw.githubusercontent.com/intezer/ELF-Malware-Analysis-101/master/Part-2-Initial-Analysis/Real-life-examples/Example/8cb7b286f4284afccee5f9b9e2ac143fc954c377ef2891474feccb0b223a9537.sample",
+      "sha256": "8cb7b286f4284afccee5f9b9e2ac143fc954c377ef2891474feccb0b223a9537",
+      "bytes": 42336
+    },
+    {
+      "path": "backdoor-unpacked.elf",
+      "source": "Local UPX decompression of backdoor.elf",
+      "sha256": "5037b0ca9125f26e34f785c62641998a6e14d70b0440f8492d0e8fab5be4b0ba",
+      "bytes": 104380
+    },
+    {
+      "path": "backdoor-unpacked.elf.asm",
+      "source": "IDA 9.5 autonomous batch analysis of backdoor-unpacked.elf",
+      "sha256": "c01503de1dd2ad1e53c204b93d10c2fd355d1dae00d0f3ffd595e8362936aa7d",
+      "bytes": 1096662
+    },
+    {
+      "path": "backdoor-unpacked.elf.i64",
+      "source": "IDA 9.5 autonomous batch analysis of backdoor-unpacked.elf",
+      "sha256": "fe05206c85098ca8d32a6da2485190225209d773098df9f2c8eb97038a64f0ae",
+      "bytes": 1525633
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+
+research/malware/native-elf-backdoor-analysis/evidence/backdoor-unpacked.elf:	file format elf32-i386
+
+Disassembly of section .text:
+
+0804e366 <getOurIP>:
+ 804e366: 55                           	pushl	%ebp
+ 804e367: 89 e5                        	movl	%esp, %ebp
+ 804e369: 81 ec 78 10 00 00            	subl	$0x1078, %esp           # imm = 0x1078
+ 804e36f: c7 44 24 08 00 00 00 00      	movl	$0x0, 0x8(%esp)
+ 804e377: c7 44 24 04 02 00 00 00      	movl	$0x2, 0x4(%esp)
+ 804e37f: c7 04 24 02 00 00 00         	movl	$0x2, (%esp)
+ 804e386: e8 49 3a 00 00               	calll	0x8051dd4 <socket>
+ 804e38b: 89 45 ec                     	movl	%eax, -0x14(%ebp)
+ 804e38e: 83 7d ec ff                  	cmpl	$-0x1, -0x14(%ebp)
+ 804e392: 75 0f                        	jne	0x804e3a3 <getOurIP+0x3d>
+ 804e394: c7 85 9c ef ff ff 00 00 00 00	movl	$0x0, -0x1064(%ebp)
+ 804e39e: e9 d2 01 00 00               	jmp	0x804e575 <getOurIP+0x20f>
+ 804e3a3: 8d 45 dc                     	leal	-0x24(%ebp), %eax
+ 804e3a6: c7 00 00 00 00 00            	movl	$0x0, (%eax)
+ 804e3ac: c7 40 04 00 00 00 00         	movl	$0x0, 0x4(%eax)
+ 804e3b3: c7 40 08 00 00 00 00         	movl	$0x0, 0x8(%eax)
+ 804e3ba: c7 40 0c 00 00 00 00         	movl	$0x0, 0xc(%eax)
+ 804e3c1: 66 c7 45 dc 02 00            	movw	$0x2, -0x24(%ebp)
+ 804e3c7: c7 04 24 59 8e 05 08         	movl	$0x8058e59, (%esp)      # imm = 0x8058E59
+ 804e3ce: e8 b5 34 00 00               	calll	0x8051888 <inet_addr>
+ 804e3d3: 89 45 e0                     	movl	%eax, -0x20(%ebp)
+ 804e3d6: c7 04 24 35 00 00 00         	movl	$0x35, (%esp)
+ 804e3dd: e8 7e 34 00 00               	calll	0x8051860 <htons>
+ 804e3e2: 0f b7 c0                     	movzwl	%ax, %eax
+ 804e3e5: 66 89 45 de                  	movw	%ax, -0x22(%ebp)
+ 804e3e9: 8d 45 dc                     	leal	-0x24(%ebp), %eax
+ 804e3ec: c7 44 24 08 10 00 00 00      	movl	$0x10, 0x8(%esp)
+ 804e3f4: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804e3f8: 8b 45 ec                     	movl	-0x14(%ebp), %eax
+ 804e3fb: 89 04 24                     	movl	%eax, (%esp)
+ 804e3fe: e8 11 38 00 00               	calll	0x8051c14 <connect>
+ 804e403: 89 45 f0                     	movl	%eax, -0x10(%ebp)
+ 804e406: 83 7d f0 ff                  	cmpl	$-0x1, -0x10(%ebp)
+ 804e40a: 75 0f                        	jne	0x804e41b <getOurIP+0xb5>
+ 804e40c: c7 85 9c ef ff ff 00 00 00 00	movl	$0x0, -0x1064(%ebp)
+ 804e416: e9 5a 01 00 00               	jmp	0x804e575 <getOurIP+0x20f>
+ 804e41b: c7 45 c8 10 00 00 00         	movl	$0x10, -0x38(%ebp)
+ 804e422: 8d 55 cc                     	leal	-0x34(%ebp), %edx
+ 804e425: 8d 45 c8                     	leal	-0x38(%ebp), %eax
+ 804e428: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804e42c: 89 54 24 04                  	movl	%edx, 0x4(%esp)
+ 804e430: 8b 45 ec                     	movl	-0x14(%ebp), %eax
+ 804e433: 89 04 24                     	movl	%eax, (%esp)
+ 804e436: e8 05 38 00 00               	calll	0x8051c40 <getsockname>
+ 804e43b: 89 45 f0                     	movl	%eax, -0x10(%ebp)
+ 804e43e: 83 7d f0 ff                  	cmpl	$-0x1, -0x10(%ebp)
+ 804e442: 75 0f                        	jne	0x804e453 <getOurIP+0xed>
+ 804e444: c7 85 9c ef ff ff 00 00 00 00	movl	$0x0, -0x1064(%ebp)
+ 804e44e: e9 22 01 00 00               	jmp	0x804e575 <getOurIP+0x20f>
+ 804e453: 8b 45 d0                     	movl	-0x30(%ebp), %eax
+ 804e456: a3 4c 16 06 08               	movl	%eax, 0x806164c
+ 804e45b: c7 44 24 04 00 00 00 00      	movl	$0x0, 0x4(%esp)
+ 804e463: c7 04 24 61 8e 05 08         	movl	$0x8058e61, (%esp)      # imm = 0x8058E61
+ 804e46a: e8 79 1f 00 00               	calll	0x80503e8 <open>
+ 804e46f: 89 45 f4                     	movl	%eax, -0xc(%ebp)
+ 804e472: eb 5b                        	jmp	0x804e4cf <getOurIP+0x169>
+ 804e474: c7 44 24 04 71 8e 05 08      	movl	$0x8058e71, 0x4(%esp)   # imm = 0x8058E71
+ 804e47c: 8d 85 c8 ef ff ff            	leal	-0x1038(%ebp), %eax
+ 804e482: 89 04 24                     	movl	%eax, (%esp)
+ 804e485: e8 6a 31 00 00               	calll	0x80515f4 <strstr>
+ 804e48a: 85 c0                        	testl	%eax, %eax
+ 804e48c: 74 20                        	je	0x804e4ae <getOurIP+0x148>
+ 804e48e: 8d 85 c8 ef ff ff            	leal	-0x1038(%ebp), %eax
+ 804e494: 89 45 f8                     	movl	%eax, -0x8(%ebp)
+ 804e497: eb 03                        	jmp	0x804e49c <getOurIP+0x136>
+ 804e499: ff 45 f8                     	incl	-0x8(%ebp)
+ 804e49c: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804e49f: 0f b6 00                     	movzbl	(%eax), %eax
+ 804e4a2: 3c 09                        	cmpb	$0x9, %al
+ 804e4a4: 75 f3                        	jne	0x804e499 <getOurIP+0x133>
+ 804e4a6: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804e4a9: c6 00 00                     	movb	$0x0, (%eax)
+ 804e4ac: eb 42                        	jmp	0x804e4f0 <getOurIP+0x18a>
+ 804e4ae: 8d 85 c8 ef ff ff            	leal	-0x1038(%ebp), %eax
+ 804e4b4: 89 c2                        	movl	%eax, %edx
+ 804e4b6: b8 00 10 00 00               	movl	$0x1000, %eax           # imm = 0x1000
+ 804e4bb: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804e4bf: c7 44 24 04 00 00 00 00      	movl	$0x0, 0x4(%esp)
+ 804e4c7: 89 14 24                     	movl	%edx, (%esp)
+ 804e4ca: e8 79 30 00 00               	calll	0x8051548 <memset>
+ 804e4cf: 8d 85 c8 ef ff ff            	leal	-0x1038(%ebp), %eax
+ 804e4d5: 8b 55 f4                     	movl	-0xc(%ebp), %edx
+ 804e4d8: 89 54 24 08                  	movl	%edx, 0x8(%esp)
+ 804e4dc: c7 44 24 04 00 10 00 00      	movl	$0x1000, 0x4(%esp)      # imm = 0x1000
+ 804e4e4: 89 04 24                     	movl	%eax, (%esp)
+ 804e4e7: e8 f3 ab ff ff               	calll	0x80490df <fdgets>
+ 804e4ec: 85 c0                        	testl	%eax, %eax
+ 804e4ee: 75 84                        	jne	0x804e474 <getOurIP+0x10e>
+ 804e4f0: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804e4f3: 89 04 24                     	movl	%eax, (%esp)
+ 804e4f6: e8 19 1d 00 00               	calll	0x8050214 <close>
+ 804e4fb: 0f b6 85 c8 ef ff ff         	movzbl	-0x1038(%ebp), %eax
+ 804e502: 84 c0                        	testb	%al, %al
+ 804e504: 74 62                        	je	0x804e568 <getOurIP+0x202>
+ 804e506: 8d 85 c8 ef ff ff            	leal	-0x1038(%ebp), %eax
+ 804e50c: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804e510: 8d 85 a8 ef ff ff            	leal	-0x1058(%ebp), %eax
+ 804e516: 89 04 24                     	movl	%eax, (%esp)
+ 804e519: e8 62 30 00 00               	calll	0x8051580 <strcpy>
+ 804e51e: 8d 85 a8 ef ff ff            	leal	-0x1058(%ebp), %eax
+ 804e524: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804e528: c7 44 24 04 27 89 00 00      	movl	$0x8927, 0x4(%esp)      # imm = 0x8927
+ 804e530: 8b 45 ec                     	movl	-0x14(%ebp), %eax
+ 804e533: 89 04 24                     	movl	%eax, (%esp)
+ 804e536: e8 39 1e 00 00               	calll	0x8050374 <ioctl>
+ 804e53b: c7 45 fc 00 00 00 00         	movl	$0x0, -0x4(%ebp)
+ 804e542: eb 1e                        	jmp	0x804e562 <getOurIP+0x1fc>
+ 804e544: 8b 4d fc                     	movl	-0x4(%ebp), %ecx
+ 804e547: 8d 85 a8 ef ff ff            	leal	-0x1058(%ebp), %eax
+ 804e54d: 8d 50 12                     	leal	0x12(%eax), %edx
+ 804e550: 8b 45 fc                     	movl	-0x4(%ebp), %eax
+ 804e553: 8d 04 02                     	leal	(%edx,%eax), %eax
+ 804e556: 0f b6 00                     	movzbl	(%eax), %eax
+ 804e559: 88 81 d4 b3 05 08            	movb	%al, 0x805b3d4(%ecx)
+ 804e55f: ff 45 fc                     	incl	-0x4(%ebp)
+ 804e562: 83 7d fc 05                  	cmpl	$0x5, -0x4(%ebp)
+ 804e566: 7e dc                        	jle	0x804e544 <getOurIP+0x1de>
+ 804e568: 8b 45 ec                     	movl	-0x14(%ebp), %eax
+ 804e56b: 89 04 24                     	movl	%eax, (%esp)
+ 804e56e: e8 a1 1c 00 00               	calll	0x8050214 <close>
+ 804e573: eb 0c                        	jmp	0x804e581 <getOurIP+0x21b>
+ 804e575: 8b 85 9c ef ff ff            	movl	-0x1064(%ebp), %eax
+ 804e57b: 89 85 98 ef ff ff            	movl	%eax, -0x1068(%ebp)
+ 804e581: 8b 85 98 ef ff ff            	movl	-0x1068(%ebp), %eax
+ 804e587: c9                           	leave
+ 804e588: c3                           	retl

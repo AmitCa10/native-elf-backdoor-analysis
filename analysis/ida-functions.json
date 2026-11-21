@@ -1,0 +1,455 @@
+{
+  "input": "backdoor-unpacked.elf",
+  "sha256": "5037b0ca9125f26e34f785c62641998a6e14d70b0440f8492d0e8fab5be4b0ba",
+  "ida_version": "9.5",
+  "decompiler_available": true,
+  "functions": {
+    "main": {
+      "address": "0x0804e58e",
+      "end_address": "0x0804ec91",
+      "size": 1795,
+      "instruction_count": 465,
+      "calls": [
+        {
+          "address": "0x08048520",
+          "name": "Trim"
+        },
+        {
+          "address": "0x080517b4",
+          "name": "__GI_strtok"
+        },
+        {
+          "address": "0x0805058c",
+          "name": "__GI_time"
+        },
+        {
+          "address": "0x08050610",
+          "name": "__GI_toupper"
+        },
+        {
+          "address": "0x080505bc",
+          "name": "__libc_waitpid"
+        },
+        {
+          "address": "0x080501e0",
+          "name": "access"
+        },
+        {
+          "address": "0x08053530",
+          "name": "exit"
+        },
+        {
+          "address": "0x08050278",
+          "name": "fork"
+        },
+        {
+          "address": "0x08052d85",
+          "name": "free"
+        },
+        {
+          "address": "0x0804e589",
+          "name": "getBuild"
+        },
+        {
+          "address": "0x0804e366",
+          "name": "getOurIP"
+        },
+        {
+          "address": "0x080502c8",
+          "name": "geteuid"
+        },
+        {
+          "address": "0x080502f0",
+          "name": "getpid"
+        },
+        {
+          "address": "0x0804e1d3",
+          "name": "initConnection"
+        },
+        {
+          "address": "0x080484b1",
+          "name": "init_rand"
+        },
+        {
+          "address": "0x08051f82",
+          "name": "malloc"
+        },
+        {
+          "address": "0x0805047c",
+          "name": "prctl"
+        },
+        {
+          "address": "0x0804bdee",
+          "name": "processCmd"
+        },
+        {
+          "address": "0x08049389",
+          "name": "recvLine"
+        },
+        {
+          "address": "0x08051e48",
+          "name": "signal"
+        },
+        {
+          "address": "0x08053604",
+          "name": "sleep"
+        },
+        {
+          "address": "0x08048cc0",
+          "name": "sockprintf"
+        },
+        {
+          "address": "0x0805065c",
+          "name": "sprintf"
+        },
+        {
+          "address": "0x0805315c",
+          "name": "srandom"
+        },
+        {
+          "address": "0x08051580",
+          "name": "strcpy"
+        },
+        {
+          "address": "0x080515b0",
+          "name": "strncpy"
+        },
+        {
+          "address": "0x0804f504",
+          "name": "table_init"
+        },
+        {
+          "address": "0x0804f7b9",
+          "name": "table_lock_val"
+        },
+        {
+          "address": "0x0804f7e2",
+          "name": "table_retrieve_val"
+        },
+        {
+          "address": "0x0804f790",
+          "name": "table_unlock_val"
+        },
+        {
+          "address": "0x08048388",
+          "name": "watchdog_maintain"
+        },
+        {
+          "address": "0x080505d8",
+          "name": "write"
+        }
+      ],
+      "callers": [
+        {
+          "address": "0x08048168",
+          "name": "start"
+        }
+      ]
+    },
+    "initConnection": {
+      "address": "0x0804e1d3",
+      "end_address": "0x0804e366",
+      "size": 403,
+      "instruction_count": 89,
+      "calls": [
+        {
+          "address": "0x08051548",
+          "name": "__GI_memset"
+        },
+        {
+          "address": "0x08051560",
+          "name": "__GI_strchr"
+        },
+        {
+          "address": "0x080533dc",
+          "name": "atol"
+        },
+        {
+          "address": "0x08050214",
+          "name": "close"
+        },
+        {
+          "address": "0x0804954a",
+          "name": "connectTimeout"
+        },
+        {
+          "address": "0x08051dd4",
+          "name": "socket"
+        },
+        {
+          "address": "0x08048c99",
+          "name": "szprintf"
+        }
+      ],
+      "callers": [
+        {
+          "address": "0x0804e58e",
+          "name": "main"
+        }
+      ]
+    },
+    "getOurIP": {
+      "address": "0x0804e366",
+      "end_address": "0x0804e589",
+      "size": 547,
+      "instruction_count": 126,
+      "calls": [
+        {
+          "address": "0x08051548",
+          "name": "__GI_memset"
+        },
+        {
+          "address": "0x08050214",
+          "name": "close"
+        },
+        {
+          "address": "0x08051c14",
+          "name": "connect"
+        },
+        {
+          "address": "0x080490df",
+          "name": "fdgets"
+        },
+        {
+          "address": "0x08051c40",
+          "name": "getsockname"
+        },
+        {
+          "address": "0x08051860",
+          "name": "htons"
+        },
+        {
+          "address": "0x08051888",
+          "name": "inet_addr"
+        },
+        {
+          "address": "0x08050374",
+          "name": "ioctl"
+        },
+        {
+          "address": "0x080503e8",
+          "name": "open"
+        },
+        {
+          "address": "0x08051dd4",
+          "name": "socket"
+        },
+        {
+          "address": "0x08051580",
+          "name": "strcpy"
+        },
+        {
+          "address": "0x080515f4",
+          "name": "strstr"
+        }
+      ],
+      "callers": [
+        {
+          "address": "0x0804e58e",
+          "name": "main"
+        }
+      ]
+    },
+    "toggle_obf": {
+      "address": "0x0804f866",
+      "end_address": "0x0804f956",
+      "size": 240,
+      "instruction_count": 78,
+      "calls": [],
+      "callers": [
+        {
+          "address": "0x0804f7b9",
+          "name": "table_lock_val"
+        },
+        {
+          "address": "0x0804f790",
+          "name": "table_unlock_val"
+        }
+      ]
+    },
+    "recvLine": {
+      "address": "0x08049389",
+      "end_address": "0x0804954a",
+      "size": 449,
+      "instruction_count": 112,
+      "calls": [
+        {
+          "address": "0x08051ca8",
+          "name": "recv"
+        },
+        {
+          "address": "0x080504f4",
+          "name": "select"
+        }
+      ],
+      "callers": [
+        {
+          "address": "0x0804e58e",
+          "name": "main"
+        }
+      ]
+    },
+    "processCmd": {
+      "address": "0x0804bdee",
+      "end_address": "0x0804e1d3",
+      "size": 9189,
+      "instruction_count": 2165,
+      "calls": [
+        {
+          "address": "0x0804aecf",
+          "name": "Hexed"
+        },
+        {
+          "address": "0x0804ab3a",
+          "name": "SendSTDHEX"
+        },
+        {
+          "address": "0x080501b8",
+          "name": "__GI__exit"
+        },
+        {
+          "address": "0x08051560",
+          "name": "__GI_strchr"
+        },
+        {
+          "address": "0x080517b4",
+          "name": "__GI_strtok"
+        },
+        {
+          "address": "0x080533dc",
+          "name": "atol"
+        },
+        {
+          "address": "0x0804a9af",
+          "name": "audprand2"
+        },
+        {
+          "address": "0x0804ad44",
+          "name": "audprand3"
+        },
+        {
+          "address": "0x08050214",
+          "name": "close"
+        },
+        {
+          "address": "0x08053530",
+          "name": "exit"
+        },
+        {
+          "address": "0x080502f0",
+          "name": "getpid"
+        },
+        {
+          "address": "0x0804b912",
+          "name": "httphex"
+        },
+        {
+          "address": "0x080503b4",
+          "name": "kill"
+        },
+        {
+          "address": "0x08049755",
+          "name": "listFork"
+        },
+        {
+          "address": "0x0804a49c",
+          "name": "rtcp"
+        },
+        {
+          "address": "0x0804b76e",
+          "name": "sendCNC"
+        },
+        {
+          "address": "0x0804b05a",
+          "name": "sendSTD"
+        },
+        {
+          "address": "0x08049f1d",
+          "name": "sendTCP"
+        },
+        {
+          "address": "0x0804a824",
+          "name": "slow"
+        },
+        {
+          "address": "0x08049a61",
+          "name": "udpfl00d"
+        },
+        {
+          "address": "0x0804b271",
+          "name": "vseattack"
+        }
+      ],
+      "callers": [
+        {
+          "address": "0x0804e58e",
+          "name": "main"
+        }
+      ]
+    },
+    "table_init": {
+      "address": "0x0804f504",
+      "end_address": "0x0804f790",
+      "size": 652,
+      "instruction_count": 97,
+      "calls": [
+        {
+          "address": "0x0804f811",
+          "name": "add_entry"
+        }
+      ],
+      "callers": [
+        {
+          "address": "0x0804e58e",
+          "name": "main"
+        }
+      ]
+    },
+    "watchdog_maintain": {
+      "address": "0x08048388",
+      "end_address": "0x080484b1",
+      "size": 297,
+      "instruction_count": 62,
+      "calls": [
+        {
+          "address": "0x08053530",
+          "name": "exit"
+        },
+        {
+          "address": "0x08050278",
+          "name": "fork"
+        },
+        {
+          "address": "0x08050374",
+          "name": "ioctl"
+        },
+        {
+          "address": "0x080503e8",
+          "name": "open"
+        },
+        {
+          "address": "0x08053604",
+          "name": "sleep"
+        },
+        {
+          "address": "0x0804f7b9",
+          "name": "table_lock_val"
+        },
+        {
+          "address": "0x0804f7e2",
+          "name": "table_retrieve_val"
+        },
+        {
+          "address": "0x0804f790",
+          "name": "table_unlock_val"
+        }
+      ],
+      "callers": [
+        {
+          "address": "0x0804e58e",
+          "name": "main"
+        }
+      ]
+    }
+  }
+}

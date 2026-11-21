@@ -1,0 +1,783 @@
+
+research/malware/native-elf-backdoor-analysis/evidence/backdoor-unpacked.elf:	file format elf32-i386
+
+SYMBOL TABLE:
+08048094 l    d  .init	00000000 .init
+080480b0 l    d  .text	00000000 .text
+08056ef4 l    d  .fini	00000000 .fini
+08056f20 l    d  .rodata	00000000 .rodata
+0805a960 l    d  .eh_frame	00000000 .eh_frame
+0805b000 l    d  .ctors	00000000 .ctors
+0805b008 l    d  .dtors	00000000 .dtors
+0805b010 l    d  .jcr	00000000 .jcr
+0805b014 l    d  .got.plt	00000000 .got.plt
+0805b020 l    d  .data	00000000 .data
+0805b3a0 l    d  .bss	00000000 .bss
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .shstrtab	00000000 .shstrtab
+00000000 l    d  .symtab	00000000 .symtab
+00000000 l    d  .strtab	00000000 .strtab
+00000000 l    df *ABS*	00000000 libc/sysdeps/linux/i386/crti.S
+00000000 l    df *ABS*	00000000 crtstuff.c
+0805b000 l     O .ctors	00000000 __CTOR_LIST__
+0805b008 l     O .dtors	00000000 __DTOR_LIST__
+0805a960 l     O .eh_frame	00000000 __EH_FRAME_BEGIN__
+0805b010 l     O .jcr	00000000 __JCR_LIST__
+0805b3a0 l     O .bss	00000001 completed.2429
+0805b024 l     O .data	00000000 p.2427
+080480c0 l     F .text	00000000 __do_global_dtors_aux
+0805b3a4 l     O .bss	00000018 object.2482
+08048110 l     F .text	00000000 frame_dummy
+00000000 l    df *ABS*	00000000 crtstuff.c
+0805b004 l     O .ctors	00000000 __CTOR_END__
+0805b00c l     O .dtors	00000000 __DTOR_END__
+0805a960 l     O .eh_frame	00000000 __FRAME_END__
+0805b010 l     O .jcr	00000000 __JCR_END__
+08056ec0 l     F .text	00000000 __do_global_ctors_aux
+00000000 l    df *ABS*	00000000 initfini.c
+00000000 l    df *ABS*	00000000 libc/sysdeps/linux/i386/crtn.S
+00000000 l    df *ABS*	00000000 libc/sysdeps/linux/i386/crt1.S
+00000000 l    df *ABS*	00000000 checksum.c
+00000000 l    df *ABS*	00000000 main.c
+0805b118 l     O .data	00000004 c
+0805b3e0 l     O .bss	00004000 Q
+0805b11c l     O .data	00000004 i.4540
+08048744 l     F .text	00000042 printchar
+08048786 l     F .text	000000da prints
+08048860 l     F .text	0000013f printi
+0804899f l     F .text	000002d2 print
+0805f3e0 l     O .bss	00000004 fdopen_pids
+08057e00 l     O .rodata	00000400 hextable
+00000000 l    df *ABS*	00000000 rand.c
+0805f3e4 l     O .bss	00000004 x
+0805f3e8 l     O .bss	00000004 y
+0805f3ec l     O .bss	00000004 z
+0805f3f0 l     O .bss	00000004 w
+00000000 l    df *ABS*	00000000 resolv.c
+0804eea9 l     F .text	0000008b resolv_skip_name
+00000000 l    df *ABS*	00000000 table.c
+0804f811 l     F .text	00000055 add_entry
+0804f866 l     F .text	000000f0 toggle_obf
+00000000 l    df *ABS*	00000000 util.c
+080500a0 l     F .text	00000039 util_isspace
+080500d9 l     F .text	0000002d util_isdigit
+08050067 l     F .text	00000039 util_isalpha
+0805003a l     F .text	0000002d util_isupper
+00000000 l    df *ABS*	00000000 libc/sysdeps/linux/i386/vfork.S
+00000000 l    df *ABS*	00000000 __syscall_fcntl.c
+00000000 l    df *ABS*	00000000 __syscall_fcntl64.c
+00000000 l    df *ABS*	00000000 _exit.c
+00000000 l    df *ABS*	00000000 access.c
+00000000 l    df *ABS*	00000000 close.c
+00000000 l    df *ABS*	00000000 dup2.c
+00000000 l    df *ABS*	00000000 fork.c
+00000000 l    df *ABS*	00000000 getdtablesize.c
+00000000 l    df *ABS*	00000000 geteuid.c
+00000000 l    df *ABS*	00000000 getpid.c
+00000000 l    df *ABS*	00000000 getppid.c
+00000000 l    df *ABS*	00000000 getrlimit.c
+00000000 l    df *ABS*	00000000 ioctl.c
+00000000 l    df *ABS*	00000000 kill.c
+00000000 l    df *ABS*	00000000 open.c
+00000000 l    df *ABS*	00000000 pipe.c
+00000000 l    df *ABS*	00000000 prctl.c
+00000000 l    df *ABS*	00000000 read.c
+00000000 l    df *ABS*	00000000 select.c
+00000000 l    df *ABS*	00000000 sigprocmask.c
+00000000 l    df *ABS*	00000000 time.c
+00000000 l    df *ABS*	00000000 waitpid.c
+00000000 l    df *ABS*	00000000 write.c
+00000000 l    df *ABS*	00000000 toupper.c
+00000000 l    df *ABS*	00000000 __C_ctype_b.c
+00000000 l    df *ABS*	00000000 __C_ctype_toupper.c
+00000000 l    df *ABS*	00000000 __errno_location.c
+00000000 l    df *ABS*	00000000 clock.c
+00000000 l    df *ABS*	00000000 sprintf.c
+00000000 l    df *ABS*	00000000 vsnprintf.c
+00000000 l    df *ABS*	00000000 _stdio.c
+0805b180 l     O .data	000000f0 _stdio_streams
+08059620 l     O .rodata	00000018 __stdio_mutex_initializer.4160
+0805f400 l     O .bss	00002000 _fixed_buffers
+00000000 l    df *ABS*	00000000 _wcommit.c
+00000000 l    df *ABS*	00000000 _vfprintf_internal.c
+0805085c l     F .text	00000036 _charpad
+08050892 l     F .text	0000006a _fp_out_narrow
+08059651 l     O .rodata	00000007 spec_base.4370
+08059645 l     O .rodata	0000000c prefix.4371
+00000000 l    df *ABS*	00000000 _ppfs_init.c
+00000000 l    df *ABS*	00000000 _ppfs_prepargs.c
+00000000 l    df *ABS*	00000000 _ppfs_setargs.c
+00000000 l    df *ABS*	00000000 _ppfs_parsespec.c
+0805107c l     F .text	00000029 _promoted_size
+080596b2 l     O .rodata	00000018 type_codes
+080596ca l     O .rodata	0000000c type_sizes
+080596aa l     O .rodata	00000008 spec_flags.4372
+08059658 l     O .rodata	00000014 qual_chars.4377
+08059695 l     O .rodata	00000015 spec_chars.4373
+0805968c l     O .rodata	00000009 spec_ranges.4374
+0805967c l     O .rodata	00000010 spec_or_mask.4375
+0805966c l     O .rodata	00000010 spec_and_mask.4376
+00000000 l    df *ABS*	00000000 fputs_unlocked.c
+00000000 l    df *ABS*	00000000 fwrite_unlocked.c
+00000000 l    df *ABS*	00000000 memcpy.c
+00000000 l    df *ABS*	00000000 memset.c
+00000000 l    df *ABS*	00000000 strchr.c
+00000000 l    df *ABS*	00000000 strcpy.c
+00000000 l    df *ABS*	00000000 strlen.c
+00000000 l    df *ABS*	00000000 strncpy.c
+00000000 l    df *ABS*	00000000 strnlen.c
+00000000 l    df *ABS*	00000000 strstr.c
+00000000 l    df *ABS*	00000000 __glibc_strerror_r.c
+00000000 l    df *ABS*	00000000 __xpg_strerror_r.c
+080596d6 l     O .rodata	0000000e unknown.1330
+00000000 l    df *ABS*	00000000 _string_syserrmsgs.c
+00000000 l    df *ABS*	00000000 bcopy.c
+00000000 l    df *ABS*	00000000 strtok.c
+08061400 l     O .bss	00000004 next_start.1278
+00000000 l    df *ABS*	00000000 isatty.c
+00000000 l    df *ABS*	00000000 tcgetattr.c
+00000000 l    df *ABS*	00000000 ntohl.c
+00000000 l    df *ABS*	00000000 inet_makeaddr.c
+00000000 l    df *ABS*	00000000 gethostbyname.c
+08061420 l     O .bss	000001cc buf.5162
+080615ec l     O .bss	00000014 h.5161
+00000000 l    df *ABS*	00000000 gethostbyname_r.c
+00000000 l    df *ABS*	00000000 connect.c
+00000000 l    df *ABS*	00000000 getsockname.c
+00000000 l    df *ABS*	00000000 getsockopt.c
+00000000 l    df *ABS*	00000000 recv.c
+00000000 l    df *ABS*	00000000 recvfrom.c
+00000000 l    df *ABS*	00000000 send.c
+00000000 l    df *ABS*	00000000 sendto.c
+00000000 l    df *ABS*	00000000 setsockopt.c
+00000000 l    df *ABS*	00000000 socket.c
+00000000 l    df *ABS*	00000000 sigaddset.c
+00000000 l    df *ABS*	00000000 sigempty.c
+00000000 l    df *ABS*	00000000 signal.c
+00000000 l    df *ABS*	00000000 sigsetops.c
+00000000 l    df *ABS*	00000000 malloc.c
+08051f5c l     F .text	00000026 __malloc_largebin_index
+00000000 l    df *ABS*	00000000 calloc.c
+00000000 l    df *ABS*	00000000 realloc.c
+00000000 l    df *ABS*	00000000 free.c
+08052b50 l     F .text	0000008d __malloc_trim
+00000000 l    df *ABS*	00000000 abort.c
+0805b288 l     O .data	00000018 mylock
+08061600 l     O .bss	00000001 been_there_done_that
+00000000 l    df *ABS*	00000000 rand.c
+00000000 l    df *ABS*	00000000 random.c
+0805b2a0 l     O .data	00000018 mylock
+0805b2b8 l     O .data	0000001c unsafe_state
+0805b2e0 l     O .data	00000080 randtbl
+00000000 l    df *ABS*	00000000 random_r.c
+0805a260 l     O .rodata	00000028 random_poly_info
+00000000 l    df *ABS*	00000000 atol.c
+00000000 l    df *ABS*	00000000 strtol.c
+00000000 l    df *ABS*	00000000 _stdlib_strto_l.c
+00000000 l    df *ABS*	00000000 exit.c
+00000000 l    df *ABS*	00000000 execl.c
+00000000 l    df *ABS*	00000000 sleep.c
+00000000 l    df *ABS*	00000000 sysconf.c
+00000000 l    df *ABS*	00000000 usleep.c
+00000000 l    df *ABS*	00000000 __uClibc_main.c
+08053947 l     F .text	00000003 __pthread_return_0
+0805394a l     F .text	00000001 __pthread_return_void
+0805394b l     F .text	00000034 __check_one_fd
+0806161c l     O .bss	00000001 been_there_done_that.3001
+00000000 l    df *ABS*	00000000 sigaction.c
+08053b7c l       .text	00000000 __restore_rt
+08053b83 l       .text	00000000 __restore
+00000000 l    df *ABS*	00000000 __syscall_error.c
+00000000 l    df *ABS*	00000000 libc/sysdeps/linux/i386/mmap.S
+00000000 l    df *ABS*	00000000 __socketcall.c
+00000000 l    df *ABS*	00000000 __syscall_rt_sigaction.c
+00000000 l    df *ABS*	00000000 clock_getres.c
+00000000 l    df *ABS*	00000000 execve.c
+00000000 l    df *ABS*	00000000 getegid.c
+00000000 l    df *ABS*	00000000 getgid.c
+00000000 l    df *ABS*	00000000 getpagesize.c
+00000000 l    df *ABS*	00000000 getuid.c
+00000000 l    df *ABS*	00000000 mremap.c
+00000000 l    df *ABS*	00000000 munmap.c
+00000000 l    df *ABS*	00000000 nanosleep.c
+00000000 l    df *ABS*	00000000 sbrk.c
+00000000 l    df *ABS*	00000000 times.c
+00000000 l    df *ABS*	00000000 wait4.c
+00000000 l    df *ABS*	00000000 errno.c
+00000000 l    df *ABS*	00000000 __h_errno_location.c
+00000000 l    df *ABS*	00000000 wcrtomb.c
+00000000 l    df *ABS*	00000000 wcsrtombs.c
+00000000 l    df *ABS*	00000000 wcsnrtombs.c
+00000000 l    df *ABS*	00000000 _WRITE.c
+00000000 l    df *ABS*	00000000 _fwrite.c
+00000000 l    df *ABS*	00000000 _trans2w.c
+00000000 l    df *ABS*	00000000 _load_inttype.c
+00000000 l    df *ABS*	00000000 _store_inttype.c
+00000000 l    df *ABS*	00000000 _uintmaxtostr.c
+00000000 l    df *ABS*	00000000 _fpmaxtostr.c
+0805a4fc l     O .rodata	00000014 fmt
+0805a520 l     O .rodata	0000009c exp10_table
+00000000 l    df *ABS*	00000000 memchr.c
+00000000 l    df *ABS*	00000000 memmove.c
+00000000 l    df *ABS*	00000000 mempcpy.c
+00000000 l    df *ABS*	00000000 memrchr.c
+00000000 l    df *ABS*	00000000 strtok_r.c
+00000000 l    df *ABS*	00000000 strpbrk.c
+00000000 l    df *ABS*	00000000 inet_aton.c
+00000000 l    df *ABS*	00000000 dnslookup.c
+08061628 l     O .bss	00000018 mylock
+08061640 l     O .bss	00000004 static_ns
+0805b37c l     O .data	00000002 static_id
+00000000 l    df *ABS*	00000000 opennameservers.c
+00000000 l    df *ABS*	00000000 get_hosts_byname_r.c
+00000000 l    df *ABS*	00000000 raise.c
+00000000 l    df *ABS*	00000000 dl-support.c
+00000000 l    df *ABS*	00000000 brk.c
+00000000 l    df *ABS*	00000000 poll.c
+00000000 l    df *ABS*	00000000 fclose.c
+00000000 l    df *ABS*	00000000 fopen.c
+00000000 l    df *ABS*	00000000 fseeko.c
+00000000 l    df *ABS*	00000000 fseeko64.c
+00000000 l    df *ABS*	00000000 _adjust_pos.c
+00000000 l    df *ABS*	00000000 _fopen.c
+00000000 l    df *ABS*	00000000 _cs_funcs.c
+00000000 l    df *ABS*	00000000 fgets.c
+00000000 l    df *ABS*	00000000 fflush_unlocked.c
+00000000 l    df *ABS*	00000000 fgets_unlocked.c
+00000000 l    df *ABS*	00000000 strcmp.c
+00000000 l    df *ABS*	00000000 strncat.c
+00000000 l    df *ABS*	00000000 rawmemchr.c
+00000000 l    df *ABS*	00000000 strspn.c
+00000000 l    df *ABS*	00000000 strdup.c
+00000000 l    df *ABS*	00000000 ntop.c
+08055f8c l     F .text	00000086 inet_pton4
+0805a614 l     O .rodata	00000011 xdigits.3285
+080561dc l     F .text	00000111 inet_ntop4
+00000000 l    df *ABS*	00000000 encodeh.c
+00000000 l    df *ABS*	00000000 decodeh.c
+00000000 l    df *ABS*	00000000 encodeq.c
+00000000 l    df *ABS*	00000000 lengthq.c
+00000000 l    df *ABS*	00000000 decodea.c
+00000000 l    df *ABS*	00000000 read_etc_hosts_r.c
+00000000 l    df *ABS*	00000000 llseek.c
+00000000 l    df *ABS*	00000000 tolower.c
+00000000 l    df *ABS*	00000000 __C_ctype_tolower.c
+00000000 l    df *ABS*	00000000 fgetc_unlocked.c
+00000000 l    df *ABS*	00000000 strcasecmp.c
+00000000 l    df *ABS*	00000000 encoded.c
+00000000 l    df *ABS*	00000000 decoded.c
+00000000 l    df *ABS*	00000000 lengthd.c
+00000000 l    df *ABS*	00000000 _READ.c
+00000000 l    df *ABS*	00000000 _rfill.c
+00000000 l    df *ABS*	00000000 _trans2r.c
+0805b000 l       *ABS*	00000000 .hidden __fini_array_end
+0805b000 l       *ABS*	00000000 .hidden __fini_array_start
+0805b000 l       *ABS*	00000000 .hidden __init_array_end
+0805b000 l       *ABS*	00000000 .hidden __preinit_array_end
+0805b014 l     O .got.plt	00000000 .hidden _GLOBAL_OFFSET_TABLE_
+0805b000 l       *ABS*	00000000 .hidden __init_array_start
+0805b000 l       *ABS*	00000000 .hidden __preinit_array_start
+080567b9 g     F .text	000002d4 .hidden __read_etc_hosts_r
+08053d40 g     F .text	00000036 .hidden __GI_execve
+08053b8b g     F .text	000000da __libc_sigaction
+08051580 g     F .text	0000001b strcpy
+08050178 g     F .text	0000003f .hidden __GI_fcntl64
+08049389 g     F .text	000001c1 recvLine
+08051e00 g     F .text	0000002a .hidden __GI_sigaddset
+08053c9c g     F .text	00000032 .hidden __socketcall
+0805b128 g     O .data	00000004 .hidden __GI___ctype_b
+08054988 g     F .text	00000023 .hidden __GI_memchr
+0805b114 g     O .data	00000004 userID
+080516c4 g     F .text	0000001d .hidden __GI___glibc_strerror_r
+080505bc  w    F .text	0000001a waitpid
+08055314 g     F .text	00000243 .hidden __open_nameservers
+08055730 g     F .text	00000018 .hidden __GI_fopen
+08050340 g     F .text	00000032 getrlimit
+08050374 g     F .text	0000003f ioctl
+0805f3f4 g     O .bss	00000004 _stdio_openlist_use_count
+08053331 g     F .text	000000ab .hidden __GI_initstate_r
+08053b8b  w    F .text	000000da .hidden __GI_sigaction
+08054aa8 g     F .text	00000059 strtok_r
+08059320 g     O .rodata	00000300 .hidden __GI___C_ctype_toupper_data
+0805058c g     F .text	0000002e .hidden __GI_time
+08053da0 g     F .text	00000026 getgid
+08053790 g     F .text	00000145 sysconf
+0805b138 g     O .data	00000004 stdout
+08053060 g     F .text	00000048 random
+08055f54 g     F .text	00000036 .hidden __GI_strdup
+08053dc8 g     F .text	00000011 .hidden __GI_getpagesize
+080502a0 g     F .text	00000025 getdtablesize
+08061624 g     O .bss	00000004 .hidden __GI_h_errno
+08056670 g     F .text	0000001c .hidden __length_question
+0805b130 g     O .data	00000004 .hidden __GI___ctype_toupper
+08056be4 g     F .text	00000036 .hidden __GI_strcasecmp
+08056ae8 g     F .text	0000001d .hidden __GI_tolower
+08051ca8  w    F .text	00000033 recv
+08051c14  w    F .text	0000002b connect
+0805661c g     F .text	00000053 .hidden __encode_question
+08053908 g     F .text	0000003f .hidden __GI___uClibc_fini
+0805b3c8 g     O .bss	00000008 numpids
+080564c0 g     F .text	000000af .hidden __encode_header
+08055e8c g     F .text	0000002e .hidden __GI_strncat
+08051e2c g     F .text	00000019 sigemptyset
+08053947  w    F .text	00000003 __pthread_mutex_lock
+0804e1d3 g     F .text	00000193 initConnection
+08051f3c g     F .text	00000020 __sigdelset
+0804fe24 g     F .text	000000d1 util_stristr
+08053d0c g     F .text	00000032 .hidden __GI_clock_getres
+08053908 g     F .text	0000003f __uClibc_fini
+080549f8 g     F .text	000000b0 memrchr
+080502c8 g     F .text	00000026 geteuid
+08056012 g     F .text	000001ca inet_pton
+0805067c g     F .text	000000b0 .hidden __GI_vsnprintf
+080549ac g     F .text	00000027 memmove
+08051e48 g     F .text	000000af .hidden __bsd_signal
+08054b04 g     F .text	00000027 .hidden __GI_strpbrk
+08056e44 g     F .text	0000006e .hidden __stdio_trans2r_o
+08053e44 g     F .text	00000032 munmap
+08051d98 g     F .text	0000003b .hidden __GI_setsockopt
+0805b044 g     O .data	00000004 hacks3
+08061608 g     O .bss	00000004 __libc_stack_end
+08055620 g     F .text	0000010f .hidden __GI_fclose
+08053fd8 g     F .text	00000085 .hidden __GI_wcsnrtombs
+0805044c g     F .text	0000002e .hidden __GI_pipe
+0805430c g     F .text	000000cf .hidden _uintmaxtostr
+08050120 g     F .text	00000057 __libc_fcntl
+080533dc g     F .text	00000014 atol
+08061624  w    O .bss	00000004 _h_errno
+08056b08 g     F .text	000000dc getc_unlocked
+08053efc g     F .text	0000002e times
+0805b128 g     O .data	00000004 __ctype_b
+08053239 g     F .text	0000005e .hidden __GI_random_r
+0804ee2c g     F .text	0000007d resolv_domain_to_hostname
+08061620 g     O .bss	00000004 errno
+08053d78 g     F .text	00000026 getegid
+08053eac g     F .text	0000004e .hidden __GI_sbrk
+08048c71 g     F .text	00000028 zprintf
+0805397f g     F .text	00000040 .hidden __GI___uClibc_init
+080538d8 g     F .text	00000030 usleep
+08053d40 g     F .text	00000036 execve
+08053dc8 g     F .text	00000011 getpagesize
+080502f0  w    F .text	00000026 getpid
+0804f981 g     F .text	00000074 util_strncmp
+08056a90  w    F .text	00000056 .hidden __GI_lseek64
+080531a0 g     F .text	00000099 setstate_r
+08055b68 g     F .text	00000062 fgets
+080492b9 g     F .text	00000037 getHost
+080502f0 g     F .text	00000026 __libc_getpid
+0804ffb5 g     F .text	00000085 util_fdgets
+08049192 g     F .text	00000127 wildString
+080516e4 g     F .text	000000b6 __xpg_strerror_r
+08050178  w    F .text	0000003f fcntl64
+0805047c g     F .text	0000003f prctl
+0804b271 g     F .text	000004fd vseattack
+08051520 g     F .text	00000027 memcpy
+0804931f g     F .text	0000006a makeRandomStr
+08051474 g     F .text	00000031 .hidden __GI_fputs_unlocked
+08053598 g     F .text	00000069 execl
+08055b68 g     F .text	00000062 .hidden __GI_fgets
+08050433  w    F .text	00000019 creat
+0804ec94 g     F .text	0000004d rand_init
+08055bcc g     F .text	000000e4 _stdio_openlist_dec_use
+080504f4 g     F .text	0000003f __libc_select
+08050eb4 g     F .text	0000006f .hidden _ppfs_init
+0805b12c g     O .data	00000004 .hidden __GI___C_ctype_toupper
+08056b08 g     F .text	000000dc .hidden __GI_fgetc_unlocked
+08053e78 g     F .text	00000032 __libc_nanosleep
+08048520 g     F .text	000000bf trim
+08055e00 g     F .text	00000069 .hidden __GI_fgets_unlocked
+08050244 g     F .text	00000032 dup2
+08053947  w    F .text	00000003 __pthread_mutex_init
+08056ae8 g     F .text	0000001d tolower
+08053ddc g     F .text	00000026 getuid
+0804fa94 g     F .text	0000002f util_strcat
+08056788 g     F .text	00000031 .hidden __open_etc_hosts
+08051f82 g     F .text	000007a2 malloc
+080517d0 g     F .text	0000001d isatty
+0804f790 g     F .text	00000029 table_unlock_val
+08053604 g     F .text	00000189 sleep
+080533dc g     F .text	00000014 .hidden __GI_atol
+0805067c g     F .text	000000b0 vsnprintf
+08054bc0 g     F .text	00000754 .hidden __dns_lookup
+080504bc  w    F .text	00000036 .hidden __GI_read
+08051cdc  w    F .text	00000043 recvfrom
+0805b398 g     O .data	00000004 __C_ctype_tolower
+08053239 g     F .text	0000005e random_r
+0805b020 g     O .data	00000000 .hidden __dso_handle
+08053d0c g     F .text	00000032 clock_getres
+080518e0 g     F .text	00000332 gethostbyname_r
+08049925 g     F .text	000000b8 tcpcsum
+08048f6a g     F .text	00000175 fdpclose
+08051dd4 g     F .text	0000002b socket
+08050244 g     F .text	00000032 .hidden __GI_dup2
+080504f4  w    F .text	0000003f select
+0805394a  w    F .text	00000001 _pthread_cleanup_pop_restore
+08053f70 g     F .text	00000045 .hidden __GI_wcrtomb
+08050120 g     F .text	00000057 .hidden __GI___libc_fcntl
+08051548 g     F .text	00000015 .hidden __GI_memset
+0805b3c4 g     O .bss	00000004 watchdog_pid
+08055b34 g     F .text	00000033 .hidden __stdio_seek
+080549d4  w    F .text	00000021 mempcpy
+08055e6c g     F .text	0000001d .hidden __GI_strcoll
+0804fb15 g     F .text	0000019c util_atoi
+080505d8  w    F .text	00000036 .hidden __GI_write
+0804fdae g     F .text	00000076 util_memsearch
+0805b130 g     O .data	00000004 __ctype_toupper
+080504bc g     F .text	00000036 __libc_read
+0804b912 g     F .text	000004dc httphex
+08059700 g     O .rodata	00000b5a .hidden _string_syserrmsgs
+080503e8  w    F .text	0000004b .hidden __GI_open
+08051560 g     F .text	0000001e .hidden __GI_strchr
+08061b58 g     O .bss	00000010 .hidden __searchdomain
+08051e00 g     F .text	0000002a sigaddset
+080517f0 g     F .text	00000070 .hidden __GI_tcgetattr
+0806160c g     O .bss	00000004 __environ
+08053c80 g     F .text	0000001b mmap
+08053fd8 g     F .text	00000085 wcsnrtombs
+080499dd g     F .text	00000084 makeIPPacket
+08048cc0 g     F .text	000000c4 sockprintf
+08051d20  w    F .text	00000033 send
+08056b08 g     F .text	000000dc __fgetc_unlocked
+08052f44 g     F .text	00000111 abort
+08050120  w    F .text	00000057 .hidden __GI_fcntl
+08053fb8 g     F .text	0000001e .hidden __GI_wcsrtombs
+080514a8 g     F .text	00000078 .hidden __GI_fwrite_unlocked
+08053da0 g     F .text	00000026 .hidden __GI_getgid
+08053297 g     F .text	0000009a srandom_r
+08048094 g     F .init	00000003 _init
+080531a0 g     F .text	00000099 .hidden __GI_setstate_r
+0804914e g     F .text	00000044 parseHex
+080533f0 g     F .text	0000001a strtol
+0805044c g     F .text	0000002e pipe
+08056a90 g     F .text	00000056 __libc_lseek64
+080515d8 g     F .text	00000019 strnlen
+08055ebc g     F .text	00000063 rawmemchr
+080549d4 g     F .text	00000021 .hidden __GI_mempcpy
+080617e0 g     O .bss	00000378 __malloc_state
+08059020 g     O .rodata	00000300 .hidden __GI___C_ctype_b_data
+0804ef34 g     F .text	0000059d resolv_lookup
+08061660 g     O .bss	000000e8 table
+0805b040 g     O .data	00000004 hacks
+08051f1c g     F .text	00000020 __sigaddset
+08053e78  w    F .text	00000032 nanosleep
+08051d20  w    F .text	00000033 .hidden __GI_send
+0805b054 g     O .data	0000000c randstrings
+0804ad44 g     F .text	0000018b audprand3
+08061624 g     O .bss	00000004 h_errno
+08052724 g     F .text	000000f4 calloc
+08049a61 g     F .text	000004bc udpfl00d
+08053947  w    F .text	00000003 __pthread_mutex_unlock
+08053f2c g     F .text	0000003b wait4
+00000000  w      *UND*	00000000 __register_frame_info_bases
+08053530 g     F .text	00000067 .hidden __GI_exit
+08061614 g     O .bss	00000004 .hidden __app_fini
+08049886 g     F .text	0000009f csum
+08061604 g     O .bss	00000004 .hidden __exit_cleanup
+08053598 g     F .text	00000069 .hidden __GI_execl
+08053297 g     F .text	0000009a .hidden __GI_srandom_r
+0805b39c g     O .data	00000004 .hidden __GI___ctype_tolower
+080505d8  w    F .text	00000036 write
+0806160c  w    O .bss	00000004 environ
+08050214  w    F .text	0000002e .hidden __GI_close
+0804e589 g     F .text	00000005 getBuild
+0805b380 g     O .data	00000018 __resolv_lock
+080503b4 g     F .text	00000032 kill
+08051474 g     F .text	00000031 fputs_unlocked
+08053947  w    F .text	00000003 __pthread_mutex_trylock
+080555b0 g     F .text	00000036 .hidden __GI_brk
+08053e78  w    F .text	00000032 .hidden __GI_nanosleep
+0804a49c g     F .text	00000388 rtcp
+080517b4 g     F .text	00000019 .hidden __GI_strtok
+08061648 g     O .bss	00000004 LOCAL_ADDR
+0805b148 g     O .data	00000004 _stdio_openlist
+08050534 g     F .text	00000055 .hidden __GI_sigprocmask
+08051888 g     F .text	00000025 inet_addr
+08051881 g     F .text	00000007 ntohl
+08055748 g     F .text	0000001b .hidden __GI_fseek
+0806164c g     O .bss	00000004 ourIP
+0804a824 g     F .text	0000018b slow
+0804f958 g     F .text	00000029 util_strlen
+0804faf3 g     F .text	00000022 util_zero
+08055748 g     F .text	0000001b fseeko
+0805f3f8 g     O .bss	00000004 _stdio_openlist_del_count
+0804954a g     F .text	0000020b connectTimeout
+08055584 g     F .text	00000018 .hidden __raise
+08051d98 g     F .text	0000003b setsockopt
+08051e48 g     F .text	000000af bsd_signal
+0804ab3a g     F .text	0000020a SendSTDHEX
+08053efc g     F .text	0000002e .hidden __GI_times
+08055748 g     F .text	0000001b fseek
+08053e04 g     F .text	0000003f mremap
+080503b4 g     F .text	00000032 .hidden __GI_kill
+08055e6c g     F .text	0000001d .hidden __GI_strcmp
+0804b76e g     F .text	000000a6 acnc
+080549ac g     F .text	00000027 .hidden __GI_memmove
+0804b05a g     F .text	00000180 sendSTD
+080530a8 g     F .text	0000005d setstate
+08056cac g     F .text	000000d9 .hidden __decode_dotted
+08056dcc g     F .text	0000004f .hidden __stdio_READ
+08054988 g     F .text	00000023 memchr
+08050610 g     F .text	0000001d .hidden __GI_toupper
+00000000  w      *UND*	00000000 __pthread_initialize_minimal
+08051ca8  w    F .text	00000033 .hidden __GI_recv
+0805b140 g     O .data	00000004 __stdin
+0805b134 g     O .data	00000004 stdin
+080517d0 g     F .text	0000001d .hidden __GI_isatty
+08061650 g     O .bss	00000004 ngPid
+08048168 g     F .text	00000022 _start
+00000000  w      *UND*	00000000 __deregister_frame_info_bases
+080515f4 g     F .text	000000ce strstr
+08050374 g     F .text	0000003f .hidden __GI_ioctl
+080484b1 g     F .text	0000006f init_rand
+08053058 g     F .text	00000005 rand
+08051e48 g     F .text	000000af signal
+080504bc  w    F .text	00000036 read
+08056570 g     F .text	000000ab .hidden __decode_header
+08053f68  w    F .text	00000006 .hidden __GI___h_errno_location
+08051520 g     F .text	00000027 .hidden __GI_memcpy
+08055e6c g     F .text	0000001d strcoll
+0804f7e2 g     F .text	0000002f table_retrieve_val
+08053fb8 g     F .text	0000001e wcsrtombs
+0805b17c g     O .data	00000004 _stdio_user_locking
+080515b0 g     F .text	00000026 strncpy
+08056be4 g     F .text	00000036 strcasecmp
+0805186d g     F .text	00000007 htonl
+08051d54  w    F .text	00000043 sendto
+0805b12c g     O .data	00000004 __C_ctype_toupper
+0804985a g     F .text	0000002c findRandIP
+0805b124 g     O .data	00000004 .hidden __GI___C_ctype_b
+0805b120 g     O .data	00000004 table_key
+08052818 g     F .text	00000336 realloc
+080518e0 g     F .text	00000332 .hidden __GI_gethostbyname_r
+080515b0 g     F .text	00000026 .hidden __GI_strncpy
+08051d20 g     F .text	00000033 __libc_send
+080516e4 g     F .text	000000b6 .hidden __GI___xpg_strerror_r
+0805b398 g     O .data	00000004 .hidden __GI___C_ctype_tolower
+08051cdc  w    F .text	00000043 .hidden __GI_recvfrom
+08050340 g     F .text	00000032 .hidden __GI_getrlimit
+0805179c g     F .text	00000015 bcopy
+08051580 g     F .text	0000001b .hidden __GI_strcpy
+080562ed g     F .text	000001d1 .hidden __GI_inet_ntop
+080517b4 g     F .text	00000019 strtok
+0805584c g     F .text	000000a4 .hidden __stdio_adjust_position
+08052f21 g     F .text	00000022 malloc_trim
+080555e8  w    F .text	00000036 .hidden __GI_poll
+080508fc g     F .text	000005b8 .hidden _vfprintf_internal
+08050278  w    F .text	00000026 fork
+0804ece1 g     F .text	00000068 rand_next
+08056e1c g     F .text	00000028 .hidden __stdio_rfill
+08055e8c g     F .text	0000002e strncat
+08053604 g     F .text	00000189 .hidden __GI_sleep
+08053b8b  w    F .text	000000da sigaction
+080518b0 g     F .text	00000030 .hidden __GI_gethostbyname
+08061b7c g     O .bss	00000004 _dl_phdr
+08056b08 g     F .text	000000dc .hidden __GI_getc_unlocked
+08050178 g     F .text	0000003f .hidden __GI___libc_fcntl64
+0805397f g     F .text	00000040 __uClibc_init
+0805b078 g     O .data	00000004 Zrandstrings
+08053e44 g     F .text	00000032 .hidden __GI_munmap
+080542cc g     F .text	0000003d .hidden _store_inttype
+08056d88 g     F .text	00000041 .hidden __length_dotted
+08053dc8 g     F .text	00000011 __getpagesize
+08053060 g     F .text	00000048 .hidden __GI_random
+08053e04 g     F .text	0000003f .hidden __GI_mremap
+08053c68 g     F .text	00000015 .hidden __syscall_error
+0805b378 g     O .data	00000004 .hidden __uclibc_progname
+08053d78 g     F .text	00000026 .hidden __GI_getegid
+08053f2c g     F .text	0000003b .hidden __GI_wait4
+0805b270 g     O .data	00000018 __malloc_lock
+080539bf g     F .text	000001bb __uClibc_main
+08053eac g     F .text	0000004e sbrk
+08061618 g     O .bss	00000004 .hidden __rtld_fini
+08050278  w    F .text	00000026 .hidden __GI_fork
+08055f54  w    F .text	00000036 strdup
+08050214 g     F .text	0000002e __libc_close
+080502f0  w    F .text	00000026 .hidden __GI_getpid
+08054b2c g     F .text	00000094 inet_aton
+0804fac3 g     F .text	00000030 util_memcpy
+08048388 g     F .text	00000129 watchdog_maintain
+0805b080 g     O .data	00000090 UserAgents
+0805b048 g     O .data	00000004 hacks2
+0805394a  w    F .text	00000001 _pthread_cleanup_push_defer
+08051560 g     F .text	0000001e index
+0804bdee g     F .text	000023e5 processCmd
+08051ef8 g     F .text	00000024 __sigismember
+08055730 g     F .text	00000018 fopen
+0805b3a0 g       *ABS*	00000000 __bss_start
+080503e8 g     F .text	0000004b __libc_open
+0804e366 g     F .text	00000223 getOurIP
+0804f4d1 g     F .text	00000031 resolv_entries_free
+08051548 g     F .text	00000015 memset
+08051dd4 g     F .text	0000002b .hidden __GI_socket
+0804e58e g     F .text	00000703 main
+080516c4 g     F .text	0000001d __glibc_strerror_r
+0804fef5 g     F .text	000000c0 util_local_addr
+08049755 g     F .text	00000105 listFork
+0805a660 g     O .rodata	00000300 .hidden __GI___C_ctype_tolower_data
+080540e0 g     F .text	000000ea .hidden __stdio_fwrite
+0805315c g     F .text	00000043 srand
+0804f7b9 g     F .text	00000029 table_lock_val
+08053105 g     F .text	00000057 initstate
+08055620 g     F .text	0000010f fclose
+08053cd0 g     F .text	0000003b .hidden __syscall_rt_sigaction
+08051874 g     F .text	0000000d ntohs
+0805b06c g     O .data	0000000c Trandstrings
+08050318 g     F .text	00000026 getppid
+080517f0 g     F .text	00000070 tcgetattr
+0805a660 g     O .rodata	00000300 __C_ctype_tolower_data
+08051cdc g     F .text	00000043 __libc_recvfrom
+0805058c g     F .text	0000002e time
+0804818c g     F .text	0000005b checksum_generic
+08052f44 g     F .text	00000111 .hidden __GI_abort
+080555e8  w    F .text	00000036 poll
+08048d84 g     F .text	000001e6 fdpopen
+08055558 g     F .text	0000002c .hidden __get_hosts_byname_r
+0805078f g     F .text	00000017 .hidden __stdio_init_mutex
+080501b8 g     F .text	00000028 .hidden __GI__exit
+0805b050 g     O .data	00000004 axis_bp
+08055e6c g     F .text	0000001d strcmp
+08061b68 g     O .bss	0000000c .hidden __nameserver
+0805b028  w      .data	00000000 data_start
+08053790 g     F .text	00000145 .hidden __GI_sysconf
+0805b110 g     O .data	00000004 KHserverHACKER
+08053f68  w    F .text	00000006 __h_errno_location
+08059020 g     O .rodata	00000300 __C_ctype_b_data
+08056012 g     F .text	000001ca .hidden __GI_inet_pton
+080518b0 g     F .text	00000030 gethostbyname
+080558f0 g     F .text	00000243 .hidden _stdio_fopen
+0804fcb1 g     F .text	000000fd util_itoa
+08056ef4 g     F .fini	00000003 _fini
+08050108 g     F .text	00000015 .hidden __vfork
+08053c80 g     F .text	0000001b .hidden __GI_mmap
+0805065c g     F .text	0000001f sprintf
+080490df g     F .text	0000006f fdgets
+080480b0 g     F .text	00000000 .hidden __get_pc_thunk_bx
+080516e4  w    F .text	000000b6 strerror_r
+080504f4  w    F .text	0000003f .hidden __GI_select
+080505bc g     F .text	0000001a __libc_waitpid
+0804b814 g     F .text	000000fe socket_connect
+080505bc  w    F .text	0000001a .hidden __GI_waitpid
+080507a6 g     F .text	00000088 .hidden _stdio_term
+0805668c g     F .text	000000f9 .hidden __decode_answer
+08051e48 g     F .text	000000af .hidden __GI_signal
+0805b13c g     O .data	00000004 stderr
+08050108  w    F .text	00000015 vfork
+0805b124 g     O .data	00000004 __C_ctype_b
+0805315c g     F .text	00000043 srandom
+08050f68 g     F .text	00000111 .hidden _ppfs_setargs
+08051d54  w    F .text	00000043 .hidden __GI_sendto
+08051e2c g     F .text	00000019 .hidden __GI_sigemptyset
+0805b060 g     O .data	0000000c Hrandstrings
+08050278 g     F .text	00000026 __libc_fork
+0805b360 g     O .data	00000018 __atexit_lock
+08061654 g     O .bss	00000004 scanPid
+080485df g     F .text	000000c0 rand_cmwc
+0805b04c g     O .data	00000004 hacks4
+0804f9f5 g     F .text	0000006c util_strcmp
+08050178 g     F .text	0000003f __libc_fcntl64
+08051c6c g     F .text	0000003b getsockopt
+08055764 g     F .text	000000e7 .hidden __GI_fseeko64
+08055cb0 g     F .text	0000014d fflush_unlocked
+08050830 g     F .text	0000002b .hidden __stdio_wcommit
+08056b08 g     F .text	000000dc .hidden __GI___fgetc_unlocked
+08061b74 g     O .bss	00000004 .hidden __nameservers
+080514a8 g     F .text	00000078 fwrite_unlocked
+08061610 g     O .bss	00000004 __pagesize
+0805b14c g     O .data	00000018 _stdio_openlist_add_lock
+080502a0 g     F .text	00000025 .hidden __GI_getdtablesize
+0804ed49 g     F .text	0000006e rand__str
+080501e0 g     F .text	00000032 access
+0805b3a0 g       *ABS*	00000000 _edata
+0805b144 g     O .data	00000004 __stdout
+080549f8 g     F .text	000000b0 .hidden __GI_memrchr
+08055cb0 g     F .text	0000014d .hidden __GI_fflush_unlocked
+080515f4 g     F .text	000000ce .hidden __GI_strstr
+08061b78 g     O .bss	00000004 .hidden __searchdomains
+08061b84 g       *ABS*	00000000 _end
+08051860 g     F .text	0000000d htons
+0804fa61 g     F .text	00000033 util_strcpy
+08061760 g     O .bss	00000080 .hidden _sigintr
+08050f24 g     F .text	00000042 .hidden _ppfs_prepargs
+08055f20 g     F .text	00000032 .hidden __GI_strspn
+08056b08 g     F .text	000000dc fgetc_unlocked
+08053331 g     F .text	000000ab initstate_r
+08051c14  w    F .text	0000002b .hidden __GI_connect
+08061644 g     O .bss	00000004 .hidden __curbrk
+080555e8 g     F .text	00000036 __libc_poll
+08061b80 g     O .bss	00000004 _dl_phnum
+080543dc g     F .text	000005a9 .hidden _fpmaxtostr
+08050630  w    F .text	00000006 __errno_location
+080492f0 g     F .text	0000002f uppercase
+0805340c g     F .text	00000121 .hidden _stdlib_strto_l
+080503e8 g     F .text	0000004b .hidden __GI___libc_open
+08053530 g     F .text	00000067 exit
+08054060 g     F .text	00000080 .hidden __stdio_WRITE
+0805072c g     F .text	00000063 .hidden _stdio_init
+080502c8 g     F .text	00000026 .hidden __GI_geteuid
+080482b6 g     F .text	000000cf checksum_tcpudp
+080562ed g     F .text	000001d1 inet_ntop
+080555b0 g     F .text	00000036 brk
+0804b1da g     F .text	00000097 makevsepacket
+0804a9af g     F .text	0000018b audprand2
+08059320 g     O .rodata	00000300 __C_ctype_toupper_data
+0805559c g     F .text	00000012 _dl_aux_init
+0804f504 g     F .text	0000028c table_init
+08061620  w    O .bss	00000004 _errno
+080533dc g     F .text	00000014 atoi
+0805b164 g     O .data	00000018 _stdio_openlist_del_lock
+08054b2c g     F .text	00000094 .hidden __GI_inet_aton
+08055e00 g     F .text	00000069 fgets_unlocked
+080501b8 g     F .text	00000028 _exit
+08048c99 g     F .text	00000027 szprintf
+08055f20 g     F .text	00000032 strspn
+08051ca8 g     F .text	00000033 __libc_recv
+0804edb7 g     F .text	00000072 rand_alpha_str
+08050433 g     F .text	00000019 __libc_creat
+0805159c g     F .text	00000013 strlen
+08056a90  w    F .text	00000056 lseek64
+080503e8  w    F .text	0000004b open
+08050610 g     F .text	0000001d toupper
+080505d8 g     F .text	00000036 __libc_write
+08052bdd g     F .text	000001a8 .hidden __malloc_consolidate
+080510a5 g     F .text	000003cf .hidden _ppfs_parsespec
+080533f0 g     F .text	0000001a .hidden __GI_strtol
+08053ddc g     F .text	00000026 .hidden __GI_getuid
+08050638 g     F .text	00000024 clock
+08054aa8 g     F .text	00000059 .hidden __GI_strtok_r
+08061620 g     O .bss	00000004 .hidden __GI_errno
+08051d54 g     F .text	00000043 __libc_sendto
+080541cc g     F .text	000000a7 .hidden __stdio_trans2w_o
+08050108  w    F .text	00000015 .hidden __GI_vfork
+08051560 g     F .text	0000001e strchr
+08055ebc g     F .text	00000063 .hidden __GI_rawmemchr
+08055584  w    F .text	00000018 .hidden __GI_raise
+0805b028 g       .data	00000000 __data_start
+08051888 g     F .text	00000025 .hidden __GI_inet_addr
+08056c1c g     F .text	00000090 .hidden __encode_dotted
+080515d8 g     F .text	00000019 .hidden __GI_strnlen
+00000000  w      *UND*	00000000 _Jv_RegisterClasses
+0805b3d4 g     O .bss	00000006 macAddress
+08050630  w    F .text	00000006 .hidden __GI___errno_location
+08049f1d g     F .text	0000057f tcpFl00d
+08050120  w    F .text	00000057 fcntl
+080533dc g     F .text	00000014 .hidden __GI_atoi
+08055764 g     F .text	000000e7 fseeko64
+0805065c g     F .text	0000001f .hidden __GI_sprintf
+0805b39c g     O .data	00000004 __ctype_tolower
+0805b3c0 g     O .bss	00000004 KHcommSOCK
+08053f70 g     F .text	00000045 wcrtomb
+08051c40 g     F .text	0000002b .hidden __GI_getsockname
+08050214  w    F .text	0000002e close
+0804869f g     F .text	000000a5 rand_alphastr
+08051c14 g     F .text	0000002b __libc_connect
+0805b3d0 g     O .bss	00000004 killer_status
+080481e7 g     F .text	000000cf checksum_tcp_udp
+0805159c g     F .text	00000013 .hidden __GI_strlen
+0804aecf g     F .text	0000018b Hexed
+08061658 g     O .bss	00000004 pids
+08054b04 g     F .text	00000027 strpbrk
+08054274 g     F .text	00000056 .hidden _load_inttype
+08055584 g     F .text	00000018 raise
+08052d85 g     F .text	0000019c free
+08050534 g     F .text	00000055 sigprocmask
+08051c40 g     F .text	0000002b getsockname

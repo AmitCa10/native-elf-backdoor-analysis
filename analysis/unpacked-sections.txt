@@ -1,0 +1,21 @@
+
+research/malware/native-elf-backdoor-analysis/evidence/backdoor-unpacked.elf:	file format elf32-i386
+
+Sections:
+Idx Name          Size     VMA      Type
+  0               00000000 00000000 
+  1 .init         0000001c 08048094 TEXT
+  2 .text         0000ee44 080480b0 TEXT
+  3 .fini         00000017 08056ef4 TEXT
+  4 .rodata       00003a40 08056f20 DATA
+  5 .eh_frame     00000004 0805a960 DATA
+  6 .ctors        00000008 0805b000 DATA
+  7 .dtors        00000008 0805b008 DATA
+  8 .jcr          00000004 0805b010 DATA
+  9 .got.plt      0000000c 0805b014 DATA
+ 10 .data         00000380 0805b020 DATA
+ 11 .bss          000067e4 0805b3a0 BSS
+ 12 .comment      00000c06 00000000 
+ 13 .shstrtab     0000006f 00000000 
+ 14 .symtab       000030c0 00000000 
+ 15 .strtab       00002464 00000000 

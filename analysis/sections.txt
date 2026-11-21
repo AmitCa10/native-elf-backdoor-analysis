@@ -1,0 +1,6 @@
+
+research/malware/native-elf-backdoor-analysis/evidence/backdoor.elf:	file format elf32-i386
+
+Sections:
+Idx Name          Size     VMA      Type
+  0 PT_LOAD#0     0000894c 00c01000 TEXT

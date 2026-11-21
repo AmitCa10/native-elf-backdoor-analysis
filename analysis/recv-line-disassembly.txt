@@ -1,0 +1,118 @@
+
+evidence/backdoor-unpacked.elf:	file format elf32-i386
+
+Disassembly of section .text:
+
+08049389 <recvLine>:
+ 8049389: 55                           	pushl	%ebp
+ 804938a: 89 e5                        	movl	%esp, %ebp
+ 804938c: 57                           	pushl	%edi
+ 804938d: 81 ec d4 00 00 00            	subl	$0xd4, %esp
+ 8049393: 8b 55 10                     	movl	0x10(%ebp), %edx
+ 8049396: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 8049399: 89 c7                        	movl	%eax, %edi
+ 804939b: fc                           	cld
+ 804939c: 89 d1                        	movl	%edx, %ecx
+ 804939e: b0 00                        	movb	$0x0, %al
+ 80493a0: f3 aa                        	rep		stosb	%al, %es:(%edi)
+ 80493a2: c7 85 54 ff ff ff 1e 00 00 00	movl	$0x1e, -0xac(%ebp)
+ 80493ac: c7 85 58 ff ff ff 00 00 00 00	movl	$0x0, -0xa8(%ebp)
+ 80493b6: b8 00 00 00 00               	movl	$0x0, %eax
+ 80493bb: b9 20 00 00 00               	movl	$0x20, %ecx
+ 80493c0: 8d bd 5c ff ff ff            	leal	-0xa4(%ebp), %edi
+ 80493c6: fc                           	cld
+ 80493c7: f3 ab                        	rep		stosl	%eax, %es:(%edi)
+ 80493c9: 89 4d ec                     	movl	%ecx, -0x14(%ebp)
+ 80493cc: 89 7d f0                     	movl	%edi, -0x10(%ebp)
+ 80493cf: 8b 45 08                     	movl	0x8(%ebp), %eax
+ 80493d2: 89 c2                        	movl	%eax, %edx
+ 80493d4: c1 ea 05                     	shrl	$0x5, %edx
+ 80493d7: 8b 45 08                     	movl	0x8(%ebp), %eax
+ 80493da: 83 e0 1f                     	andl	$0x1f, %eax
+ 80493dd: 0f ab 84 95 5c ff ff ff      	btsl	%eax, -0xa4(%ebp,%edx,4)
+ 80493e5: 8b 55 08                     	movl	0x8(%ebp), %edx
+ 80493e8: 42                           	incl	%edx
+ 80493e9: 8d 85 54 ff ff ff            	leal	-0xac(%ebp), %eax
+ 80493ef: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 80493f3: 8d 85 5c ff ff ff            	leal	-0xa4(%ebp), %eax
+ 80493f9: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 80493fd: c7 44 24 08 00 00 00 00      	movl	$0x0, 0x8(%esp)
+ 8049405: 8d 85 5c ff ff ff            	leal	-0xa4(%ebp), %eax
+ 804940b: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 804940f: 89 14 24                     	movl	%edx, (%esp)
+ 8049412: e8 dd 70 00 00               	calll	0x80504f4 <select>
+ 8049417: 89 45 dc                     	movl	%eax, -0x24(%ebp)
+ 804941a: 83 7d dc 00                  	cmpl	$0x0, -0x24(%ebp)
+ 804941e: 0f 8f 90 00 00 00            	jg	0x80494b4 <recvLine+0x12b>
+ 8049424: e9 81 00 00 00               	jmp	0x80494aa <recvLine+0x121>
+ 8049429: c7 85 54 ff ff ff 1e 00 00 00	movl	$0x1e, -0xac(%ebp)
+ 8049433: c7 85 58 ff ff ff 00 00 00 00	movl	$0x0, -0xa8(%ebp)
+ 804943d: b8 00 00 00 00               	movl	$0x0, %eax
+ 8049442: b9 20 00 00 00               	movl	$0x20, %ecx
+ 8049447: 8d bd 5c ff ff ff            	leal	-0xa4(%ebp), %edi
+ 804944d: fc                           	cld
+ 804944e: f3 ab                        	rep		stosl	%eax, %es:(%edi)
+ 8049450: 89 4d f4                     	movl	%ecx, -0xc(%ebp)
+ 8049453: 89 7d f8                     	movl	%edi, -0x8(%ebp)
+ 8049456: 8b 45 08                     	movl	0x8(%ebp), %eax
+ 8049459: 89 c2                        	movl	%eax, %edx
+ 804945b: c1 ea 05                     	shrl	$0x5, %edx
+ 804945e: 8b 45 08                     	movl	0x8(%ebp), %eax
+ 8049461: 83 e0 1f                     	andl	$0x1f, %eax
+ 8049464: 0f ab 84 95 5c ff ff ff      	btsl	%eax, -0xa4(%ebp,%edx,4)
+ 804946c: 8b 55 08                     	movl	0x8(%ebp), %edx
+ 804946f: 42                           	incl	%edx
+ 8049470: 8d 85 54 ff ff ff            	leal	-0xac(%ebp), %eax
+ 8049476: 89 44 24 10                  	movl	%eax, 0x10(%esp)
+ 804947a: 8d 85 5c ff ff ff            	leal	-0xa4(%ebp), %eax
+ 8049480: 89 44 24 0c                  	movl	%eax, 0xc(%esp)
+ 8049484: c7 44 24 08 00 00 00 00      	movl	$0x0, 0x8(%esp)
+ 804948c: 8d 85 5c ff ff ff            	leal	-0xa4(%ebp), %eax
+ 8049492: 89 44 24 04                  	movl	%eax, 0x4(%esp)
+ 8049496: 89 14 24                     	movl	%edx, (%esp)
+ 8049499: e8 56 70 00 00               	calll	0x80504f4 <select>
+ 804949e: 89 45 dc                     	movl	%eax, -0x24(%ebp)
+ 80494a1: 83 7d dc 00                  	cmpl	$0x0, -0x24(%ebp)
+ 80494a5: 7f 0d                        	jg	0x80494b4 <recvLine+0x12b>
+ 80494a7: ff 45 e0                     	incl	-0x20(%ebp)
+ 80494aa: 83 7d e0 09                  	cmpl	$0x9, -0x20(%ebp)
+ 80494ae: 0f 8e 75 ff ff ff            	jle	0x8049429 <recvLine+0xa0>
+ 80494b4: c7 45 e8 00 00 00 00         	movl	$0x0, -0x18(%ebp)
+ 80494bb: 8b 45 0c                     	movl	0xc(%ebp), %eax
+ 80494be: 89 45 e4                     	movl	%eax, -0x1c(%ebp)
+ 80494c1: eb 5b                        	jmp	0x804951e <recvLine+0x195>
+ 80494c3: a1 c0 b3 05 08               	movl	0x805b3c0, %eax
+ 80494c8: c7 44 24 0c 00 00 00 00      	movl	$0x0, 0xc(%esp)
+ 80494d0: c7 44 24 08 01 00 00 00      	movl	$0x1, 0x8(%esp)
+ 80494d8: 8d 95 53 ff ff ff            	leal	-0xad(%ebp), %edx
+ 80494de: 89 54 24 04                  	movl	%edx, 0x4(%esp)
+ 80494e2: 89 04 24                     	movl	%eax, (%esp)
+ 80494e5: e8 be 87 00 00               	calll	0x8051ca8 <recv>
+ 80494ea: 83 f8 01                     	cmpl	$0x1, %eax
+ 80494ed: 74 12                        	je	0x8049501 <recvLine+0x178>
+ 80494ef: 8b 45 e4                     	movl	-0x1c(%ebp), %eax
+ 80494f2: c6 00 00                     	movb	$0x0, (%eax)
+ 80494f5: c7 85 48 ff ff ff ff ff ff ff	movl	$0xffffffff, -0xb8(%ebp) # imm = 0xFFFFFFFF
+ 80494ff: eb 3a                        	jmp	0x804953b <recvLine+0x1b2>
+ 8049501: 0f b6 85 53 ff ff ff         	movzbl	-0xad(%ebp), %eax
+ 8049508: 8b 55 e4                     	movl	-0x1c(%ebp), %edx
+ 804950b: 88 02                        	movb	%al, (%edx)
+ 804950d: ff 45 e4                     	incl	-0x1c(%ebp)
+ 8049510: 0f b6 85 53 ff ff ff         	movzbl	-0xad(%ebp), %eax
+ 8049517: 3c 0a                        	cmpb	$0xa, %al
+ 8049519: 74 11                        	je	0x804952c <recvLine+0x1a3>
+ 804951b: ff 45 e8                     	incl	-0x18(%ebp)
+ 804951e: 83 7d 10 01                  	cmpl	$0x1, 0x10(%ebp)
+ 8049522: 0f 9f c0                     	setg	%al
+ 8049525: ff 4d 10                     	decl	0x10(%ebp)
+ 8049528: 84 c0                        	testb	%al, %al
+ 804952a: 75 97                        	jne	0x80494c3 <recvLine+0x13a>
+ 804952c: 8b 45 e4                     	movl	-0x1c(%ebp), %eax
+ 804952f: c6 00 00                     	movb	$0x0, (%eax)
+ 8049532: 8b 45 e8                     	movl	-0x18(%ebp), %eax
+ 8049535: 89 85 48 ff ff ff            	movl	%eax, -0xb8(%ebp)
+ 804953b: 8b 85 48 ff ff ff            	movl	-0xb8(%ebp), %eax
+ 8049541: 81 c4 d4 00 00 00            	addl	$0xd4, %esp
+ 8049547: 5f                           	popl	%edi
+ 8049548: 5d                           	popl	%ebp
+ 8049549: c3                           	retl

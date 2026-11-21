@@ -1,0 +1,21 @@
+{
+  "sample": "research/malware/native-elf-backdoor-analysis/evidence/backdoor.elf",
+  "sha256": "8cb7b286f4284afccee5f9b9e2ac143fc954c377ef2891474feccb0b223a9537",
+  "original_bytes": 42336,
+  "unpacked_bytes": 104380,
+  "checks": {
+    "original_hash_matches": true,
+    "upx_marker_present": true,
+    "original_size_matches": true,
+    "unpacked_larger": true,
+    "obfuscation_symbol": true,
+    "network_receive_symbol": true,
+    "main_symbol": true,
+    "persirai_marker": true,
+    "http_request_templates": true,
+    "ddos_command_markers": true,
+    "host_network_discovery": true,
+    "browser_user_agents": true
+  },
+  "family_assessment": "persirai_family"
+}

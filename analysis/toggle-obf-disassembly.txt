@@ -1,0 +1,84 @@
+
+research/malware/native-elf-backdoor-analysis/evidence/backdoor-unpacked.elf:	file format elf32-i386
+
+Disassembly of section .text:
+
+0804f866 <toggle_obf>:
+ 804f866: 55                           	pushl	%ebp
+ 804f867: 89 e5                        	movl	%esp, %ebp
+ 804f869: 83 ec 14                     	subl	$0x14, %esp
+ 804f86c: 8b 45 08                     	movl	0x8(%ebp), %eax
+ 804f86f: 88 45 ec                     	movb	%al, -0x14(%ebp)
+ 804f872: c7 45 f4 00 00 00 00         	movl	$0x0, -0xc(%ebp)
+ 804f879: 0f b6 45 ec                  	movzbl	-0x14(%ebp), %eax
+ 804f87d: c1 e0 03                     	shll	$0x3, %eax
+ 804f880: 05 60 16 06 08               	addl	$0x8061660, %eax        # imm = 0x8061660
+ 804f885: 89 45 f8                     	movl	%eax, -0x8(%ebp)
+ 804f888: a1 20 b1 05 08               	movl	0x805b120, %eax
+ 804f88d: 88 45 fc                     	movb	%al, -0x4(%ebp)
+ 804f890: a1 20 b1 05 08               	movl	0x805b120, %eax
+ 804f895: c1 e8 08                     	shrl	$0x8, %eax
+ 804f898: 88 45 fd                     	movb	%al, -0x3(%ebp)
+ 804f89b: a1 20 b1 05 08               	movl	0x805b120, %eax
+ 804f8a0: c1 e8 10                     	shrl	$0x10, %eax
+ 804f8a3: 88 45 fe                     	movb	%al, -0x2(%ebp)
+ 804f8a6: a1 20 b1 05 08               	movl	0x805b120, %eax
+ 804f8ab: c1 e8 18                     	shrl	$0x18, %eax
+ 804f8ae: 88 45 ff                     	movb	%al, -0x1(%ebp)
+ 804f8b1: c7 45 f4 00 00 00 00         	movl	$0x0, -0xc(%ebp)
+ 804f8b8: e9 87 00 00 00               	jmp	0x804f944 <toggle_obf+0xde>
+ 804f8bd: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f8c0: 8b 10                        	movl	(%eax), %edx
+ 804f8c2: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804f8c5: 8d 0c 02                     	leal	(%edx,%eax), %ecx
+ 804f8c8: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f8cb: 8b 10                        	movl	(%eax), %edx
+ 804f8cd: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804f8d0: 8d 04 02                     	leal	(%edx,%eax), %eax
+ 804f8d3: 0f b6 10                     	movzbl	(%eax), %edx
+ 804f8d6: 0f b6 45 fc                  	movzbl	-0x4(%ebp), %eax
+ 804f8da: 30 d0                        	xorb	%dl, %al
+ 804f8dc: 88 01                        	movb	%al, (%ecx)
+ 804f8de: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f8e1: 8b 10                        	movl	(%eax), %edx
+ 804f8e3: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804f8e6: 8d 0c 02                     	leal	(%edx,%eax), %ecx
+ 804f8e9: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f8ec: 8b 10                        	movl	(%eax), %edx
+ 804f8ee: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804f8f1: 8d 04 02                     	leal	(%edx,%eax), %eax
+ 804f8f4: 0f b6 10                     	movzbl	(%eax), %edx
+ 804f8f7: 0f b6 45 fd                  	movzbl	-0x3(%ebp), %eax
+ 804f8fb: 30 d0                        	xorb	%dl, %al
+ 804f8fd: 88 01                        	movb	%al, (%ecx)
+ 804f8ff: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f902: 8b 10                        	movl	(%eax), %edx
+ 804f904: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804f907: 8d 0c 02                     	leal	(%edx,%eax), %ecx
+ 804f90a: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f90d: 8b 10                        	movl	(%eax), %edx
+ 804f90f: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804f912: 8d 04 02                     	leal	(%edx,%eax), %eax
+ 804f915: 0f b6 10                     	movzbl	(%eax), %edx
+ 804f918: 0f b6 45 fe                  	movzbl	-0x2(%ebp), %eax
+ 804f91c: 30 d0                        	xorb	%dl, %al
+ 804f91e: 88 01                        	movb	%al, (%ecx)
+ 804f920: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f923: 8b 10                        	movl	(%eax), %edx
+ 804f925: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804f928: 8d 0c 02                     	leal	(%edx,%eax), %ecx
+ 804f92b: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f92e: 8b 10                        	movl	(%eax), %edx
+ 804f930: 8b 45 f4                     	movl	-0xc(%ebp), %eax
+ 804f933: 8d 04 02                     	leal	(%edx,%eax), %eax
+ 804f936: 0f b6 10                     	movzbl	(%eax), %edx
+ 804f939: 0f b6 45 ff                  	movzbl	-0x1(%ebp), %eax
+ 804f93d: 30 d0                        	xorb	%dl, %al
+ 804f93f: 88 01                        	movb	%al, (%ecx)
+ 804f941: ff 45 f4                     	incl	-0xc(%ebp)
+ 804f944: 8b 45 f8                     	movl	-0x8(%ebp), %eax
+ 804f947: 0f b7 40 04                  	movzwl	0x4(%eax), %eax
+ 804f94b: 3b 45 f4                     	cmpl	-0xc(%ebp), %eax
+ 804f94e: 0f 8f 69 ff ff ff            	jg	0x804f8bd <toggle_obf+0x57>
+ 804f954: c9                           	leave
+ 804f955: c3                           	retl

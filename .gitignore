@@ -1,0 +1,11 @@
+evidence/backdoor.elf
+evidence/backdoor-unpacked.elf
+evidence/backdoor-unpacked.elf.asm
+evidence/backdoor-unpacked.elf.i64
+evidence/backdoor-unpacked.elf.id0
+evidence/backdoor-unpacked.elf.id1
+evidence/backdoor-unpacked.elf.id2
+evidence/backdoor-unpacked.elf.nam
+evidence/backdoor-unpacked.elf.til
+analysis/ida-pseudocode.txt
+__pycache__/

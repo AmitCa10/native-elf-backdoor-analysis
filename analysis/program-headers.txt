@@ -1,0 +1,4 @@
+
+research/malware/native-elf-backdoor-analysis/evidence/backdoor.elf:	file format elf32-i386
+architecture: i386
+start address: 0x00c08758

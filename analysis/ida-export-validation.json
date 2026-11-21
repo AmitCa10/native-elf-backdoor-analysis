@@ -1,0 +1,27 @@
+{
+  "source": "analysis/ida-functions.json",
+  "checks": {
+    "input_name": true,
+    "unpacked_hash": true,
+    "ida_9_5": true,
+    "decompiler_available": true,
+    "main_boundary": true,
+    "main_calls": true,
+    "initConnection_boundary": true,
+    "initConnection_calls": true,
+    "getOurIP_boundary": true,
+    "getOurIP_calls": true,
+    "toggle_obf_boundary": true,
+    "toggle_obf_calls": true,
+    "recvLine_boundary": true,
+    "recvLine_calls": true,
+    "processCmd_boundary": true,
+    "processCmd_calls": true,
+    "table_init_boundary": true,
+    "table_init_calls": true,
+    "watchdog_maintain_boundary": true,
+    "watchdog_maintain_calls": true,
+    "toggle_obf_call_context": true
+  },
+  "status": "passed"
+}

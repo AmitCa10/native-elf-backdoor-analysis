@@ -1,0 +1,21 @@
+{
+  "sample": "/bin/ls",
+  "sha256": "a97c50d34f912a5ada66959c231897ec2144e3c9cb922cd8150e4f2b0c9470e7",
+  "original_bytes": 154624,
+  "unpacked_bytes": 154624,
+  "checks": {
+    "original_hash_matches": false,
+    "upx_marker_present": false,
+    "original_size_matches": false,
+    "unpacked_larger": false,
+    "obfuscation_symbol": false,
+    "network_receive_symbol": false,
+    "main_symbol": false,
+    "persirai_marker": false,
+    "http_request_templates": false,
+    "ddos_command_markers": false,
+    "host_network_discovery": false,
+    "browser_user_agents": false
+  },
+  "family_assessment": "not_persirai_family"
+}

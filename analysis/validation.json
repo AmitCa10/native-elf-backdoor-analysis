@@ -1,0 +1,44 @@
+[
+  {
+    "sample": "research/malware/native-elf-backdoor-analysis/evidence/backdoor.elf",
+    "sha256": "8cb7b286f4284afccee5f9b9e2ac143fc954c377ef2891474feccb0b223a9537",
+    "original_bytes": 42336,
+    "unpacked_bytes": 104380,
+    "checks": {
+      "original_hash_matches": true,
+      "upx_marker_present": true,
+      "original_size_matches": true,
+      "unpacked_larger": true,
+      "obfuscation_symbol": true,
+      "network_receive_symbol": true,
+      "main_symbol": true,
+      "persirai_marker": true,
+      "http_request_templates": true,
+      "ddos_command_markers": true,
+      "host_network_discovery": true,
+      "browser_user_agents": true
+    },
+    "family_assessment": "persirai_family"
+  },
+  {
+    "sample": "/bin/ls",
+    "sha256": "a97c50d34f912a5ada66959c231897ec2144e3c9cb922cd8150e4f2b0c9470e7",
+    "original_bytes": 154624,
+    "unpacked_bytes": 154624,
+    "checks": {
+      "original_hash_matches": false,
+      "upx_marker_present": false,
+      "original_size_matches": false,
+      "unpacked_larger": false,
+      "obfuscation_symbol": false,
+      "network_receive_symbol": false,
+      "main_symbol": false,
+      "persirai_marker": false,
+      "http_request_templates": false,
+      "ddos_command_markers": false,
+      "host_network_discovery": false,
+      "browser_user_agents": false
+    },
+    "family_assessment": "not_persirai_family"
+  }
+]
